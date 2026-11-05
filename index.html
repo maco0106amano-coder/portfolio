@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>天野真 — Portfolio｜現役看護学生 × AI活用のライター＆Web制作者</title>
 <meta name="description" content="現役看護学生×AI活用。医療・健康に強いライティングと、LP・ホームページ・ショート動画の制作ポートフォリオ。受注実績12件、評価4件すべて★5.0。">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237d97b8'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%23f4f1ea' font-family='Georgia'>A</text></svg>">
+<meta name="theme-color" content="#151517">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2393a9c4'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%23151517' font-family='Georgia'>A</text></svg>">
 <meta property="og:title" content="天野真 — Portfolio">
 <meta property="og:description" content="現役看護学生 × AI活用｜医療・健康に強いライター＆Web制作者">
 <meta property="og:type" content="website">
@@ -17,20 +18,21 @@
      Kazuki Noda Portfolio (kazukinoda.com) の構成・体験を分析し、
      静的HTML/CSS/JSで自前に再構築したもの。
      根拠: 公開HTML/CSSの構造解析（2026-11-05）
-       - 紙テクスチャ地に「テーマカラー1色」で文字・罫線のすべてを描く
-       - テーマカラー既定 #7d97b8、パレット6色でサイト全体が染め替わる
+       - 固定ダークテーマ（チャコール地＋白文字）に、アクセント1色で文字・罫線を描く
+       - テーマカラーは固定 #93a9c4（旧6色パレット切替は2026-11-05に廃止し、変数は1テーマに固定）
        - 画面縁の固定フレーム罫（上下左右2px）、底辺はメニューバーが担う
        - フォント: Lato + Noto Sans JP（表示系はセリフ体 QuincyCF → 明朝/Georgiaで代替）
        - セクション見出しは「ラベルセル＋パターン帯」の70pxバー
        - Worksは巨大タイポグラフィ自体がビジュアルになる罫線グリッド
      ============================================================ */
   :root{
-    --themeColor:#7d97b8;
-    --paper:#f4f1ea;
-    --paper-deep:#ece8dc;
-    /* 本文用の濃色：テーマカラーを濃くした派生色。テーマ切替に連動し、1色で染める世界観は維持する */
-    --ink:#526276;
-    --ink:color-mix(in srgb, var(--themeColor) 55%, #1d2126);
+    /* 固定ダークテーマ（2026-11-05改訂）：カラー切替は廃止。チャコール地＋白文字で統一する */
+    --themeColor:#93a9c4;
+    --paper:#151517;
+    --paper-deep:#1f1f23;
+    /* 本文文字色：オフホワイト（背景 #151517 とのコントラスト比 約16:1） */
+    --ink:#eceee9;
+    --white:#f5f5f1;
     --ease-out:cubic-bezier(.19,1,.22,1);
     --ease-line:cubic-bezier(1,0,0,1);
     --ease-snap:cubic-bezier(.76,0,.24,1);
@@ -39,7 +41,7 @@
     --sans:"Lato","Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;background-color:#151517}
   /* スムーズスクロール有効時（JSが付与）は、プログラム側の毎フレーム scrollTo と
      CSSの smooth が二重に効かないよう auto に戻す */
   html.js-smooth{scroll-behavior:auto}
@@ -57,10 +59,10 @@
     transition:color .4s linear;
     overflow-x:hidden;
   }
-  /* 紙テクスチャ＋ノイズ（自前のSVGノイズで近似。実サイトは画像テクスチャ） */
+  /* 地の質感：微細ノイズ（自前のSVGノイズ。ダーク地に薄く粒を乗せる） */
   body::before{
     content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   a{color:inherit;text-decoration:none}
   ul{list-style:none}
@@ -87,23 +89,10 @@
   .localTime{position:fixed;left:15px;top:7px;z-index:90;font-family:var(--serif);font-style:italic;font-weight:700;font-size:11px;letter-spacing:.015em;transition:color .4s linear}
   @media(max-width:799px){.localTime{font-size:10px;left:15px}}
 
-  /* カラーパレット（右上固定・6色。実サイト同色値） */
-  .colorPalette{position:fixed;right:20px;top:5px;z-index:90;display:flex;justify-content:flex-end;align-items:flex-start}
-  .colorPalette__label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .paletteBtn{position:relative;width:15px;height:27.5px;margin-top:12.5px;padding:0;cursor:pointer}
-  .paletteBtn__inner{display:block;width:100%;height:100%;overflow:hidden;text-indent:120%;white-space:nowrap;line-height:.1;transform:scaleX(.5);transform-origin:center left;transition:transform .45s var(--ease-out)}
-  .paletteBtn.is-active .paletteBtn__inner{transform:scaleX(1)}
-  .paletteBtn[data-color="#7d97b8"] .paletteBtn__inner{background:#7d97b8}
-  .paletteBtn[data-color="#dfb255"] .paletteBtn__inner{background:#dfb255}
-  .paletteBtn[data-color="#52a47e"] .paletteBtn__inner{background:#52a47e}
-  .paletteBtn[data-color="#9eaf92"] .paletteBtn__inner{background:#9eaf92}
-  .paletteBtn[data-color="#a7b6b0"] .paletteBtn__inner{background:#a7b6b0}
-  .paletteBtn[data-color="#2a2927"] .paletteBtn__inner{background:#2a2927}
-
   /* 底辺固定メニューバー（height:65px / inset 15px） */
   .menuBar{position:fixed;left:15px;right:15px;bottom:15px;height:65px;z-index:90;display:flex;flex-wrap:nowrap;overflow:hidden;background:var(--paper-deep)}
   .menuBar::before{content:"";position:absolute;inset:0;opacity:.45;pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
   .menuBar .line{z-index:5}
   .menuBar__logo{position:relative;display:flex;align-items:center;gap:9px;padding:0 18px;font-weight:900;font-size:14px;letter-spacing:.08em;flex:none}
   .menuBar__logo svg{flex:none}
@@ -175,14 +164,14 @@
   /* 霧レイヤー：カーソル周辺だけ晴れる（pointer:fineのみ） */
   .kv-fog{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.6;
     background:
-      radial-gradient(560px 300px at 18% 26%, rgba(244,241,234,.42), rgba(244,241,234,0) 70%),
-      radial-gradient(680px 360px at 82% 60%, rgba(244,241,234,.40), rgba(244,241,234,0) 70%),
-      radial-gradient(460px 260px at 55% 88%, rgba(244,241,234,.30), rgba(244,241,234,0) 70%),
-      linear-gradient(rgba(244,241,234,.16),rgba(244,241,234,.16));
+      radial-gradient(560px 300px at 18% 26%, rgba(21,21,23,.42), rgba(21,21,23,0) 70%),
+      radial-gradient(680px 360px at 82% 60%, rgba(21,21,23,.40), rgba(21,21,23,0) 70%),
+      radial-gradient(460px 260px at 55% 88%, rgba(21,21,23,.30), rgba(21,21,23,0) 70%),
+      linear-gradient(rgba(21,21,23,.16),rgba(21,21,23,.16));
     -webkit-mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,45%), transparent 0 38%, #000 82%);
     mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,45%), transparent 0 38%, #000 82%)}
   @media(pointer:coarse){.kv-fog{display:none}}
-  /* 本文テキストはテーマ変更に合わせて色も遷移させる */
+  /* 本文テキスト群（色は固定テーマの変数で統一） */
   .indexHeader__leadTxt,.scell p,.witem__desc,.witem__cats,.profileStory p,.extras p,
   .contactLead,.contactNote,.fineprint,.formLead,.foot__desc,.foot__right,
   .soundSelect__leadLine,.headerStats .hs .k{transition:color .4s linear}
@@ -245,16 +234,6 @@
 <!-- local information -->
 <div class="localTime" aria-hidden="true">local information: <span id="localClock">--:--</span> - Tokyo</div>
 
-<!-- カラーパレット -->
-<div class="colorPalette" role="group" aria-label="サイトカラー切替">
-  <span class="colorPalette__label">color palette:</span>
-  <button type="button" class="paletteBtn is-active" data-color="#7d97b8" aria-label="Change site color1"><span class="paletteBtn__inner">Color1</span></button>
-  <button type="button" class="paletteBtn" data-color="#dfb255" aria-label="Change site color2"><span class="paletteBtn__inner">Color2</span></button>
-  <button type="button" class="paletteBtn" data-color="#52a47e" aria-label="Change site color3"><span class="paletteBtn__inner">Color3</span></button>
-  <button type="button" class="paletteBtn" data-color="#9eaf92" aria-label="Change site color4"><span class="paletteBtn__inner">Color4</span></button>
-  <button type="button" class="paletteBtn" data-color="#a7b6b0" aria-label="Change site color5"><span class="paletteBtn__inner">Color5</span></button>
-  <button type="button" class="paletteBtn" data-color="#2a2927" aria-label="Change site color6"><span class="paletteBtn__inner">Color6</span></button>
-</div>
 
 <!-- カスタムカーソル -->
 <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor__frame"><span class="cursor__label" id="cursorLabel">View</span></div></div>
@@ -406,7 +385,7 @@
 
   /* profile巨大リンク（アウトライン文字・hoverで充填） */
   .profileLink{position:relative;height:250px;overflow:hidden;display:block}
-  .profileLink__title{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;padding-left:14px;font-family:var(--serif);font-weight:500;font-size:240px;line-height:1;letter-spacing:0;color:color-mix(in srgb, var(--themeColor) 16%, transparent);-webkit-text-stroke:3px var(--themeColor);transform:translateX(var(--plx,0px));transition:color .35s linear,-webkit-text-stroke-color .4s linear,transform .8s var(--ease-out)}
+  .profileLink__title{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;padding-left:14px;font-family:var(--serif);font-weight:500;font-size:240px;line-height:1;letter-spacing:0;color:color-mix(in srgb, var(--white) 16%, transparent);-webkit-text-stroke:3px var(--white);transform:translateX(var(--plx,0px));transition:color .35s linear,-webkit-text-stroke-color .4s linear,transform .8s var(--ease-out)}
   .profileLink:hover .profileLink__title{color:var(--themeColor);-webkit-text-stroke-color:transparent;transform:translateX(calc(var(--plx,0px) + 16px))}
   @media(max-width:799px){.profileLink{height:34vw}.profileLink__title{font-size:26.5vw}}
 
@@ -449,7 +428,7 @@
   .marquee__inner{display:inline-flex;width:max-content;animation:mscroll 26s linear infinite;will-change:transform}
   /* スムーズスクロール有効時はCSSアニメーションを止め、JSがスクロール連動で駆動する */
   html.js-smooth .marquee__inner{animation:none}
-  .marquee__txt{font-family:var(--serif);font-weight:500;font-size:clamp(120px,29vw,355px);line-height:1.06;padding-right:.18em;color:color-mix(in srgb, var(--themeColor) 16%, transparent);-webkit-text-stroke:3px var(--themeColor);transition:color .35s linear,-webkit-text-stroke-color .4s linear}
+  .marquee__txt{font-family:var(--serif);font-weight:500;font-size:clamp(120px,29vw,355px);line-height:1.06;padding-right:.18em;color:color-mix(in srgb, var(--white) 16%, transparent);-webkit-text-stroke:3px var(--white);transition:color .35s linear,-webkit-text-stroke-color .4s linear}
   .marquee:hover .marquee__txt{color:var(--themeColor);-webkit-text-stroke-color:transparent}
   @keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .contactLead{padding:22px 20px 6px;font-size:15px;line-height:1.9;letter-spacing:.03em;font-weight:700;max-width:720px;color:var(--ink)}
@@ -537,7 +516,7 @@
   /* サウンド選択（入場時オーバーレイ。kazukinoda.com の soundSelect が根拠） */
   .soundSelect{position:fixed;inset:0;z-index:200;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:25px 20px;transition:opacity .5s linear,visibility .5s linear}
   .soundSelect::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
   .soundSelect.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
   .soundSelect__inner{position:relative;text-align:center;max-width:580px;z-index:2}
   .soundSelect__leadLine{font-weight:700;font-size:15px;line-height:1.95;letter-spacing:.045em;color:var(--ink)}
@@ -964,14 +943,6 @@
   }
   tickClock();
   setInterval(tickClock, 10000);
-
-  // カラーパレット：サイト全体のテーマカラーを切替（実サイトと同じ6色）
-  document.querySelectorAll('.paletteBtn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.documentElement.style.setProperty('--themeColor', btn.dataset.color);
-      document.querySelectorAll('.paletteBtn').forEach(b => b.classList.toggle('is-active', b === btn));
-    });
-  });
 
   // KVの霧：カーソル周辺だけ晴れる
   const kv = document.getElementById('kv');
