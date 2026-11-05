@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lueur — 髪は、もっと自由になれる。｜福岡・天神のプライベートヘアサロン</title>
+<meta name="description" content="完全予約制・マンツーマン施術のプライベートヘアサロンLueur。似合わせカットと低ダメージカラーで、あなたの髪のポテンシャルを引き出します。福岡・天神。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%231d1d1f'/><text x='50' y='66' font-size='52' text-anchor='middle' fill='%23f5f5f7' font-family='Georgia'>L</text></svg>">
+<meta property="og:title" content="Lueur — 髪は、もっと自由になれる。">
+<meta property="og:description" content="福岡・天神の完全予約制プライベートヘアサロン。似合わせカットと低ダメージカラー。">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --black:#1d1d1f; --gray:#6e6e73; --light:#f5f5f7; --white:#fff;
+    --blue:#2997ff; --line:#d2d2d7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:var(--black);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Nav — Apple style thin bar */
+  nav{position:fixed;top:0;left:0;right:0;height:48px;background:rgba(22,22,23,.8);backdrop-filter:saturate(180%) blur(20px);z-index:100}
+  nav .inner{max-width:1024px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+  nav .logo{color:#f5f5f7;font-size:17px;letter-spacing:.22em;font-weight:600}
+  nav ul{display:flex;gap:30px;list-style:none}
+  nav ul a{color:#e8e8ed;font-size:12px;letter-spacing:.02em}
+  nav ul a:hover{color:#fff;text-decoration:none}
+  nav .book{background:var(--blue);color:#fff;font-size:12px;padding:5px 14px;border-radius:980px}
+  nav .book:hover{background:#2ea3ff;text-decoration:none}
+  @media(max-width:734px){nav ul li:not(:last-child){display:none}}
+
+  /* Sections */
+  section{padding:110px 22px;text-align:center;overflow:hidden;scroll-margin-top:52px}
+  nav .logo a{color:#f5f5f7}
+  nav .logo a:hover{text-decoration:none;opacity:.85}
+  .access a{color:var(--black)}
+  .dark{background:#000;color:#f5f5f7}
+  .light{background:var(--light)}
+  .eyebrow{font-size:19px;font-weight:600;color:#f56300;letter-spacing:.01em}
+  .dark .eyebrow{color:#f56300}
+  h1{font-size:clamp(40px,7.4vw,80px);line-height:1.08;font-weight:700;letter-spacing:-.015em;margin-top:10px}
+  h2{font-size:clamp(34px,5.6vw,56px);line-height:1.12;font-weight:700;letter-spacing:-.012em}
+  .grad{background:linear-gradient(90deg,#0090ff,#a259ff,#ff5e8a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:clamp(17px,2.4vw,21px);color:var(--gray);max-width:640px;margin:20px auto 0;line-height:1.55}
+  .dark .lead{color:#a1a1a6}
+  .cta{margin-top:30px;font-size:17px}
+  .cta a{margin:0 12px}
+  .cta a::after{content:" ›"}
+  .price-from{margin-top:16px;font-size:15px;color:var(--gray)}
+
+  /* Big visual blocks (CSS art stand-ins for photography) */
+  .visual{max-width:980px;margin:56px auto 0;border-radius:24px;min-height:420px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .visual .big{font-size:clamp(60px,12vw,130px);font-weight:700;letter-spacing:-.02em;color:rgba(255,255,255,.94);text-shadow:0 4px 40px rgba(0,0,0,.18)}
+  .v-hero{background:linear-gradient(135deg,#3a2e39 0%,#7a4b63 45%,#c98a5e 100%)}
+  .v-cut{background:linear-gradient(135deg,#101418,#33505e 60%,#5e8a99)}
+  .v-color{background:linear-gradient(135deg,#2b1055,#7597de 55%,#f6c6ea)}
+  .v-care{background:linear-gradient(135deg,#0f3d2e,#2e7d5b 60%,#a8d5a2)}
+
+  /* Feature grid like Apple bento */
+  .bento{max-width:980px;margin:56px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left}
+  @media(max-width:734px){.bento{grid-template-columns:1fr}}
+  .tile{background:var(--white);border-radius:20px;padding:36px 32px;min-height:190px}
+  .light .tile{background:var(--white)}
+  .dark .tile{background:#161617}
+  .tile h3{font-size:24px;font-weight:700;line-height:1.25}
+  .tile p{margin-top:10px;color:var(--gray);font-size:15.5px;line-height:1.55}
+  .dark .tile p{color:#a1a1a6}
+  .tile .stat{font-size:52px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+
+  /* Pricing table */
+  .prices{max-width:760px;margin:48px auto 0;text-align:left}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 6px;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .n{font-size:17px;font-weight:600}
+  .row .n small{display:block;font-weight:400;color:var(--gray);font-size:13.5px;margin-top:2px}
+  .row .p{font-size:19px;font-weight:600;white-space:nowrap}
+  .fineprint{max-width:760px;margin:22px auto 0;color:var(--gray);font-size:12.5px;text-align:left;line-height:1.7}
+
+  /* Voices */
+  .voices{max-width:980px;margin:52px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+  @media(max-width:900px){.voices{grid-template-columns:1fr}}
+  .voice{background:var(--white);border-radius:20px;padding:30px 28px}
+  .voice .stars{color:#f56300;letter-spacing:.25em;font-size:14px}
+  .voice p{margin-top:12px;font-size:15.5px;line-height:1.65}
+  .voice .who{margin-top:16px;color:var(--gray);font-size:13px}
+
+  /* Access */
+  .access{max-width:760px;margin:44px auto 0;text-align:left;font-size:16px}
+  .access .row .n{font-weight:600;color:var(--gray);font-size:14px;letter-spacing:.04em}
+  .access .row .p{font-weight:400;font-size:16px;white-space:normal;text-align:right}
+
+  /* Reveal on scroll */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.28,.11,.32,1),transform .9s cubic-bezier(.28,.11,.32,1)}
+  .rv.on{opacity:1;transform:none}
+
+  .final{background:#000;color:#f5f5f7;padding:130px 22px}
+  .book-btn{display:inline-block;margin-top:34px;background:var(--blue);color:#fff;font-size:17px;padding:14px 34px;border-radius:980px}
+  .book-btn:hover{background:#2ea3ff;text-decoration:none}
+
+  /* Motion */
+  @keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .visual{background-size:180% 180%;animation:drift 14s ease-in-out infinite}
+  .visual .big{will-change:transform}
+  .tile,.voice{transition:transform .5s cubic-bezier(.28,.11,.32,1),box-shadow .5s}
+  .tile:hover,.voice:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.10)}
+  .marquee{overflow:hidden;background:#000;color:#f5f5f7;padding:20px 0}
+  .marquee .track{display:flex;width:max-content;animation:mscroll 26s linear infinite;font-size:15px;letter-spacing:.3em;white-space:nowrap}
+  @keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none;animation:floaty 10s ease-in-out infinite}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
+
+  /* FAQ + form */
+  .faq{max-width:760px;margin:48px auto 0;text-align:left}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin-bottom:12px}
+  .faq summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none}
+  .faq summary::after{content:"＋";float:right;color:var(--blue)}
+  .faq details[open ] summary::after{content:"−"}
+  .faq details p{margin-top:10px;color:var(--gray);font-size:14.5px;line-height:1.7}
+  .form{max-width:640px;margin:44px auto 0;text-align:left;background:var(--white);border-radius:20px;padding:36px 32px}
+  .form label{display:block;font-size:13.5px;font-weight:600;margin:18px 0 6px}
+  .form label:first-child{margin-top:0}
+  .form input,.form select,.form textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15.5px;font-family:inherit;background:#fbfbfd}
+  .form textarea{min-height:96px;resize:vertical}
+  .form .submit{margin-top:26px;width:100%;background:var(--blue);color:#fff;border:none;font-size:16.5px;padding:14px;border-radius:980px;cursor:pointer}
+  .form .submit:hover{background:#2ea3ff}
+  .form .done{display:none;margin-top:20px;background:#e9f7ee;border:1px solid #bfe6cc;color:#14532d;border-radius:12px;padding:14px 18px;font-size:14.5px}
+  ::selection{background:#2997ff;color:#fff}
+  @media (prefers-reduced-motion: reduce){
+    .visual,.marquee .track,.orb{animation:none}
+    .rv{opacity:1;transform:none;transition:none}
+  }
+
+  footer{background:var(--light);color:var(--gray);font-size:12.5px;padding:34px 22px;text-align:center;line-height:1.9}
+</style>
+</head>
+<body id="top">
+
+<nav>
+  <div class="inner">
+    <div class="logo"><a href="#top">Lueur</a></div>
+    <ul>
+      <li><a href="#cut">カット</a></li>
+      <li><a href="#color">カラー</a></li>
+      <li><a href="#care">ケア</a></li>
+      <li><a href="#price">料金</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a class="book" href="#book">予約する</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="dark" style="padding-top:150px">
+  <div class="eyebrow rv">福岡・天神 完全予約制プライベートサロン</div>
+  <h1 class="rv">髪は、もっと<br>自由になれる。</h1>
+  <p class="lead rv">貸切空間で、最初から最後までひとりのスタイリストが担当。<br>似合わせカットと低ダメージカラーで、朝の5分を変えます。</p>
+  <div class="cta rv"><a href="#book">予約する</a><a href="#price">料金を見る</a></div>
+  <div class="visual v-hero rv"><div class="orb" style="width:280px;height:280px;background:#ff9d6f;top:-60px;left:-40px"></div><div class="orb" style="width:220px;height:220px;background:#7a4bff;bottom:-70px;right:-30px;animation-delay:-5s"></div><div class="big">Lueur</div></div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>&nbsp;CUT&nbsp;&nbsp;—&nbsp;&nbsp;COLOR&nbsp;&nbsp;—&nbsp;&nbsp;CARE&nbsp;&nbsp;—&nbsp;&nbsp;LUEUR&nbsp;&nbsp;—&nbsp;&nbsp;CUT&nbsp;&nbsp;—&nbsp;&nbsp;COLOR&nbsp;&nbsp;—&nbsp;&nbsp;CARE&nbsp;&nbsp;—&nbsp;&nbsp;LUEUR&nbsp;&nbsp;—&nbsp;</span><span>&nbsp;CUT&nbsp;&nbsp;—&nbsp;&nbsp;COLOR&nbsp;&nbsp;—&nbsp;&nbsp;CARE&nbsp;&nbsp;—&nbsp;&nbsp;LUEUR&nbsp;&nbsp;—&nbsp;&nbsp;CUT&nbsp;&nbsp;—&nbsp;&nbsp;COLOR&nbsp;&nbsp;—&nbsp;&nbsp;CARE&nbsp;&nbsp;—&nbsp;&nbsp;LUEUR&nbsp;&nbsp;—&nbsp;</span></div></div>
+
+<!-- Cut -->
+<section id="cut">
+  <div class="eyebrow rv">CUT</div>
+  <h2 class="rv">骨格から設計する、<br><span class="grad">似合わせカット。</span></h2>
+  <p class="lead rv">トレンドをなぞるだけでは、似合わない。頭の形、髪の生え方、毎朝のスタイリング時間。すべてを聞いてから、ハサミを入れます。</p>
+  <div class="visual v-cut rv"><div class="big">Cut</div></div>
+  <div class="bento">
+    <div class="tile rv"><div class="stat"><span class="count" data-to="98">0</span>%</div><p>「家でも再現できた」と答えたお客様の割合（当店アンケート）</p></div>
+    <div class="tile rv"><h3>カウンセリング15分</h3><p>施術前の対話に、惜しみなく時間を使います。なりたいイメージが曖昧でも大丈夫。一緒に言語化します。</p></div>
+    <div class="tile rv"><h3>マンツーマン施術</h3><p>掛け持ちはしません。シャンプーから仕上げまで、責任を持ってひとりで担当します。</p></div>
+    <div class="tile rv"><div class="stat">¥6,600</div><p>カット（シャンプー・ブロー込み）。学生割引10%OFF。</p></div>
+  </div>
+</section>
+
+<!-- Color -->
+<section id="color" class="light">
+  <div class="eyebrow rv">COLOR</div>
+  <h2 class="rv">染めるほど、<br><span class="grad">髪がきれいになる。</span></h2>
+  <p class="lead rv">ダメージレスにこだわった薬剤選定と、前処理・後処理のトリートメントを標準装備。退色まで計算した色設計で、3週間後の鏡も味方に。</p>
+  <div class="visual v-color rv"><div class="big">Color</div></div>
+  <div class="bento">
+    <div class="tile rv"><h3>髪質改善カラー</h3><p>カラーと同時に内部補修。手触りの変化を、その場で実感できます。</p></div>
+    <div class="tile rv"><h3>白髪ぼかしハイライト</h3><p>白髪を「隠す」から「活かす」へ。伸びてきても境目が目立たない設計です。</p></div>
+  </div>
+</section>
+
+<!-- Care -->
+<section id="care">
+  <div class="eyebrow rv">CARE</div>
+  <h2 class="rv">サロン帰りの髪を、<br>毎日つづける。</h2>
+  <p class="lead rv">仕上がりは、家でのケアで決まる。あなたの髪質に合ったホームケアの方法まで、具体的にお伝えします。商品の押し売りはしません。</p>
+  <div class="visual v-care rv"><div class="big">Care</div></div>
+</section>
+
+<!-- Price -->
+<section id="price" class="light">
+  <div class="eyebrow rv">PRICE</div>
+  <h2 class="rv">料金は、シンプルに。</h2>
+  <div class="prices rv">
+    <div class="row"><div class="n">カット<small>シャンプー・ブロー込み</small></div><div class="p">¥6,600</div></div>
+    <div class="row"><div class="n">カット＋カラー<small>髪質改善トリートメント付き</small></div><div class="p">¥14,300</div></div>
+    <div class="row"><div class="n">カット＋パーマ<small>デジタルパーマ対応</small></div><div class="p">¥15,400</div></div>
+    <div class="row"><div class="n">髪質改善トリートメント<small>単品メニュー</small></div><div class="p">¥7,700</div></div>
+    <div class="row"><div class="n">ヘッドスパ<small>30分／炭酸泉使用</small></div><div class="p">¥4,400</div></div>
+  </div>
+  <p class="fineprint rv">※すべて税込価格です。※ロング料金はいただきません。※学生の方は全メニュー10%OFF（学生証をご提示ください）。※初回ご来店の方はカウンセリングを長めにお取りします。</p>
+</section>
+
+<!-- Voices -->
+<section>
+  <div class="eyebrow rv">VOICES</div>
+  <h2 class="rv">お客様の声。</h2>
+  <div class="voices">
+    <div class="voice rv"><div class="stars">★★★★★</div><p>「朝、髪が決まらない」という悩みが消えました。乾かすだけで形になるカットは初めてです。</p><div class="who">30代・女性／天神勤務</div></div>
+    <div class="voice rv"><div class="stars">★★★★★</div><p>貸切なので子連れでも気を使いません。カラーの色持ちが明らかに良くなりました。</p><div class="who">30代・女性／福岡市内</div></div>
+    <div class="voice rv"><div class="stars">★★★★★</div><p>白髪ぼかしにしてから、美容室の間隔が1か月伸びた。もっと早く知りたかったです。</p><div class="who">40代・女性／博多区</div></div>
+  </div>
+</section>
+
+<!-- Access -->
+<section id="access" class="light">
+  <div class="eyebrow rv">ACCESS</div>
+  <h2 class="rv">天神駅から、徒歩3分。</h2>
+  <div class="access rv">
+    <div class="row"><div class="n">住所</div><div class="p">福岡県福岡市中央区天神2-◯-◯ 天神ビル3F</div></div>
+    <div class="row"><div class="n">営業時間</div><div class="p">10:00–20:00（最終受付 19:00）</div></div>
+    <div class="row"><div class="n">定休日</div><div class="p">月曜日</div></div>
+    <div class="row"><div class="n">電話</div><div class="p"><a href="tel:0920000000">092-000-0000</a></div></div>
+    <div class="row"><div class="n">支払い</div><div class="p">現金／クレジットカード／各種QR決済</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="light" style="padding-top:0">
+  <div class="eyebrow rv">FAQ</div>
+  <h2 class="rv">よくある質問。</h2>
+  <div class="faq">
+    <details class="rv"><summary>初めてでも大丈夫ですか？</summary><p>はい。初回の方はカウンセリングを長めにお取りし、髪の履歴や普段のお手入れをうかがってから施術します。イメージ写真の持ち込みも歓迎です。</p></details>
+    <details class="rv"><summary>予約なしでも入れますか？</summary><p>完全予約制のため、当日でも空きがあればご案内できますが、事前のご予約をおすすめしています。下のフォームまたはお電話でどうぞ。</p></details>
+    <details class="rv"><summary>子ども連れでも大丈夫ですか？</summary><p>貸切空間ですので、お子さま連れでも周りを気にせずお過ごしいただけます。ご予約時にお知らせください。</p></details>
+    <details class="rv"><summary>支払い方法を教えてください。</summary><p>現金、各種クレジットカード、QR決済に対応しています。</p></details>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section id="book" class="final">
+  <h2 class="rv">次の髪は、<br>Lueurで。</h2>
+  <p class="lead rv">完全予約制のため、ご予約はお早めに。<br>下のフォームから24時間受け付けています。</p>
+  <form class="form rv" id="bookForm" style="color:var(--black)">
+    <label for="f-name">お名前</label>
+    <input id="f-name" type="text" placeholder="例）山田 花子" required>
+    <label for="f-menu">ご希望メニュー</label>
+    <select id="f-menu">
+      <option>カット</option>
+      <option>カット＋カラー</option>
+      <option>カット＋パーマ</option>
+      <option>髪質改善トリートメント</option>
+      <option>ヘッドスパ</option>
+      <option>相談して決めたい</option>
+    </select>
+    <label for="f-date">ご希望日</label>
+    <input id="f-date" type="date">
+    <label for="f-msg">ご要望・ご質問（任意）</label>
+    <textarea id="f-msg" placeholder="髪の悩みや、なりたいイメージがあればご記入ください"></textarea>
+    <button class="submit" type="submit">この内容で予約する</button>
+    <div class="done" id="formDone">ありがとうございます。予約リクエストを受け付けました。確認のため、店舗から折り返しご連絡します。</div>
+  </form>
+</section>
+
+<footer>
+  hair salon Lueur（ルール）｜福岡県福岡市中央区天神<br>
+  © 2026 Lueur. All rights reserved.<br>
+  ※このページはWeb制作のポートフォリオ用サンプルです。店舗・価格・声はすべて架空のものです。<br>
+  LP・ホームページ制作のご依頼は随時受付中です。お気軽にご相談ください。
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Count-up numbers
+  const cio = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, to = +el.dataset.to, t0 = performance.now(), dur = 1400;
+      (function tick(t){ const p = Math.min((t - t0) / dur, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); })(t0);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.count').forEach(el => cio.observe(el));
+
+  // Parallax: big words inside visuals drift slower than the scroll
+  const bigs = document.querySelectorAll('.visual .big');
+  let ticking = false;
+  function par() {
+    bigs.forEach(b => {
+      const r = b.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+      b.style.transform = 'translateY(' + (p * -34) + 'px)';
+    });
+    ticking = false;
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(par); } }, { passive: true });
+  par();
+
+  // Booking form (demo): show confirmation without leaving the page
+  document.getElementById('bookForm').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('formDone').style.display = 'block';
+    e.target.querySelector('.submit').textContent = '送信しました';
+  });
+</script>
+</body>
+</html>
