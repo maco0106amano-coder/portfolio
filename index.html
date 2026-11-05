@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>天野真 — Portfolio｜現役看護学生 × AI活用のライター＆Web制作者</title>
-<meta name="description" content="現役看護学生×AI活用。医療・健康に強いライティングと、LP・ホームページ・ショート動画の制作ポートフォリオ。受注実績12件、評価4件すべて★5.0。">
+<title>天野真 — Portfolio｜現役看護学生のライター＆Web制作者（医療・健康）</title>
+<meta name="description" content="現役看護学生が書く、医療・健康に強いライティングと、LP・ホームページ・ショート動画の制作ポートフォリオ。一次情報を確認し、正確に、やさしく。受注実績12件、評価4件すべて★5.0。">
 <meta name="theme-color" content="#151517">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2393a9c4'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%23151517' font-family='Georgia'>A</text></svg>">
 <meta property="og:title" content="天野真 — Portfolio">
-<meta property="og:description" content="現役看護学生 × AI活用｜医療・健康に強いライター＆Web制作者">
+<meta property="og:description" content="現役看護学生｜医療・健康に強いライター＆Web制作者">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,12 +140,12 @@
   @media(max-width:799px){.headerStats .hs{min-width:44%;padding-right:12px}}
 
   /* ライター用ポートフォリオへの導線（トップ・実績の下） */
-  .writerLink{position:relative}
-  .writerLink a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 15px;position:relative;overflow:hidden}
+  .writerLink{position:relative;background:var(--paper-deep)}
+  .writerLink a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 15px;position:relative;overflow:hidden}
   .writerLink a::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
   .writerLink a:hover::after,.writerLink a:focus-visible::after{transform:scaleY(1)}
-  .writerLink__jp{font-size:14.5px;font-weight:700;letter-spacing:.04em;line-height:1.6;position:relative;z-index:2;color:var(--ink);transition:color .3s linear}
-  .writerLink__en{font-family:var(--serif);font-style:italic;font-weight:700;font-size:16px;white-space:nowrap;position:relative;z-index:2;transition:color .3s linear}
+  .writerLink__jp{font-size:16.5px;font-weight:700;letter-spacing:.04em;line-height:1.6;position:relative;z-index:2;color:var(--ink);transition:color .3s linear}
+  .writerLink__en{font-family:var(--serif);font-style:italic;font-weight:700;font-size:19px;white-space:nowrap;position:relative;z-index:2;transition:color .3s linear}
   .writerLink a:hover .writerLink__jp,.writerLink a:hover .writerLink__en,
   .writerLink a:focus-visible .writerLink__jp,.writerLink a:focus-visible .writerLink__en{color:var(--paper)}
 
@@ -173,8 +173,8 @@
   @media(pointer:coarse){.kv-fog{display:none}}
   /* 本文テキスト群（色は固定テーマの変数で統一） */
   .indexHeader__leadTxt,.scell p,.witem__desc,.witem__cats,.profileStory p,.extras p,
-  .contactLead,.contactNote,.fineprint,.formLead,.foot__desc,.foot__right,
-  .soundSelect__leadLine,.headerStats .hs .k{transition:color .4s linear}
+  .contactLead,.contactNote,.fineprint,.foot__desc,.foot__right,
+  .headerStats .hs .k{transition:color .4s linear}
 </style>
 </head>
 <body id="top">
@@ -196,31 +196,6 @@
     </pattern>
   </defs>
 </svg>
-
-<!-- サウンド選択（入場時・デフォルトOFF。音はユーザー操作起点でのみ開始） -->
-<div class="soundSelect" id="soundSelect" role="dialog" aria-modal="true" aria-label="サウンド設定">
-  <span class="line line--top"></span>
-  <span class="line line--left"></span>
-  <span class="line line--right"></span>
-  <button type="button" class="soundSelect__close" id="soundCloseBtn" aria-label="閉じる（サウンドなしで入る）">×</button>
-  <div class="soundSelect__inner">
-    <p class="soundSelect__leadLine">天野真のポートフォリオへようこそ。</p>
-    <p class="soundSelect__leadLine">このサイトでは、静かな環境音（アンビエント）を流すことができます。</p>
-    <p class="soundSelect__leadLine">音が不要な場合は「Off」を選んでください。下のメニューからいつでも切り替えられます。</p>
-    <div class="soundSelect__buttons">
-      <button type="button" class="soundBtn" id="soundOnBtn">
-        <span class="soundBtn__circle"></span>
-        <span class="soundBtn__soundLabel">Sound</span>
-        <span class="soundBtn__label">On</span>
-      </button>
-      <button type="button" class="soundBtn" id="soundOffBtn">
-        <span class="soundBtn__circle"></span>
-        <span class="soundBtn__soundLabel">Sound</span>
-        <span class="soundBtn__label">Off</span>
-      </button>
-    </div>
-  </div>
-</div>
 
 <!-- 固定フレーム -->
 <div class="frame" aria-hidden="true">
@@ -248,7 +223,6 @@
     <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 10.2 3 3.6l5.6 2.7A11 11 0 0 1 12 5.6c1.2 0 2.3.24 3.4.7L21 3.6l-1.2 6.6c.14.6.2 1.2.2 1.8a8 8 0 1 1-16 0c0-.6.06-1.2.2-1.8Z" fill="currentColor"/><circle cx="9" cy="12.4" r="1.15" fill="#f4f1ea"/><circle cx="15" cy="12.4" r="1.15" fill="#f4f1ea"/></svg>
     <span class="logoTxt">天野真</span>
   </a>
-  <button type="button" class="menuBtn menuBtn--sound" id="soundToggle" aria-pressed="false" aria-label="サウンドのオン・オフを切り替える"><span class="line line--left"></span><span class="menuBtn__label" id="soundToggleLabel">Sound Off</span></button>
   <a class="menuBtn menuBtn--hideSP" href="#top"><span class="line line--left"></span><span class="menuBtn__label">Home</span></a>
   <a class="menuBtn" href="#strengths"><span class="line line--left"></span><span class="menuBtn__label">Strengths</span></a>
   <a class="menuBtn" href="#works"><span class="line line--left"></span><span class="menuBtn__label">Works</span></a>
@@ -263,12 +237,12 @@
   <header class="indexHeader">
     <h1 class="indexHeader__title">天野真<span class="indexHeader__titleSub">Portfolio</span></h1>
     <div class="indexHeader__lead">
-      <p class="indexHeader__leadTxt">現役看護学生 × AI活用。医療・健康に強い、ライター＆Web制作者です。</p>
-      <p class="indexHeader__leadTxt">看護を学ぶ現役の学生だから、医療・健康のテーマを「正確に、やさしく」伝えられます。記事制作からLP・ホームページ、ショート動画まで。AIを道具として使い倒し、正確さと速さを両立させるのが仕事の流儀です。</p>
+      <p class="indexHeader__leadTxt">現役看護学生。医療・健康に強い、ライター＆Web制作者です。</p>
+      <p class="indexHeader__leadTxt">看護を学ぶ現役の学生だから、医療・健康のテーマを「正確に、やさしく」伝えられます。一次情報のリサーチとファクトチェックを土台に、記事制作からLP・ホームページ、ショート動画まで。正確さと速さを両立させるのが仕事の流儀です。</p>
     </div>
     <div class="headerStats">
       <span class="line line--top draw-x"></span>
-      <div class="hs"><div class="v"><span class="count" data-to="12">0</span><span class="unit">件</span></div><div class="k">受注実績（CrowdWorks）</div></div>
+      <div class="hs"><div class="v">12<span class="unit">件</span></div><div class="k">受注実績（CrowdWorks）</div></div>
       <div class="hs"><div class="v">★5.0</div><div class="k">クライアント評価（4件すべて）</div></div>
       <div class="hs"><div class="v">済</div><div class="k">本人確認（CrowdWorks）</div></div>
       <span class="line line--bottom draw-x"></span>
@@ -434,58 +408,14 @@
   .contactLead{padding:22px 20px 6px;font-size:15px;line-height:1.9;letter-spacing:.03em;font-weight:700;max-width:720px;color:var(--ink)}
   .contactNote{padding:8px 20px 28px;font-size:13px;line-height:1.9;letter-spacing:.025em;font-weight:500;color:var(--ink)}
 
-  /* お問い合わせフォーム（試作版：クライアント側のみで完結。実送信は未接続） */
-  .contactFormWrap{padding:6px 20px 30px;max-width:880px}
-  .formTitle{font-size:16px;font-weight:900;letter-spacing:.07em;line-height:1.5}
-  .formTitle .en{font-family:var(--serif);font-style:italic;font-weight:700;font-size:13px;letter-spacing:.05em;margin-left:10px}
-  .formTo{margin-top:9px;font-size:12.5px;font-weight:700;letter-spacing:.05em}
-  .formLead{margin-top:10px;font-size:14px;line-height:1.9;letter-spacing:.025em;font-weight:500;max-width:660px;color:var(--ink)}
-  .cform{margin-top:12px}
-  .cform .frow{position:relative;display:flex;gap:18px;padding:16px 2px 18px;align-items:flex-start}
-  .cform .flabel{flex:none;width:172px;font-weight:700;font-size:12.5px;letter-spacing:.08em;line-height:1.6;padding-top:11px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .reqTag{font-size:9.5px;font-weight:700;letter-spacing:.12em;background:var(--themeColor);color:var(--paper);padding:2.5px 7px;line-height:1.3;transition:background-color .4s linear,color .4s linear}
-  .cform .ffield{flex:1;min-width:0}
-  .cform input[type="text"],.cform input[type="email"],.cform select,.cform textarea{
-    width:100%;font:inherit;font-size:15px;font-weight:500;letter-spacing:.03em;color:var(--ink);
-    background:transparent;border:2px solid var(--themeColor);padding:12px 14px;border-radius:0;
-    transition:border-color .4s linear,background-color .3s linear;-webkit-appearance:none;appearance:none}
-  .cform textarea{min-height:150px;line-height:1.8;resize:vertical}
-  .cform input::placeholder,.cform textarea::placeholder{color:var(--ink);opacity:.55}
-  .cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;background:var(--paper-deep)}
-  .selWrap{position:relative}
-  .selWrap::after{content:"";position:absolute;right:16px;top:50%;width:9px;height:9px;border-right:2px solid var(--themeColor);border-bottom:2px solid var(--themeColor);transform:translateY(-70%) rotate(45deg);pointer-events:none;transition:border-color .4s linear}
-  .cform select{cursor:pointer;padding-right:42px}
-  .ferr{display:none;margin-top:8px;font-size:11.5px;font-weight:700;letter-spacing:.04em;line-height:1.7}
-  .ffield.is-invalid input,.ffield.is-invalid textarea{border-style:dashed}
-  .ffield.is-invalid .ferr{display:block}
-  .formFoot{padding:22px 2px 0}
-  .submitBtn{position:relative;display:block;width:100%;padding:19px 20px;border:2px solid var(--themeColor);font-size:14.5px;font-weight:900;letter-spacing:.14em;cursor:pointer;overflow:hidden;color:var(--themeColor)}
-  .submitBtn::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
-  .submitBtn:hover::after,.submitBtn:focus-visible::after{transform:scaleY(1)}
-  .submitBtn__label{position:relative;z-index:2;transition:color .3s linear}
-  .submitBtn:hover .submitBtn__label,.submitBtn:focus-visible .submitBtn__label{color:var(--paper)}
-  .formPrivacy{margin-top:12px;font-size:12px;line-height:1.85;letter-spacing:.03em;font-weight:500;color:var(--ink)}
-  .formAlt{margin-top:22px;font-size:13.5px;font-weight:700;letter-spacing:.04em;line-height:1.9}
-  .formAlt a{text-decoration:underline;text-underline-offset:3px}
-  .formDone{margin-top:14px;border:2px solid var(--themeColor);padding:24px 22px 26px}
-  .formDone__title{font-size:16px;font-weight:900;letter-spacing:.07em;line-height:1.5}
-  .formDone__note{margin-top:9px;font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.9;color:var(--ink)}
-  .formSummary{margin-top:14px}
-  .formSummary .srow{position:relative;display:flex;gap:18px;padding:12px 2px 14px}
-  .formSummary .sk{flex:none;width:172px;font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.7}
-  .formSummary .sv{flex:1;min-width:0;font-size:14.5px;font-weight:500;line-height:1.85;letter-spacing:.03em;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
-  .formBackBtn{margin-top:18px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px 0}
-  @media(max-width:799px){
-    .contactFormWrap{padding:6px 20px 26px}
-    .cform .frow{flex-direction:column;gap:10px;padding:14px 2px 16px}
-    .cform .flabel{width:auto;padding-top:0}
-    .formSummary .srow{flex-direction:column;gap:5px}
-    .formSummary .sk{width:auto}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .submitBtn::after{transition:none}
-    .cform input[type="text"],.cform input[type="email"],.cform select,.cform textarea{transition:none}
-  }
+  /* 連絡導線（CrowdWorksプロフィールへ一本化） */
+  .contactCw{padding:10px 20px 32px;max-width:880px}
+  .contactCwLead{font-size:14.5px;line-height:1.9;letter-spacing:.03em;font-weight:700;color:var(--ink)}
+  .contactCwBtn{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;padding:19px 20px;border:2px solid var(--themeColor);font-size:15px;font-weight:900;letter-spacing:.1em;color:var(--themeColor);overflow:hidden}
+  .contactCwBtn::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
+  .contactCwBtn:hover::after,.contactCwBtn:focus-visible::after{transform:scaleY(1)}
+  .contactCwBtn span{position:relative;z-index:2;transition:color .3s linear}
+  .contactCwBtn:hover span,.contactCwBtn:focus-visible span{color:var(--paper)}
 
   /* フッター */
   footer.foot{position:relative;padding:30px 20px 34px;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
@@ -513,29 +443,6 @@
   .stch{display:inline-block;transform:translateY(170%) rotate(12deg);transition:transform .6s var(--ease-pop)}
   section.blk.is-inview .stch{transform:translateY(0) rotate(0)}
 
-  /* サウンド選択（入場時オーバーレイ。kazukinoda.com の soundSelect が根拠） */
-  .soundSelect{position:fixed;inset:0;z-index:200;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:25px 20px;transition:opacity .5s linear,visibility .5s linear}
-  .soundSelect::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
-  .soundSelect.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
-  .soundSelect__inner{position:relative;text-align:center;max-width:580px;z-index:2}
-  .soundSelect__leadLine{font-weight:700;font-size:15px;line-height:1.95;letter-spacing:.045em;color:var(--ink)}
-  .soundSelect__leadLine + .soundSelect__leadLine{margin-top:4px}
-  .soundSelect__buttons{display:flex;gap:38px;justify-content:center;margin-top:36px}
-  .soundBtn{display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;padding:0}
-  .soundBtn__circle{width:104px;height:104px;border-radius:50%;border:2px solid var(--themeColor);display:block;position:relative;transition:background-color .3s linear,transform .45s var(--ease-out)}
-  .soundBtn__circle::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;border-radius:50%;background:var(--themeColor);transform:translate(-50%,-50%);transition:background-color .3s linear}
-  .soundBtn:hover .soundBtn__circle,.soundBtn:focus-visible .soundBtn__circle{background:var(--themeColor);transform:scale(1.05)}
-  .soundBtn:hover .soundBtn__circle::after,.soundBtn:focus-visible .soundBtn__circle::after{background:var(--paper)}
-  .soundBtn__soundLabel{font-size:10.5px;letter-spacing:.24em;font-weight:700}
-  .soundBtn__label{font-family:var(--serif);font-style:italic;font-weight:700;font-size:23px;line-height:1}
-  .soundSelect__close{position:absolute;top:30px;right:28px;z-index:3;font-size:28px;line-height:1;cursor:pointer;padding:6px;font-family:var(--serif)}
-  .soundSelect .line--top{top:25px;left:15px;right:15px;width:auto}
-  .soundSelect .line--left{top:25px;bottom:15px;left:15px;height:auto}
-  .soundSelect .line--right{top:25px;bottom:15px;right:15px;height:auto}
-  .menuBtn--sound{cursor:pointer;flex:.9}
-  .menuBtn--sound .menuBtn__label{font-family:var(--serif);font-style:italic}
-
   /* スマホ可読性：小さい画面でも本文サイズの下限を保つ */
   @media(max-width:799px){
     .indexHeader__leadTxt{font-size:14.5px}
@@ -543,12 +450,11 @@
     .profileStory p{font-size:15px}
     .extras p{font-size:14.5px}
     .contactLead{font-size:14.5px}
-    .writerLink__jp{font-size:14px}
-    .writerLink__en{font-size:15px}
+    .writerLink__jp{font-size:15.5px}
+    .writerLink__en{font-size:17px}
   }
   @media (prefers-reduced-motion: reduce){
     .marquee__inner,.orb{animation:none}
-    .soundSelect{transition:none}
     .kv-fog{display:none}
     .rv,.rv-spin-l,.rv-spin-r,.rv-pop,.rv-popspin{opacity:1;transform:none;transition:none}
     .stch{transform:none;transition:none}
@@ -570,14 +476,14 @@
       <div class="scell rv rv-spin-l">
         <span class="sno">01</span>
         <h3>医療・健康の専門性</h3>
-        <p>現役の看護学生として、専門用語を正確に扱えます。症状や制度の話も、初めて読む人にも伝わるよう、言葉を噛み砕いて届けます。</p>
+        <p>現役の看護学生として学ぶ基礎知識を土台に、一次情報と照合しながら書きます。症状や制度の話も、初めて読む人にも伝わるよう、言葉を噛み砕いて届けます。</p>
         <span class="line line--bottom draw-x"></span>
       </div>
       <div class="scell rv rv-pop">
         <span class="line line--left draw-y"></span>
         <span class="sno">02</span>
-        <h3>AI活用の実装力</h3>
-        <p>記事・LP・動画をAIツールで制作し、納品まで持っていけます。受注実績は12件、いただいたクライアント評価はすべて★5.0です。</p>
+        <h3>仕上げる力</h3>
+        <p>下書きや情報整理にはAIツールを補助として使い、事実確認と最後の仕上げは必ず自分の目で行います。受注実績は12件、いただいたクライアント評価はすべて★5.0です。</p>
         <span class="line line--bottom draw-x"></span>
       </div>
       <div class="scell rv rv-popspin">
@@ -758,8 +664,8 @@
     <div class="profileGrid">
       <div class="profileStory rv rv-spin-l">
         <p>看護学生として医療を学びながら、ライティングとWeb制作の仕事をしています。きっかけは「医療の知識は、病院の外でも役に立つはず」という思いでした。健康情報は世の中にあふれているのに、正確で、やさしくて、読みやすいものは意外と少ない。その溝を埋める仕事がしたいと思っています。</p>
-        <p>制作ではAIを道具として積極的に使います。ただし、事実確認と最後の仕上げは必ず人間（私）が担うこと。これは効率化であると同時に、医療ジャンルを扱う制作者としての責任でもあります。</p>
-        <p>今は学業と両立しながら副業として取り組んでいますが、将来的にはフリーランスとして独立することも視野に入れています。一件ごとの仕事を、長く付き合える関係の第一歩にしたいと考えています。</p>
+        <p>制作ではAIを補助の道具として使います。ただし、事実確認と最後の仕上げは必ず人間（私）が担うこと。これは効率化であると同時に、医療ジャンルを扱う制作者としての責任でもあります。</p>
+        <p>今は学業と両立しながら取り組んでいます。一件ごとの仕事を、長く付き合える関係の第一歩にしたいと考えています。</p>
         <span class="line line--bottom draw-x"></span>
       </div>
       <div class="facts rv rv-spin-r">
@@ -769,7 +675,7 @@
         <div class="frow"><div class="fn">学歴</div><div class="fp">令和健康科学大学 看護学部 看護学科 2年（在学中）</div><span class="line line--bottom draw-x"></span></div>
         <div class="frow"><div class="fn">拠点</div><div class="fp">福岡（フルリモート対応）</div><span class="line line--bottom draw-x"></span></div>
         <div class="frow"><div class="fn">稼働</div><div class="fp">週10時間程度（応相談）／平日夜間・週末中心</div><span class="line line--bottom draw-x"></span></div>
-        <div class="frow"><div class="fn">作業環境</div><div class="fp">自宅（実家・自室）</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">作業環境</div><div class="fp">自宅作業・オンライン対応。納品データの管理と情報の取り扱いに配慮しています。</div><span class="line line--bottom draw-x"></span></div>
         <div class="frow"><div class="fn">スキル</div><div class="fp">記事制作／校正・校閲／HTML・CSS・JavaScript／動画制作（Remotion）</div><span class="line line--bottom draw-x"></span></div>
         <div class="frow"><div class="fn">実績</div><div class="fp">受注12件・評価4件すべて★5.0・本人確認済み</div><span class="line line--bottom draw-x"></span></div>
         <div class="frow"><div class="fn">活動歴</div><div class="fp">楽天ROOMでの商品紹介投稿（経験あり・現在は休止中）</div><span class="line line--bottom draw-x"></span></div>
@@ -792,7 +698,7 @@
       <div class="ecell rv rv-pop">
         <span class="line line--left draw-y"></span>
         <h3 class="extras-h">お受けしたい仕事</h3>
-        <p>医療・健康分野の記事制作／LP・ホームページ制作／文字主体のSNSショート動画制作／校正・リライト。正確さが求められるジャンルと、AIを活用した速い制作が求められる仕事でお役に立てます。</p>
+        <p>医療・健康分野の記事制作／LP・ホームページ制作／文字主体のSNSショート動画制作／校正・リライト。正確さが求められるジャンルで、一次情報を確認しながら丁寧に仕上げる仕事でお役に立てます。</p>
         <span class="line line--bottom draw-x"></span>
       </div>
     </div>
@@ -815,61 +721,10 @@
       <p class="contactLead">記事制作、LP・ホームページ制作、ショート動画制作のご相談を受け付けています。まずはお気軽にメッセージください。条件を確認のうえ、誠実にお返事します。</p>
       <p class="contactNote">対応時間の目安：平日夜間・週末（学業と両立のため、返信は夜間になる場合があります）<br>面談は日曜日、または平日20時以降が調整しやすいです。</p>
 
-      <!-- お問い合わせフォーム（試作版：送信はクライアント側のみ。実送信の接続先は未定） -->
-      <div class="contactFormWrap rv">
-        <h3 class="formTitle">お問い合わせ・ご相談はこちらから<span class="en">Contact Form</span></h3>
-        <p class="formTo">相談先：天野真（ライター＆Web制作者）</p>
-        <p class="formLead">記事制作、LP・ホームページ制作、ショート動画制作についてのご相談・ご応募は、こちらのフォームからお送りください。内容を確認のうえ、誠実にお返事します。</p>
-        <form class="cform" id="contactForm" novalidate>
-          <div class="frow">
-            <label class="flabel" for="cfName">お名前<span class="reqTag">必須</span></label>
-            <div class="ffield">
-              <input type="text" id="cfName" name="name" autocomplete="name" placeholder="例：山田 太郎">
-              <p class="ferr">お名前を入力してください。</p>
-            </div>
-            <span class="line line--bottom draw-x"></span>
-          </div>
-          <div class="frow">
-            <label class="flabel" for="cfEmail">返信先メールアドレス<span class="reqTag">必須</span></label>
-            <div class="ffield">
-              <input type="email" id="cfEmail" name="email" autocomplete="email" inputmode="email" placeholder="例：you@example.com">
-              <p class="ferr">返信先メールアドレスを、正しい形式で入力してください。</p>
-            </div>
-            <span class="line line--bottom draw-x"></span>
-          </div>
-          <div class="frow">
-            <label class="flabel" for="cfType">種別</label>
-            <div class="ffield">
-              <div class="selWrap">
-                <select id="cfType" name="type">
-                  <option value="仕事の相談">仕事の相談</option>
-                  <option value="応募">応募</option>
-                  <option value="その他">その他</option>
-                </select>
-              </div>
-            </div>
-            <span class="line line--bottom draw-x"></span>
-          </div>
-          <div class="frow">
-            <label class="flabel" for="cfMessage">お問い合わせ内容<span class="reqTag">必須</span></label>
-            <div class="ffield">
-              <textarea id="cfMessage" name="message" placeholder="ご相談内容をお書きください。ご希望の納期・ご予算感などがあれば、あわせてお知らせください。"></textarea>
-              <p class="ferr">お問い合わせ内容を入力してください。</p>
-            </div>
-            <span class="line line--bottom draw-x"></span>
-          </div>
-          <div class="formFoot">
-            <button type="submit" class="submitBtn"><span class="submitBtn__label">送信する →</span></button>
-            <p class="formPrivacy">※このフォームは現在試作版です。実際の送信機能は公開時に有効化されます（入力内容が外部へ送信されることはありません）。</p>
-          </div>
-        </form>
-        <div class="formDone" id="formDone" hidden aria-live="polite">
-          <h3 class="formDone__title">送信内容を受け付けました</h3>
-          <p class="formDone__note">（試作版：実際の送信は公開時に有効化されます）<br>以下の内容で受け付けたものとして表示しています。</p>
-          <div class="formSummary" id="formSummary"></div>
-          <button type="button" class="formBackBtn" id="formBackBtn">入力画面に戻る</button>
-        </div>
-        <p class="formAlt">CrowdWorksからのご連絡も可能です。<a href="https://crowdworks.jp/public/employees/7210757" target="_blank" rel="noopener">CrowdWorksプロフィールを見る →</a></p>
+      <!-- 連絡導線はCrowdWorksプロフィールに一本化 -->
+      <div class="contactCw rv">
+        <p class="contactCwLead">ご相談・ご依頼は、CrowdWorksのプロフィールからお送りください。プロフィール上で実績・評価もあわせてご確認いただけます。</p>
+        <a class="contactCwBtn" href="https://crowdworks.jp/public/employees/7210757" target="_blank" rel="noopener"><span>CrowdWorksプロフィールを見る</span><span>→</span></a>
       </div>
       <span class="line line--bottom draw-x"></span>
     </div>
@@ -882,7 +737,7 @@
     <div class="foot__right">
       <span class="foot__copy">© 2026 Makoto Amano</span>
       <span class="cat"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 10.2 3 3.6l5.6 2.7A11 11 0 0 1 12 5.6c1.2 0 2.3.24 3.4.7L21 3.6l-1.2 6.6c.14.6.2 1.2.2 1.8a8 8 0 1 1-16 0c0-.6.06-1.2.2-1.8Z" fill="currentColor"/><circle cx="9" cy="12.4" r="1.15" fill="#f4f1ea"/><circle cx="15" cy="12.4" r="1.15" fill="#f4f1ea"/></svg></span><br>
-      天野真 — Portfolio｜現役看護学生 × AI活用<br>
+      天野真 — Portfolio｜現役看護学生<br>
       ※Works内の店舗名・サービスは制作サンプル（架空）です。実績数値・評価はCrowdWorks上の実績です。
     </div>
   </footer>
@@ -964,17 +819,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.rv, section.blk, .headerStats, footer.foot').forEach(el => io.observe(el));
 
-  // カウントアップ
-  const cio = new IntersectionObserver(es => {
-    es.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target, to = +el.dataset.to, t0 = performance.now(), dur = 1200;
-      (function tick(t) { const p = Math.min((t - t0) / dur, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); })(t0);
-      cio.unobserve(el);
-    });
-  }, { threshold: 0.6 });
-  document.querySelectorAll('.count').forEach(el => cio.observe(el));
-
   // カスタムカーソル（フレームが慣性追従。Works上では "View" に変形）
   const cursor = document.getElementById('cursor');
   const cursorLabel = document.getElementById('cursorLabel');
@@ -996,197 +840,11 @@
     cursor.style.display = 'none';
   }
 
-  // ===== サウンド（Web Audio APIで生成するアンビエント・パッド。外部音源なし） =====
-  // デフォルトはOFF。再生は必ずユーザーのクリックを起点に開始する。
-  const SoundPad = (() => {
-    let ctx = null, master = null, voices = [], playing = false, chordTimer = null, chordIdx = 0;
-    // 静かなコード進行（Cmaj7 → Am7 → Fmaj7 → G）。
-    // 不協和音の修正（2026-11-05夜）：全声部を87〜247Hzの狭い帯域に寄せた
-    // ルートポジションの近接和声にし、声部同士が交差・大跳躍しないようにした。
-    // 各声部は最大でも5半音以内の stepwise な動きだけ。
-    const CHORDS = [
-      [130.81, 164.81, 196.00, 246.94], // Cmaj7: C3 E3 G3 B3
-      [110.00, 130.81, 164.81, 196.00], // Am7:  A2 C3 E3 G3
-      [87.31, 110.00, 130.81, 164.81],  // Fmaj7: F2 A2 C3 E3
-      [98.00, 123.47, 146.83, 196.00]   // G:     G2 B2 D3 G3
-    ];
-    const toggleBtn = document.getElementById('soundToggle');
-    const toggleLabel = document.getElementById('soundToggleLabel');
-    function updateUI() {
-      if (toggleLabel) toggleLabel.textContent = playing ? 'Sound On' : 'Sound Off';
-      if (toggleBtn) toggleBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
-    }
-    function build() {
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (!AC) return false;
-      ctx = new AC();
-      master = ctx.createGain();
-      master.gain.value = 0;
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass'; filter.frequency.value = 600; filter.Q.value = 0.4;
-      master.connect(filter); filter.connect(ctx.destination);
-      CHORDS[0].forEach((f, i) => {
-        // 正弦波のみ。三角波＋デチューン（+5セント）の重ねはうなりの原因だったため廃止。
-        const o1 = ctx.createOscillator(); o1.type = 'sine'; o1.frequency.value = f;
-        const g = ctx.createGain(); g.gain.value = 0.30 / (i * 0.7 + 1);
-        const lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = 0.03 + i * 0.01;
-        const lfoG = ctx.createGain(); lfoG.gain.value = 0.05;
-        lfo.connect(lfoG); lfoG.connect(g.gain);
-        o1.connect(g); g.connect(master);
-        o1.start(); lfo.start();
-        voices.push({ o1, o2: o1 });
-      });
-      return true;
-    }
-    function setChord(idx) {
-      if (!ctx) return;
-      const t = ctx.currentTime;
-      CHORDS[idx].forEach((f, i) => {
-        voices[i].o1.frequency.setTargetAtTime(f, t, 3.5);
-        voices[i].o2.frequency.setTargetAtTime(f, t, 3.5);
-      });
-    }
-    function start() {
-      if (!ctx && !build()) return;
-      if (ctx.state === 'suspended') ctx.resume();
-      master.gain.cancelScheduledValues(ctx.currentTime);
-      master.gain.setTargetAtTime(0.04, ctx.currentTime, 1.4); // 控えめな音量へゆっくり
-      playing = true;
-      if (!chordTimer) chordTimer = setInterval(() => { chordIdx = (chordIdx + 1) % CHORDS.length; setChord(chordIdx); }, 20000);
-      updateUI();
-    }
-    function stop() {
-      if (ctx) master.gain.setTargetAtTime(0, ctx.currentTime, 0.25); // すぐ消せるよう短めにフェード
-      playing = false;
-      if (chordTimer) { clearInterval(chordTimer); chordTimer = null; }
-      updateUI();
-    }
-    // タブが隠れたら自動で止める（鳴らしっぱなし防止）
-    document.addEventListener('visibilitychange', () => {
-      if (!ctx) return;
-      if (document.hidden) { if (playing) ctx.suspend(); }
-      else if (playing && ctx.state === 'suspended') ctx.resume();
-    });
-    return { start, stop, toggle: () => (playing ? stop() : start()), isPlaying: () => playing };
-  })();
-
-  // 入場時のサウンド選択オーバーレイ
-  const soundSelect = document.getElementById('soundSelect');
-  function closeSoundSelect() { if (soundSelect) soundSelect.classList.add('is-hidden'); }
-  function chooseSound(on) {
-    try { sessionStorage.setItem('amano-sound-choice', on ? 'on' : 'off'); } catch (e) {}
-    if (on) SoundPad.start();
-    closeSoundSelect();
-  }
-  const onBtn = document.getElementById('soundOnBtn');
-  const offBtn = document.getElementById('soundOffBtn');
-  const closeBtn = document.getElementById('soundCloseBtn');
-  if (onBtn) onBtn.addEventListener('click', () => chooseSound(true));
-  if (offBtn) offBtn.addEventListener('click', () => chooseSound(false));
-  if (closeBtn) closeBtn.addEventListener('click', () => chooseSound(false));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && soundSelect && !soundSelect.classList.contains('is-hidden')) chooseSound(false);
-  });
-  // 同一タブ内では一度選んだら再表示しない（音の自動開始はしない）
-  try {
-    if (sessionStorage.getItem('amano-sound-choice')) closeSoundSelect();
-  } catch (e) {}
-  // メニューバーのトグル（いつでも即ON/OFF）
-  const soundToggleBtn = document.getElementById('soundToggle');
-  if (soundToggleBtn) soundToggleBtn.addEventListener('click', () => SoundPad.toggle());
-
   // プレースホルダリンク（note）は遷移させない
   document.querySelectorAll('a[data-link-status="placeholder"]').forEach(a => {
     a.addEventListener('click', e => { e.preventDefault(); });
   });
 
-  // ============================================================
-  // お問い合わせフォーム（試作版：クライアント側のみで完結）
-  // 【接続ポイント】公開時に実送信を有効化する場合：
-  //   1) 下の CONTACT_FORM_ENDPOINT に、フォーム受付サービス
-  //      （Formspree / Googleフォーム連携 / 自前API 等）の
-  //      エンドポイントURLを設定する
-  //   2) submit ハンドラ内の「実送信」ブロックのコメントを外す
-  // 現状はエンドポイント未設定のため、実際の送信は行わず、
-  // 入力チェック → 完了表示＋入力内容の要約表示のみを行う。
-  // ============================================================
-  const CONTACT_FORM_ENDPOINT = ''; // 未定（例: 'https://formspree.io/f/xxxxxxxx'）
-  const cform = document.getElementById('contactForm');
-  const formDone = document.getElementById('formDone');
-  const formSummary = document.getElementById('formSummary');
-  if (cform && formDone && formSummary) {
-    const cfFields = {
-      name: document.getElementById('cfName'),
-      email: document.getElementById('cfEmail'),
-      type: document.getElementById('cfType'),
-      message: document.getElementById('cfMessage')
-    };
-    const cfEmailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    function cfSetInvalid(input, invalid) {
-      const wrap = input.closest('.ffield');
-      if (wrap) wrap.classList.toggle('is-invalid', invalid);
-      input.setAttribute('aria-invalid', invalid ? 'true' : 'false');
-      return !invalid;
-    }
-    function cfValidate() {
-      let ok = true, firstBad = null;
-      if (!cfSetInvalid(cfFields.name, !cfFields.name.value.trim())) { ok = false; firstBad = firstBad || cfFields.name; }
-      if (!cfSetInvalid(cfFields.email, !cfEmailRe.test(cfFields.email.value.trim()))) { ok = false; firstBad = firstBad || cfFields.email; }
-      if (!cfSetInvalid(cfFields.message, !cfFields.message.value.trim())) { ok = false; firstBad = firstBad || cfFields.message; }
-      if (firstBad) firstBad.focus();
-      return ok;
-    }
-    // 入力し直したらエラー表示を消す
-    [cfFields.name, cfFields.email, cfFields.message].forEach(el => {
-      el.addEventListener('input', () => cfSetInvalid(el, false));
-    });
-    function cfAddSummaryRow(label, value) {
-      const row = document.createElement('div');
-      row.className = 'srow';
-      const k = document.createElement('div');
-      k.className = 'sk';
-      k.textContent = label;
-      const v = document.createElement('div');
-      v.className = 'sv';
-      v.textContent = value; // textContent で挿入し、HTMLとして解釈させない
-      const ln = document.createElement('span');
-      ln.className = 'line line--bottom';
-      row.append(k, v, ln);
-      formSummary.appendChild(row);
-    }
-    cform.addEventListener('submit', async e => {
-      e.preventDefault();
-      if (!cfValidate()) return;
-      const data = {
-        name: cfFields.name.value.trim(),
-        email: cfFields.email.value.trim(),
-        type: cfFields.type.value,
-        message: cfFields.message.value.trim()
-      };
-      // 【実送信】公開時に有効化する場合は、以下のコメントを外す：
-      // if (CONTACT_FORM_ENDPOINT) {
-      //   await fetch(CONTACT_FORM_ENDPOINT, {
-      //     method: 'POST',
-      //     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      //     body: JSON.stringify(data)
-      //   });
-      // }
-      formSummary.textContent = '';
-      cfAddSummaryRow('お名前', data.name);
-      cfAddSummaryRow('返信先メールアドレス', data.email);
-      cfAddSummaryRow('種別', data.type);
-      cfAddSummaryRow('お問い合わせ内容', data.message);
-      cform.hidden = true;
-      formDone.hidden = false;
-      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      formDone.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
-    });
-    const formBackBtn = document.getElementById('formBackBtn');
-    if (formBackBtn) formBackBtn.addEventListener('click', () => {
-      formDone.hidden = true;
-      cform.hidden = false;
-    });
-  }
 </script>
 <script>
   // ============================================================
@@ -1200,8 +858,8 @@
   //   現在位置 currentY を lerp（係数 0.115）で追従させて
   //   window.scrollTo する仮想スクロール。
   //   レイアウト自体は通常フローのままなので、既存の
-  //   IntersectionObserver リビール／カウントアップ／霧／
-  //   フォーム／カスタムカーソルはそのまま共存する。
+  //   IntersectionObserver リビール／霧／
+  //   カスタムカーソルはそのまま共存する。
   //   スクロールバーのドラッグ・キーボード操作・scrollIntoView 等、
   //   自分以外が起こしたスクロールは scroll イベントで検知して
   //   targetY/currentY を即同期し、奪い合わない。
@@ -1240,11 +898,8 @@
     const EASE = 0.115;
 
     // --- ホイール入力を目標位置へ蓄積 ---
-    const soundSelect = document.getElementById('soundSelect');
     addEventListener('wheel', e => {
       if (e.ctrlKey) return; // ピンチズーム等はブラウザに任せる
-      // サウンド選択オーバーレイ表示中は背面をスクロールさせない
-      if (soundSelect && !soundSelect.classList.contains('is-hidden')) { e.preventDefault(); return; }
       // フォーム入力要素上のホイールは要素側（textarea等）に任せる
       if (e.target && e.target.closest && e.target.closest('input, textarea, select, [contenteditable="true"]')) return;
       e.preventDefault();
