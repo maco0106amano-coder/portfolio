@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>カラダ整え堂｜福岡・博多の整骨院 肩こり・腰痛・姿勢改善</title>
+<meta name="description" content="福岡・博多の整骨院「カラダ整え堂」。肩こり・腰痛・姿勢改善が専門。国家資格者（柔道整復師）が施術。初回体験価格 2,980円。">
+<style>
+:root{
+  --green-900:#0b2e22;
+  --green-800:#0f3d2e;
+  --green-700:#14543e;
+  --green-600:#1c6e52;
+  --green-100:#e3f0ea;
+  --green-50:#f3f9f6;
+  --ink:#1d1d1f;
+  --muted:#6e6e73;
+  --line:#e5e5ea;
+  --bg:#ffffff;
+  --radius:24px;
+  --header-h:64px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.8;letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+section[id]{scroll-margin-top:var(--header-h)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.section{padding:clamp(88px,14vw,160px) 0}
+.section.tint{background:var(--green-50)}
+.eyebrow{font-size:.85rem;font-weight:700;color:var(--green-600);letter-spacing:.18em;margin-bottom:16px}
+h2{font-size:clamp(2rem,5.6vw,3.6rem);line-height:1.25;font-weight:800;letter-spacing:-.01em;margin-bottom:20px}
+.lead{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:640px}
+.sec-head{margin-bottom:clamp(40px,7vw,72px)}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* header */
+header{
+  position:fixed;inset:0 0 auto 0;height:var(--header-h);z-index:50;
+  background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:800;font-size:1.05rem;color:var(--green-800);white-space:nowrap}
+.logo span{color:var(--green-600)}
+.nav ul{display:flex;gap:26px;list-style:none;font-size:.85rem;color:#3a3a3c}
+.nav ul a:hover{color:var(--green-600)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--green-700);color:#fff;font-weight:700;border:0;cursor:pointer;
+  padding:14px 28px;border-radius:999px;font-size:1rem;font-family:inherit;
+  transition:transform .25s,background .25s,box-shadow .25s;
+}
+.btn:hover{background:var(--green-600);transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,84,62,.28)}
+.btn.sm{padding:9px 18px;font-size:.85rem}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.btn.ghost:hover{background:rgba(255,255,255,.12);box-shadow:none}
+.btn.light{background:#fff;color:var(--green-800)}
+.btn.light:hover{background:var(--green-100)}
+.menu-btn{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.menu-btn span,.menu-btn span::before{content:"";position:absolute;left:11px;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s}
+.menu-btn span{top:21px}.menu-btn span::before{left:0;top:-7px}
+.menu-btn[aria-expanded="true"] span{transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(7px) rotate(-90deg)}
+
+/* hero */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;color:#fff;
+  padding:calc(var(--header-h) + 48px) 0 72px;overflow:hidden;
+  background:linear-gradient(120deg,#0b2e22,#14543e,#1c8a65,#0f3d2e,#2a9d78);
+  background-size:300% 300%;animation:grad 16s ease infinite;
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;pointer-events:none;
+}
+.hero::before{width:480px;height:480px;background:#5fd1a5;top:-120px;right:-100px;animation:float 14s ease-in-out infinite}
+.hero::after{width:380px;height:380px;background:#0e6b4a;bottom:-140px;left:-80px;animation:float 18s ease-in-out infinite reverse}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,50px)}}
+.hero .wrap{position:relative;z-index:1}
+.badge{display:inline-block;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1);padding:6px 16px;border-radius:999px;font-size:.85rem;margin-bottom:28px}
+.hero h1{font-size:clamp(2.6rem,9vw,6.4rem);line-height:1.12;font-weight:800;letter-spacing:-.02em;margin-bottom:28px}
+.hero h1 em{font-style:normal;color:#9ff0cd}
+.hero p.sub{font-size:clamp(1rem,2.2vw,1.35rem);max-width:600px;color:rgba(255,255,255,.88);margin-bottom:40px}
+.offer{
+  display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(10px);
+  padding:18px 28px;border-radius:20px;margin-bottom:36px;
+}
+.offer small{font-size:.9rem;opacity:.9}
+.offer b{font-size:clamp(2rem,5vw,3rem);line-height:1}
+.offer s{opacity:.65}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+
+/* stats */
+.stats{background:#fff;border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:56px 0;text-align:center}
+.stat b{display:block;font-size:clamp(2.2rem,6vw,4rem);font-weight:800;color:var(--green-700);line-height:1.1}
+.stat b i{font-style:normal;font-size:.45em;margin-left:2px}
+.stat span{font-size:.9rem;color:var(--muted)}
+
+/* marquee */
+.marquee{background:var(--green-900);color:#cfeadd;overflow:hidden;padding:20px 0;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:marq 32s linear infinite}
+.marquee-track span{font-size:clamp(1.1rem,3vw,1.7rem);font-weight:700;padding:0 28px}
+.marquee-track span::after{content:"●";color:#4fbf93;font-size:.5em;margin-left:56px;vertical-align:middle}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* cards */
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border-radius:var(--radius);padding:36px 30px;border:1px solid var(--line);transition:transform .35s,box-shadow .35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,46,34,.1)}
+.tint .card{border-color:transparent}
+.card .ico{width:52px;height:52px;border-radius:16px;background:var(--green-100);color:var(--green-700);display:grid;place-items:center;font-size:1.5rem;margin-bottom:20px}
+.card h3{font-size:1.25rem;line-height:1.5;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.95rem}
+.worry{display:flex;gap:16px;align-items:flex-start;padding:26px 28px}
+.worry .chk{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green-700);color:#fff;display:grid;place-items:center;font-size:.9rem;margin-top:2px}
+.worry p{color:var(--ink);font-size:1.05rem;font-weight:600}
+.reason .num{font-size:3.4rem;font-weight:800;color:var(--green-100);line-height:1;margin-bottom:8px}
+.menu-card .tag{display:inline-block;font-size:.75rem;font-weight:700;color:var(--green-700);background:var(--green-100);padding:3px 12px;border-radius:999px;margin-bottom:14px}
+.menu-card .time{margin-top:16px;font-weight:700;color:var(--green-700);font-size:.9rem}
+
+/* price */
+.price-box{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;align-items:stretch}
+.price-main{background:linear-gradient(140deg,var(--green-900),var(--green-700));color:#fff;border-radius:32px;padding:clamp(36px,6vw,64px);position:relative;overflow:hidden}
+.price-main .flag{display:inline-block;background:#9ff0cd;color:var(--green-900);font-weight:800;font-size:.8rem;padding:4px 14px;border-radius:999px;margin-bottom:20px}
+.price-main h3{font-size:1.3rem;margin-bottom:6px}
+.price-main .yen{font-size:clamp(3.4rem,10vw,6rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+.price-main .yen small{font-size:.3em;font-weight:700;margin-left:4px}
+.price-main .was{opacity:.7;margin:6px 0 24px}
+.price-main ul{list-style:none;margin:0 0 30px;font-size:.95rem}
+.price-main li{padding-left:26px;position:relative;margin-bottom:6px}
+.price-main li::before{content:"✓";position:absolute;left:0;color:#9ff0cd;font-weight:800}
+.price-list{background:#fff;border:1px solid var(--line);border-radius:32px;padding:clamp(28px,4vw,44px)}
+.price-list h3{margin-bottom:18px;font-size:1.2rem}
+.price-list dl>div{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.price-list dt{font-weight:600}
+.price-list dd{font-weight:800;color:var(--green-700);white-space:nowrap}
+.note{font-size:.8rem;color:var(--muted);margin-top:14px}
+
+/* flow */
+.flow{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{position:relative;padding-top:20px}
+.step::before{counter-increment:s;content:"0" counter(s);display:block;font-size:3.4rem;font-weight:800;color:var(--green-600);line-height:1;margin-bottom:14px}
+.step::after{content:"";position:absolute;top:44px;left:78px;right:-10px;height:2px;background:linear-gradient(90deg,var(--green-600),transparent)}
+.step:last-child::after{display:none}
+.step h3{font-size:1.15rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.92rem}
+
+/* access */
+.access{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.map{border-radius:var(--radius);min-height:340px;position:relative;overflow:hidden;
+  background:
+   linear-gradient(90deg,transparent 48%,#fff 48%,#fff 52%,transparent 52%),
+   linear-gradient(0deg,transparent 58%,#fff 58%,#fff 63%,transparent 63%),
+   linear-gradient(35deg,transparent 40%,#d4e8de 40%,#d4e8de 43%,transparent 43%),
+   var(--green-100);
+  display:grid;place-items:center}
+.pin{background:var(--green-700);color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;box-shadow:0 10px 24px rgba(11,46,34,.3);position:relative}
+.pin::after{content:"";position:absolute;left:50%;bottom:-8px;width:16px;height:16px;background:var(--green-700);transform:translateX(-50%) rotate(45deg);border-radius:3px}
+.map small{position:absolute;right:14px;bottom:10px;color:var(--green-800);opacity:.7;font-size:.75rem}
+.info{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(28px,4vw,44px)}
+.info dl>div{padding:14px 0;border-bottom:1px solid var(--line)}
+.info dl>div:last-child{border:0}
+.info dt{font-size:.8rem;color:var(--green-600);font-weight:700}
+.info dd{font-size:1rem}
+.info .tel{font-size:1.6rem;font-weight:800;color:var(--green-800)}
+
+/* form */
+.form-card{max-width:720px;margin:0 auto;background:#fff;border-radius:32px;padding:clamp(28px,5vw,56px);box-shadow:0 20px 60px rgba(11,46,34,.1)}
+.field{margin-bottom:22px}
+.field label,.field legend{display:block;font-weight:700;font-size:.9rem;margin-bottom:8px}
+.req{color:#c0392b;font-size:.75rem;margin-left:6px}
+input[type=text],input[type=tel],input[type=email],input[type=date],select,textarea{
+  width:100%;font:inherit;font-size:1rem;padding:14px 16px;border:1.5px solid var(--line);border-radius:14px;background:#fafafa;color:var(--ink);transition:border-color .2s,box-shadow .2s,background .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green-600);background:#fff;box-shadow:0 0 0 4px rgba(28,110,82,.15)}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+fieldset{border:0}
+.checks{display:flex;flex-wrap:wrap;gap:10px}
+.checks label{display:inline-flex;align-items:center;gap:8px;font-weight:500;margin:0;padding:10px 16px;border:1.5px solid var(--line);border-radius:999px;cursor:pointer;font-size:.9rem}
+.checks label:has(input:checked){border-color:var(--green-600);background:var(--green-100)}
+.checks input{accent-color:var(--green-700)}
+.form-card .btn{width:100%;padding:18px;font-size:1.1rem}
+.fine{font-size:.8rem;color:var(--muted);text-align:center;margin-top:14px}
+.done{display:none;text-align:center;padding:30px 0}
+.done.show{display:block;animation:pop .6s cubic-bezier(.2,.9,.3,1.2)}
+.done .ok{width:84px;height:84px;border-radius:50%;background:var(--green-700);color:#fff;font-size:2.6rem;display:grid;place-items:center;margin:0 auto 24px}
+.done h3{font-size:1.7rem;margin-bottom:12px}
+.done p{color:var(--muted)}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+
+/* faq */
+.faq{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;font:inherit;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:700;color:var(--ink)}
+.faq-q::after{content:"+";flex:none;width:36px;height:36px;border-radius:50%;background:var(--green-100);color:var(--green-700);display:grid;place-items:center;font-size:1.4rem;transition:transform .35s,background .35s,color .35s}
+.faq-q[aria-expanded="true"]::after{transform:rotate(45deg);background:var(--green-700);color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.faq-q[aria-expanded="true"]+.faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 56px 26px 0;color:var(--muted)}
+
+/* footer */
+footer{background:var(--green-900);color:#b9d4c8;padding:64px 0 40px;font-size:.9rem}
+footer .logo{color:#fff;font-size:1.3rem;display:block;margin-bottom:12px}
+footer .sample{display:inline-block;margin-top:24px;padding:10px 18px;border:1px dashed #6fb89a;border-radius:12px;color:#fff;font-weight:700}
+footer small{display:block;margin-top:28px;opacity:.6}
+
+/* mobile sticky cta */
+.sticky-cta{display:none}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:900px){
+  .nav ul{
+    position:fixed;top:var(--header-h);left:0;right:0;flex-direction:column;gap:0;background:rgba(255,255,255,.97);
+    padding:8px 24px 20px;border-bottom:1px solid var(--line);
+    transform:translateY(-130%);transition:transform .4s;font-size:1rem;max-height:calc(100svh - var(--header-h));overflow:auto}
+  .nav ul.open{transform:none}
+  .nav ul li a{display:block;padding:15px 0;border-bottom:1px solid var(--line)}
+  .menu-btn{display:block}
+  .nav .btn.sm{display:none}
+  .nav-right{margin-left:auto}
+  .g3{grid-template-columns:1fr}
+  .g2,.price-box,.access{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr 1fr;gap:36px 20px}
+  .step::after{display:none}
+  .sticky-cta{display:block;position:fixed;left:16px;right:16px;bottom:max(12px,env(safe-area-inset-bottom));z-index:40}
+  .sticky-cta .btn{width:100%;box-shadow:0 10px 30px rgba(11,46,34,.35)}
+  footer{padding-bottom:100px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .row2{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .stats-grid{gap:8px}
+  .faq-a p{padding-right:0}
+  .cta-row .btn{width:100%}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+  .marquee{overflow-x:auto}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">カラダ<span>整え堂</span></a>
+    <ul id="gnav">
+      <li><a href="#worries">お悩み</a></li>
+      <li><a href="#reasons">選ばれる理由</a></li>
+      <li><a href="#menu">施術メニュー</a></li>
+      <li><a href="#price">料金</a></li>
+      <li><a href="#flow">来院の流れ</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="#reserve">予約</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right" style="display:flex;align-items:center;gap:8px">
+      <a href="#reserve" class="btn sm">初回体験を予約</a>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="wrap">
+    <span class="badge reveal">福岡・博多駅 徒歩4分｜柔道整復師が施術</span>
+    <h1 class="reveal" style="--d:.1s">その不調、<br><em>根本から</em>整える。</h1>
+    <p class="sub reveal" style="--d:.2s">肩こり・腰痛・姿勢改善の専門整骨院。国家資格者が、一人ひとりの身体の状態を丁寧に見極め、つらさの原因にアプローチします。</p>
+    <div class="offer reveal" style="--d:.3s">
+      <small>初回体験価格</small>
+      <b>2,980<span style="font-size:.4em">円</span></b>
+      <small><s>通常 6,500円</s>（税込・約50分）</small>
+    </div>
+    <div class="cta-row reveal" style="--d:.4s">
+      <a href="#reserve" class="btn light">初回体験を予約する</a>
+      <a href="#menu" class="btn ghost">施術メニューを見る</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><b><span data-count="12800">12,800</span><i>人</i></b><span>累計来院者数</span></div>
+    <div class="stat reveal" style="--d:.1s"><b><span data-count="98.2" data-dec="1">98.2</span><i>%</i></b><span>患者満足度</span></div>
+    <div class="stat reveal" style="--d:.2s"><b><span data-count="15">15</span><i>年</i></b><span>施術経験</span></div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>肩こり</span><span>腰痛</span><span>姿勢改善</span><span>骨盤矯正</span><span>首の痛み</span><span>頭痛</span><span>猫背</span><span>産後ケア</span>
+    <span>肩こり</span><span>腰痛</span><span>姿勢改善</span><span>骨盤矯正</span><span>首の痛み</span><span>頭痛</span><span>猫背</span><span>産後ケア</span>
+  </div>
+</div>
+
+<section class="section" id="worries">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">WORRIES</p><h2>こんなお悩み、<br>ありませんか？</h2><p class="lead">一つでも当てはまるなら、身体からのサインかもしれません。</p></div>
+    <div class="grid g3">
+      <div class="card worry reveal"><span class="chk">✓</span><p>デスクワークで肩や首がいつもガチガチ</p></div>
+      <div class="card worry reveal" style="--d:.08s"><span class="chk">✓</span><p>朝起きると腰が重く、立ち上がるのがつらい</p></div>
+      <div class="card worry reveal" style="--d:.16s"><span class="chk">✓</span><p>マッサージに通ってもすぐ元に戻ってしまう</p></div>
+      <div class="card worry reveal"><span class="chk">✓</span><p>猫背や巻き肩が気になり、見た目も悩み</p></div>
+      <div class="card worry reveal" style="--d:.08s"><span class="chk">✓</span><p>肩こりからくる頭痛や目の疲れがある</p></div>
+      <div class="card worry reveal" style="--d:.16s"><span class="chk">✓</span><p>どこに相談すればよいか分からない</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="reasons">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">REASONS</p><h2>選ばれる、<br>3つの理由。</h2><p class="lead">「その場しのぎ」ではなく「繰り返さない身体」を目指します。</p></div>
+    <div class="grid g3">
+      <div class="card reason reveal"><div class="num">01</div><h3>国家資格者が全施術を担当</h3><p>柔道整復師の資格を持つ施術者が、初回から最後まで責任をもって担当。経験の浅いスタッフに任せきりにしません。</p></div>
+      <div class="card reason reveal" style="--d:.1s"><div class="num">02</div><h3>原因を見極める丁寧な検査</h3><p>痛む場所だけでなく、姿勢・骨格・動作のクセまで確認。つらさの根本原因を分かりやすくご説明します。</p></div>
+      <div class="card reason reveal" style="--d:.2s"><div class="num">03</div><h3>再発させない通院プラン</h3><p>無理な回数のお約束はなし。状態に合わせた最小限のプランと、ご自宅でできるセルフケアまでサポートします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">MENU</p><h2>施術メニュー</h2><p class="lead">お悩みに合わせて、手技を中心に最適な施術を組み合わせます。</p></div>
+    <div class="grid g2">
+      <div class="card menu-card reveal"><span class="tag">専門</span><h3>肩こり・首こり集中ケア</h3><p>筋肉の深部の緊張をゆるめ、肩甲骨まわりの動きを改善。つらい肩こりを根本から和らげます。</p><p class="time">所要時間 約40分</p></div>
+      <div class="card menu-card reveal" style="--d:.08s"><span class="tag">専門</span><h3>腰痛・骨盤バランス調整</h3><p>骨盤と背骨のバランスを整え、腰への負担を軽減。慢性的な腰痛・坐骨神経痛の悩みにも対応します。</p><p class="time">所要時間 約40分</p></div>
+      <div class="card menu-card reveal"><span class="tag">専門</span><h3>姿勢改善プログラム</h3><p>猫背・巻き肩・反り腰を測定し、施術とエクササイズで正しい姿勢をつくります。</p><p class="time">所要時間 約50分</p></div>
+      <div class="card menu-card reveal" style="--d:.08s"><span class="tag">オプション</span><h3>産後骨盤ケア・ストレッチ</h3><p>出産後の骨盤のゆがみや疲れをやさしくケア。お子さま連れでもご来院いただけます。</p><p class="time">所要時間 約30分</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="price">
+  <div class="wrap">
+    <div class="sec-head reveal center"><p class="eyebrow">PRICE</p><h2>わかりやすい料金。</h2><p class="lead">初めての方は、特別価格の初回体験からどうぞ。</p></div>
+    <div class="price-box">
+      <div class="price-main reveal">
+        <span class="flag">初回限定</span>
+        <h3>初回体験コース</h3>
+        <div class="yen">2,980<small>円（税込）</small></div>
+        <p class="was">通常 6,500円 → <strong>54%OFF</strong></p>
+        <ul><li>問診・姿勢チェック（約15分）</li><li>手技による施術（約30分）</li><li>セルフケアのアドバイス付き</li><li>無理な勧誘は一切ありません</li></ul>
+        <a href="#reserve" class="btn light">この価格で予約する</a>
+      </div>
+      <div class="price-list reveal" style="--d:.12s">
+        <h3>2回目以降の料金（税込）</h3>
+        <dl>
+          <div><dt>通常施術（約30分）</dt><dd>4,500円</dd></div>
+          <div><dt>集中ケア（約50分）</dt><dd>6,500円</dd></div>
+          <div><dt>姿勢改善プログラム</dt><dd>7,800円</dd></div>
+          <div><dt>産後骨盤ケア</dt><dd>5,500円</dd></div>
+        </dl>
+        <p class="note">※料金は架空のサンプルです。回数券・保険適用の有無は施術内容により異なります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="flow">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">FLOW</p><h2>ご来院の流れ</h2><p class="lead">初めての方も安心。所要時間はおよそ50分です。</p></div>
+    <div class="flow">
+      <div class="step reveal"><h3>ご予約</h3><p>フォームまたはお電話でご希望日時をお知らせください。</p></div>
+      <div class="step reveal" style="--d:.1s"><h3>問診・検査</h3><p>お悩みを伺い、姿勢や動きをチェックして原因を探ります。</p></div>
+      <div class="step reveal" style="--d:.2s"><h3>施術</h3><p>状態に合わせた手技で、身体のバランスを整えます。</p></div>
+      <div class="step reveal" style="--d:.3s"><h3>ご説明・次回のご案内</h3><p>結果とセルフケアをお伝えし、必要な通院プランをご提案します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="access">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">ACCESS</p><h2>アクセス</h2><p class="lead">博多駅から徒歩約4分。お仕事帰りにも立ち寄りやすい立地です。</p></div>
+    <div class="access">
+      <div class="map reveal" role="img" aria-label="店舗位置のイメージ図"><div class="pin">カラダ整え堂</div><small>※イメージ図（架空の地図）</small></div>
+      <div class="info reveal" style="--d:.1s">
+        <dl>
+          <div><dt>住所</dt><dd>福岡県福岡市博多区博多駅前0-0-0 サンプルビル2F（架空）</dd></div>
+          <div><dt>電話</dt><dd class="tel">092-000-0000</dd></div>
+          <div><dt>営業時間</dt><dd>平日 9:00–20:00 ／ 土 9:00–17:00</dd></div>
+          <div><dt>定休日</dt><dd>日曜・祝日</dd></div>
+          <div><dt>アクセス</dt><dd>JR博多駅 筑紫口より徒歩約4分</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reserve">
+  <div class="wrap">
+    <div class="sec-head reveal center"><p class="eyebrow">RESERVE</p><h2>初回体験のご予約</h2><p class="lead">2,980円の初回体験をご希望の方は、下記フォームからどうぞ。</p></div>
+    <div class="form-card reveal">
+      <form id="form" novalidate>
+        <div class="field"><label for="name">お名前<span class="req">必須</span></label><input type="text" id="name" name="name" autocomplete="name" required placeholder="例）博多 太郎"></div>
+        <div class="row2">
+          <div class="field"><label for="tel">電話番号<span class="req">必須</span></label><input type="tel" id="tel" name="tel" autocomplete="tel" required placeholder="例）090-0000-0000"></div>
+          <div class="field"><label for="mail">メールアドレス</label><input type="email" id="mail" name="mail" autocomplete="email" placeholder="example@example.com"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="date">希望日<span class="req">必須</span></label><input type="date" id="date" name="date" required></div>
+          <div class="field"><label for="time">希望時間帯</label><select id="time" name="time"><option>午前（9–12時）</option><option>午後（12–17時）</option><option>夕方以降（17時–）</option></select></div>
+        </div>
+        <fieldset class="field"><legend>お悩み（複数選択可）</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="w" value="肩こり">肩こり</label>
+            <label><input type="checkbox" name="w" value="腰痛">腰痛</label>
+            <label><input type="checkbox" name="w" value="姿勢">姿勢改善</label>
+            <label><input type="checkbox" name="w" value="その他">その他</label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="msg">ご要望・症状など</label><textarea id="msg" name="msg" placeholder="気になる症状やご質問があればご記入ください"></textarea></div>
+        <button type="submit" class="btn">初回体験を予約する（デモ）</button>
+        <p class="fine">※デモ用フォームです。入力内容は送信・保存されません。</p>
+      </form>
+      <div class="done" id="done" role="status" aria-live="polite">
+        <div class="ok">✓</div>
+        <h3>ご予約を受け付けました（デモ）</h3>
+        <p>これは制作サンプルのため、実際の送信は行われていません。<br>本番では、確認メールまたはお電話にてご連絡いたします。</p>
+        <button type="button" class="btn" id="again" style="width:auto;margin-top:28px;padding:14px 32px;font-size:1rem">フォームに戻る</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal center"><p class="eyebrow">FAQ</p><h2>よくあるご質問</h2></div>
+    <div class="faq reveal">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="a1" id="q1">初回体験では何をしますか？</button><div class="faq-a" id="a1" role="region" aria-labelledby="q1"><div><p>問診と姿勢チェックのあと、お身体の状態に合わせた手技の施術を行います。最後に原因とセルフケアをご説明します。</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="a2" id="q2">無理な勧誘や回数券の販売はありますか？</button><div class="faq-a" id="a2" role="region" aria-labelledby="q2"><div><p>無理な勧誘は行いません。必要な通院ペースをご提案するのみで、ご納得のうえでお決めいただけます。</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="a3" id="q3">服装は何を着ていけばよいですか？</button><div class="faq-a" id="a3" role="region" aria-labelledby="q3"><div><p>動きやすい服装でお越しください。ご希望の方には施術着の貸し出しもあります。</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="a4" id="q4">当日の予約や変更はできますか？</button><div class="faq-a" id="a4" role="region" aria-labelledby="q4"><div><p>空きがあれば当日のご予約も可能です。変更・キャンセルは前日までにお電話でご連絡いただけるとスムーズです。</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="a5" id="q5">子ども連れでも通えますか？</button><div class="faq-a" id="a5" role="region" aria-labelledby="q5"><div><p>はい、お子さま連れも歓迎です。キッズスペースを用意しておりますので、お気軽にご相談ください。</p></div></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo">カラダ整え堂</a>
+    <p>福岡・博多の整骨院｜肩こり・腰痛・姿勢改善</p>
+    <p>TEL 092-000-0000（架空の番号）</p>
+    <span class="sample">※これは制作サンプルです</span>
+    <small>実在の店舗・団体・個人とは一切関係ありません。© Karada Totonoedo (sample)</small>
+  </div>
+</footer>
+
+<div class="sticky-cta"><a href="#reserve" class="btn">初回体験 2,980円で予約する</a></div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // mobile menu
+  var btn = document.getElementById('menuBtn'), nav = document.getElementById('gnav');
+  function closeMenu(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(){
+    var o = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', o);
+  });
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')closeMenu();});
+
+  // reveal
+  var revs = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    revs.forEach(function(el){el.classList.add('in')});
+  }else{
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    revs.forEach(function(el){io.observe(el)});
+  }
+
+  // count up
+  function fmt(v,dec){return v.toLocaleString('ja-JP',{minimumFractionDigits:dec,maximumFractionDigits:dec});}
+  var counters = document.querySelectorAll('[data-count]');
+  function run(el){
+    var end = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec||0,10), dur = 1800, t0 = null;
+    function tick(t){
+      if(t0===null)t0=t;
+      var p = Math.min((t-t0)/dur,1), eased = 1-Math.pow(1-p,3);
+      el.textContent = fmt(end*eased,dec);
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if(!reduce && 'IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){run(e.target);cio.unobserve(e.target);}});
+    },{threshold:.6});
+    counters.forEach(function(el){el.textContent=fmt(0,parseInt(el.dataset.dec||0,10));cio.observe(el)});
+  }
+
+  // FAQ accordion
+  var qs = document.querySelectorAll('.faq-q');
+  qs.forEach(function(q){
+    q.addEventListener('click',function(){
+      var open = q.getAttribute('aria-expanded')==='true';
+      qs.forEach(function(o){o.setAttribute('aria-expanded','false')});
+      q.setAttribute('aria-expanded', String(!open));
+    });
+  });
+
+  // demo form
+  var form = document.getElementById('form'), done = document.getElementById('done');
+  var d = document.getElementById('date');
+  d.min = new Date().toISOString().slice(0,10);
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad = form.querySelector(':required:invalid') || (form.mail.value && !form.mail.checkValidity() ? form.mail : null);
+    if(bad){bad.focus();bad.reportValidity();return;}
+    form.style.display='none';done.classList.add('show');
+    done.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  });
+  document.getElementById('again').addEventListener('click',function(){
+    done.classList.remove('show');form.reset();form.style.display='';
+  });
+})();
+</script>
+</body>
+</html>
