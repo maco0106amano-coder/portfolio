@@ -28,6 +28,9 @@
     --themeColor:#7d97b8;
     --paper:#f4f1ea;
     --paper-deep:#ece8dc;
+    /* 本文用の濃色：テーマカラーを濃くした派生色。テーマ切替に連動し、1色で染める世界観は維持する */
+    --ink:#526276;
+    --ink:color-mix(in srgb, var(--themeColor) 55%, #1d2126);
     --ease-out:cubic-bezier(.19,1,.22,1);
     --ease-line:cubic-bezier(1,0,0,1);
     --ease-snap:cubic-bezier(.76,0,.24,1);
@@ -136,16 +139,26 @@
   /* ヘッダー（indexHeader相当） */
   .indexHeader{position:relative;padding:57px 20px 0}
   .indexHeader__title{font-weight:700;font-size:17px;margin-bottom:23px;line-height:1.25}
-  .indexHeader__titleSub{display:block;font-size:13px;margin-top:13px;font-weight:700}
+  .indexHeader__titleSub{display:block;font-size:14px;margin-top:13px;font-weight:700}
   .indexHeader__lead{margin-top:18px;padding-bottom:16px;max-width:660px}
-  .indexHeader__leadTxt{letter-spacing:.025em;line-height:1.69;font-weight:700;font-size:13px}
+  .indexHeader__leadTxt{letter-spacing:.025em;line-height:1.85;font-weight:700;font-size:15px;color:var(--ink)}
   .indexHeader__leadTxt + .indexHeader__leadTxt{margin-top:10px}
   .headerStats{display:flex;flex-wrap:wrap;margin-top:26px;position:relative}
   .headerStats .hs{position:relative;padding:15px 22px 17px 15px;min-width:170px}
   .headerStats .hs .v{font-family:var(--serif);font-style:italic;font-weight:700;font-size:34px;line-height:1}
   .headerStats .hs .v .unit{font-size:17px;font-style:normal;margin-left:3px}
-  .headerStats .hs .k{font-size:11px;font-weight:700;letter-spacing:.06em;margin-top:8px;line-height:1.5}
+  .headerStats .hs .k{font-size:12px;font-weight:700;letter-spacing:.06em;margin-top:8px;line-height:1.55;color:var(--ink)}
   @media(max-width:799px){.headerStats .hs{min-width:44%;padding-right:12px}}
+
+  /* ライター用ポートフォリオへの導線（トップ・実績の下） */
+  .writerLink{position:relative}
+  .writerLink a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 15px;position:relative;overflow:hidden}
+  .writerLink a::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
+  .writerLink a:hover::after,.writerLink a:focus-visible::after{transform:scaleY(1)}
+  .writerLink__jp{font-size:14.5px;font-weight:700;letter-spacing:.04em;line-height:1.6;position:relative;z-index:2;color:var(--ink);transition:color .3s linear}
+  .writerLink__en{font-family:var(--serif);font-style:italic;font-weight:700;font-size:16px;white-space:nowrap;position:relative;z-index:2;transition:color .3s linear}
+  .writerLink a:hover .writerLink__jp,.writerLink a:hover .writerLink__en,
+  .writerLink a:focus-visible .writerLink__jp,.writerLink a:focus-visible .writerLink__en{color:var(--paper)}
 
   /* KV（indexKV相当：巨大タイポグラフィ4行＋霧） */
   .indexKV{position:relative;margin-top:6px;overflow:hidden}
@@ -158,17 +171,21 @@
   .kv-line--3{font-size:clamp(30px,6.4vw,99px);margin-top:2.2vh}
   .kv-line--4{font-size:clamp(30px,6.4vw,99px);font-style:italic}
   .kv-mask{display:block;overflow:hidden}
-  .kv-note{position:absolute;right:16px;bottom:14px;font-size:11px;font-weight:700;letter-spacing:.14em;text-align:right;line-height:1.9}
+  .kv-note{position:absolute;right:16px;bottom:14px;font-size:12px;font-weight:700;letter-spacing:.14em;text-align:right;line-height:1.9}
   /* 霧レイヤー：カーソル周辺だけ晴れる（pointer:fineのみ） */
-  .kv-fog{position:absolute;inset:0;z-index:6;pointer-events:none;
+  .kv-fog{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.6;
     background:
-      radial-gradient(560px 300px at 18% 26%, rgba(244,241,234,.75), rgba(244,241,234,0) 70%),
-      radial-gradient(680px 360px at 82% 60%, rgba(244,241,234,.68), rgba(244,241,234,0) 70%),
-      radial-gradient(460px 260px at 55% 88%, rgba(244,241,234,.55), rgba(244,241,234,0) 70%),
-      linear-gradient(rgba(244,241,234,.34),rgba(244,241,234,.34));
-    -webkit-mask-image:radial-gradient(circle 240px at var(--mx,50%) var(--my,45%), transparent 0 32%, #000 76%);
-    mask-image:radial-gradient(circle 240px at var(--mx,50%) var(--my,45%), transparent 0 32%, #000 76%)}
+      radial-gradient(560px 300px at 18% 26%, rgba(244,241,234,.42), rgba(244,241,234,0) 70%),
+      radial-gradient(680px 360px at 82% 60%, rgba(244,241,234,.40), rgba(244,241,234,0) 70%),
+      radial-gradient(460px 260px at 55% 88%, rgba(244,241,234,.30), rgba(244,241,234,0) 70%),
+      linear-gradient(rgba(244,241,234,.16),rgba(244,241,234,.16));
+    -webkit-mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,45%), transparent 0 38%, #000 82%);
+    mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,45%), transparent 0 38%, #000 82%)}
   @media(pointer:coarse){.kv-fog{display:none}}
+  /* 本文テキストはテーマ変更に合わせて色も遷移させる */
+  .indexHeader__leadTxt,.scell p,.witem__desc,.witem__cats,.profileStory p,.extras p,
+  .contactLead,.contactNote,.fineprint,.formLead,.foot__desc,.foot__right,
+  .soundSelect__leadLine,.headerStats .hs .k{transition:color .4s linear}
 </style>
 </head>
 <body id="top">
@@ -277,6 +294,13 @@
       <div class="hs"><div class="v">済</div><div class="k">本人確認（CrowdWorks）</div></div>
       <span class="line line--bottom draw-x"></span>
     </div>
+    <div class="writerLink">
+      <a href="writer/">
+        <span class="writerLink__jp">ライター用ポートフォリオ（記事サンプル）はこちら</span>
+        <span class="writerLink__en">Writer Portfolio →</span>
+      </a>
+      <span class="line line--bottom draw-x"></span>
+    </div>
   </header>
 
   <!-- KV：巨大タイポグラフィ -->
@@ -315,7 +339,7 @@
   .scell .stat small{font-size:.38em;font-style:normal;font-weight:700;margin-left:6px}
   .scell .sno{display:block;font-family:var(--serif);font-style:italic;font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--themeColor);margin-bottom:12px;transition:color .4s linear}
   .scell h3{font-size:19px;font-weight:700;line-height:1.4;letter-spacing:.03em}
-  .scell p{margin-top:12px;font-size:13.5px;line-height:1.9;letter-spacing:.025em;font-weight:500}
+  .scell p{margin-top:12px;font-size:15px;line-height:1.95;letter-spacing:.025em;font-weight:500;color:var(--ink)}
   .scell .motto{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;font-weight:600;font-size:clamp(21px,3.4vw,32px);line-height:1.6;letter-spacing:.04em;margin-top:0}
   @media(max-width:799px){.scell{width:100%}}
 
@@ -343,8 +367,8 @@
   .witem__contents{position:relative}
   .witem__info{position:relative;padding:14px 15px 16px;display:flex;gap:18px;align-items:flex-start}
   .witem__no{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:.015em;font-size:21px;white-space:nowrap;transition:opacity .4s linear .1s}
-  .witem__cats{display:flex;flex-direction:column;flex-wrap:wrap;gap:3px;font-size:11.5px;font-weight:700;letter-spacing:.05em;line-height:1.55;min-width:118px}
-  .witem__desc{font-size:12.5px;line-height:1.85;letter-spacing:.025em;font-weight:500;flex:1}
+  .witem__cats{display:flex;flex-direction:column;flex-wrap:wrap;gap:3px;font-size:12.5px;font-weight:700;letter-spacing:.05em;line-height:1.6;min-width:118px;color:var(--ink)}
+  .witem__desc{font-size:14.5px;line-height:1.9;letter-spacing:.025em;font-weight:500;flex:1;color:var(--ink)}
   .witem__foot{display:flex;position:relative}
   .witem__jpname{flex:1;padding:12px 15px;font-size:14.5px;font-weight:700;letter-spacing:.03em;line-height:1.5;position:relative}
   .witem__view{position:relative;flex:none;width:196px;display:flex;align-items:center;justify-content:space-between;padding:12px 15px;overflow:hidden}
@@ -375,39 +399,39 @@
   /* サービス・料金 */
   .priceRow{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:20px 15px}
   .priceRow .n{font-size:16.5px;font-weight:700;letter-spacing:.03em;line-height:1.5}
-  .priceRow .n small{display:block;font-weight:500;color:inherit;opacity:.75;font-size:12.5px;margin-top:4px;line-height:1.65;letter-spacing:.025em}
+  .priceRow .n small{display:block;font-weight:500;color:var(--ink);font-size:13.5px;margin-top:4px;line-height:1.7;letter-spacing:.025em}
   .priceRow .p{font-family:var(--serif);font-style:italic;font-weight:700;font-size:23px;white-space:nowrap}
   .priceRow .p small{font-size:12.5px;font-style:normal;font-weight:700;margin-left:2px}
-  .fineprint{padding:18px 15px 24px;font-size:12px;line-height:1.9;letter-spacing:.025em;font-weight:500}
+  .fineprint{padding:18px 15px 24px;font-size:13px;line-height:1.9;letter-spacing:.025em;font-weight:500;color:var(--ink)}
 
   /* profile巨大リンク（アウトライン文字・hoverで充填） */
   .profileLink{position:relative;height:250px;overflow:hidden;display:block}
-  .profileLink__title{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;padding-left:14px;font-family:var(--serif);font-weight:500;font-size:240px;line-height:1;letter-spacing:0;color:transparent;-webkit-text-stroke:2px var(--themeColor);transform:translateX(var(--plx,0px));transition:color .35s linear,-webkit-text-stroke-color .4s linear,transform .8s var(--ease-out)}
+  .profileLink__title{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;padding-left:14px;font-family:var(--serif);font-weight:500;font-size:240px;line-height:1;letter-spacing:0;color:color-mix(in srgb, var(--themeColor) 16%, transparent);-webkit-text-stroke:3px var(--themeColor);transform:translateX(var(--plx,0px));transition:color .35s linear,-webkit-text-stroke-color .4s linear,transform .8s var(--ease-out)}
   .profileLink:hover .profileLink__title{color:var(--themeColor);-webkit-text-stroke-color:transparent;transform:translateX(calc(var(--plx,0px) + 16px))}
   @media(max-width:799px){.profileLink{height:34vw}.profileLink__title{font-size:26.5vw}}
 
   /* プロフィール本体 */
   .profileGrid{display:flex;flex-wrap:wrap}
   .profileStory{width:55%;padding:26px 26px 30px 20px;position:relative}
-  .profileStory p{font-size:14.5px;line-height:1.95;letter-spacing:.03em;font-weight:500}
+  .profileStory p{font-size:15.5px;line-height:1.95;letter-spacing:.03em;font-weight:500;color:var(--ink)}
   .profileStory p + p{margin-top:18px}
   .facts{width:45%;position:relative}
   .facts .frow{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 15px}
-  .facts .frow .fn{font-weight:700;font-size:12px;letter-spacing:.08em;min-width:64px;flex:none}
-  .facts .frow .fp{font-weight:500;font-size:14px;text-align:right;line-height:1.7;letter-spacing:.025em}
+  .facts .frow .fn{font-weight:700;font-size:12.5px;letter-spacing:.08em;min-width:64px;flex:none}
+  .facts .frow .fp{font-weight:500;font-size:15px;text-align:right;line-height:1.7;letter-spacing:.025em;color:var(--ink)}
   .facts .frow .fp a{text-decoration:underline;text-underline-offset:3px}
   .extras{display:flex;flex-wrap:wrap}
   .extras .ecell{width:50%;position:relative;padding:24px 22px 28px}
   .extras .ecell .line--left{height:100%}
   .extras-h{font-size:13px;font-weight:700;letter-spacing:.14em;margin-bottom:16px}
   .chips{display:flex;flex-wrap:wrap;gap:0}
-  .chip{font-size:12px;font-weight:700;letter-spacing:.04em;padding:6px 12px;border:2px solid var(--themeColor);margin:0 -2px -2px 0;line-height:1.4}
-  .extras p{font-size:13.5px;line-height:1.9;letter-spacing:.025em;font-weight:500}
+  .chip{font-size:12.5px;font-weight:700;letter-spacing:.04em;padding:6px 12px;border:2px solid var(--themeColor);margin:0 -2px -2px 0;line-height:1.4;color:var(--ink)}
+  .extras p{font-size:15px;line-height:1.95;letter-spacing:.025em;font-weight:500;color:var(--ink)}
   /* 愛犬イラスト（切り抜かず、余白込みのフレームで全体を表示する） */
   .dogBlock{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;position:relative;padding:22px 20px 20px;align-items:start}
   .dogBlock figure{border:2px solid var(--themeColor);padding:10px;min-width:0;background:var(--paper)}
   .dogBlock img{display:block;width:100%;height:auto}
-  .dogBlock .dogCap{grid-column:1/-1;font-size:12.5px;font-weight:700;letter-spacing:.1em}
+  .dogBlock .dogCap{grid-column:1/-1;font-size:13px;font-weight:700;letter-spacing:.1em}
   @media(max-width:799px){
     .dogBlock{grid-template-columns:1fr;padding:18px 15px 16px}
   }
@@ -425,29 +449,29 @@
   .marquee__inner{display:inline-flex;width:max-content;animation:mscroll 26s linear infinite;will-change:transform}
   /* スムーズスクロール有効時はCSSアニメーションを止め、JSがスクロール連動で駆動する */
   html.js-smooth .marquee__inner{animation:none}
-  .marquee__txt{font-family:var(--serif);font-weight:500;font-size:clamp(120px,29vw,355px);line-height:1.06;padding-right:.18em;color:transparent;-webkit-text-stroke:2px var(--themeColor);transition:color .35s linear,-webkit-text-stroke-color .4s linear}
+  .marquee__txt{font-family:var(--serif);font-weight:500;font-size:clamp(120px,29vw,355px);line-height:1.06;padding-right:.18em;color:color-mix(in srgb, var(--themeColor) 16%, transparent);-webkit-text-stroke:3px var(--themeColor);transition:color .35s linear,-webkit-text-stroke-color .4s linear}
   .marquee:hover .marquee__txt{color:var(--themeColor);-webkit-text-stroke-color:transparent}
   @keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .contactLead{padding:22px 20px 6px;font-size:13.5px;line-height:1.9;letter-spacing:.03em;font-weight:700;max-width:720px}
-  .contactNote{padding:8px 20px 28px;font-size:12px;line-height:1.9;letter-spacing:.025em;font-weight:500}
+  .contactLead{padding:22px 20px 6px;font-size:15px;line-height:1.9;letter-spacing:.03em;font-weight:700;max-width:720px;color:var(--ink)}
+  .contactNote{padding:8px 20px 28px;font-size:13px;line-height:1.9;letter-spacing:.025em;font-weight:500;color:var(--ink)}
 
   /* お問い合わせフォーム（試作版：クライアント側のみで完結。実送信は未接続） */
   .contactFormWrap{padding:6px 20px 30px;max-width:880px}
   .formTitle{font-size:16px;font-weight:900;letter-spacing:.07em;line-height:1.5}
   .formTitle .en{font-family:var(--serif);font-style:italic;font-weight:700;font-size:13px;letter-spacing:.05em;margin-left:10px}
   .formTo{margin-top:9px;font-size:12.5px;font-weight:700;letter-spacing:.05em}
-  .formLead{margin-top:10px;font-size:12.5px;line-height:1.9;letter-spacing:.025em;font-weight:500;max-width:660px}
+  .formLead{margin-top:10px;font-size:14px;line-height:1.9;letter-spacing:.025em;font-weight:500;max-width:660px;color:var(--ink)}
   .cform{margin-top:12px}
   .cform .frow{position:relative;display:flex;gap:18px;padding:16px 2px 18px;align-items:flex-start}
   .cform .flabel{flex:none;width:172px;font-weight:700;font-size:12.5px;letter-spacing:.08em;line-height:1.6;padding-top:11px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .reqTag{font-size:9.5px;font-weight:700;letter-spacing:.12em;background:var(--themeColor);color:var(--paper);padding:2.5px 7px;line-height:1.3;transition:background-color .4s linear,color .4s linear}
   .cform .ffield{flex:1;min-width:0}
   .cform input[type="text"],.cform input[type="email"],.cform select,.cform textarea{
-    width:100%;font:inherit;font-size:14px;font-weight:500;letter-spacing:.03em;color:var(--themeColor);
+    width:100%;font:inherit;font-size:15px;font-weight:500;letter-spacing:.03em;color:var(--ink);
     background:transparent;border:2px solid var(--themeColor);padding:12px 14px;border-radius:0;
     transition:border-color .4s linear,background-color .3s linear;-webkit-appearance:none;appearance:none}
   .cform textarea{min-height:150px;line-height:1.8;resize:vertical}
-  .cform input::placeholder,.cform textarea::placeholder{color:var(--themeColor);opacity:.45}
+  .cform input::placeholder,.cform textarea::placeholder{color:var(--ink);opacity:.55}
   .cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;background:var(--paper-deep)}
   .selWrap{position:relative}
   .selWrap::after{content:"";position:absolute;right:16px;top:50%;width:9px;height:9px;border-right:2px solid var(--themeColor);border-bottom:2px solid var(--themeColor);transform:translateY(-70%) rotate(45deg);pointer-events:none;transition:border-color .4s linear}
@@ -461,16 +485,16 @@
   .submitBtn:hover::after,.submitBtn:focus-visible::after{transform:scaleY(1)}
   .submitBtn__label{position:relative;z-index:2;transition:color .3s linear}
   .submitBtn:hover .submitBtn__label,.submitBtn:focus-visible .submitBtn__label{color:var(--paper)}
-  .formPrivacy{margin-top:12px;font-size:11px;line-height:1.8;letter-spacing:.03em;font-weight:500}
-  .formAlt{margin-top:22px;font-size:12.5px;font-weight:700;letter-spacing:.04em;line-height:1.9}
+  .formPrivacy{margin-top:12px;font-size:12px;line-height:1.85;letter-spacing:.03em;font-weight:500;color:var(--ink)}
+  .formAlt{margin-top:22px;font-size:13.5px;font-weight:700;letter-spacing:.04em;line-height:1.9}
   .formAlt a{text-decoration:underline;text-underline-offset:3px}
   .formDone{margin-top:14px;border:2px solid var(--themeColor);padding:24px 22px 26px}
   .formDone__title{font-size:16px;font-weight:900;letter-spacing:.07em;line-height:1.5}
-  .formDone__note{margin-top:9px;font-size:12px;font-weight:700;letter-spacing:.04em;line-height:1.9}
+  .formDone__note{margin-top:9px;font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.9;color:var(--ink)}
   .formSummary{margin-top:14px}
   .formSummary .srow{position:relative;display:flex;gap:18px;padding:12px 2px 14px}
   .formSummary .sk{flex:none;width:172px;font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.7}
-  .formSummary .sv{flex:1;min-width:0;font-size:13.5px;font-weight:500;line-height:1.8;letter-spacing:.03em;white-space:pre-wrap;word-break:break-word}
+  .formSummary .sv{flex:1;min-width:0;font-size:14.5px;font-weight:500;line-height:1.85;letter-spacing:.03em;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
   .formBackBtn{margin-top:18px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px 0}
   @media(max-width:799px){
     .contactFormWrap{padding:6px 20px 26px}
@@ -486,9 +510,9 @@
 
   /* フッター */
   footer.foot{position:relative;padding:30px 20px 34px;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
-  .foot__desc{font-size:13px;font-weight:700;line-height:1.8;letter-spacing:.03em;max-width:520px}
+  .foot__desc{font-size:14.5px;font-weight:700;line-height:1.85;letter-spacing:.03em;max-width:520px;color:var(--ink)}
   .foot__desc .arr{display:inline-block;margin-left:10px;font-family:var(--serif);font-style:italic}
-  .foot__right{text-align:right;font-size:11.5px;line-height:2;letter-spacing:.04em;font-weight:500}
+  .foot__right{text-align:right;font-size:12.5px;line-height:2;letter-spacing:.04em;font-weight:500;color:var(--ink)}
   .foot__copy{font-family:var(--serif);font-style:italic;font-weight:700;font-size:14px}
   .foot .cat{display:inline-flex;vertical-align:-3px;margin:0 4px}
 
@@ -516,7 +540,7 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
   .soundSelect.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
   .soundSelect__inner{position:relative;text-align:center;max-width:580px;z-index:2}
-  .soundSelect__leadLine{font-weight:700;font-size:14px;line-height:1.95;letter-spacing:.045em}
+  .soundSelect__leadLine{font-weight:700;font-size:15px;line-height:1.95;letter-spacing:.045em;color:var(--ink)}
   .soundSelect__leadLine + .soundSelect__leadLine{margin-top:4px}
   .soundSelect__buttons{display:flex;gap:38px;justify-content:center;margin-top:36px}
   .soundBtn{display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;padding:0}
@@ -533,6 +557,16 @@
   .menuBtn--sound{cursor:pointer;flex:.9}
   .menuBtn--sound .menuBtn__label{font-family:var(--serif);font-style:italic}
 
+  /* スマホ可読性：小さい画面でも本文サイズの下限を保つ */
+  @media(max-width:799px){
+    .indexHeader__leadTxt{font-size:14.5px}
+    .witem__desc{font-size:14.5px}
+    .profileStory p{font-size:15px}
+    .extras p{font-size:14.5px}
+    .contactLead{font-size:14.5px}
+    .writerLink__jp{font-size:14px}
+    .writerLink__en{font-size:15px}
+  }
   @media (prefers-reduced-motion: reduce){
     .marquee__inner,.orb{animation:none}
     .soundSelect{transition:none}
