@@ -3,19 +3,1015 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>天野真｜看護学生ライター ポートフォリオ</title>
-<meta name="description" content="現役看護学生ライター、天野真のポートフォリオ。ライター用ポートフォリオへご案内します。">
-<meta http-equiv="refresh" content="0; url=writer/">
+<title>天野真 — Portfolio｜現役看護学生のライター＆Web制作者（医療・健康）</title>
+<meta name="description" content="現役看護学生が書く、医療・健康に強いライティングと、LP・ホームページ・ショート動画の制作ポートフォリオ。一次情報を確認し、正確に、やさしく。受注実績12件、評価4件すべて★5.0。">
+<meta name="theme-color" content="#151517">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2393a9c4'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%23151517' font-family='Georgia'>A</text></svg>">
+<meta property="og:title" content="天野真 — Portfolio">
+<meta property="og:description" content="現役看護学生｜医療・健康に強いライター＆Web制作者">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;background:#ffffff;color:#22262b;font-size:16px;line-height:1.9;}
-  .wrap{max-width:720px;margin:0 auto;padding:64px 20px;}
-  a{color:#3d4f61;}
+  /* ============================================================
+     Kazuki Noda Portfolio (kazukinoda.com) の構成・体験を分析し、
+     静的HTML/CSS/JSで自前に再構築したもの。
+     根拠: 公開HTML/CSSの構造解析（2026-11-05）
+       - 固定ダークテーマ（チャコール地＋白文字）に、アクセント1色で文字・罫線を描く
+       - テーマカラーは固定 #93a9c4（旧6色パレット切替は2026-11-05に廃止し、変数は1テーマに固定）
+       - 画面縁の固定フレーム罫（上下左右2px）、底辺はメニューバーが担う
+       - フォント: Lato + Noto Sans JP（表示系はセリフ体 QuincyCF → 明朝/Georgiaで代替）
+       - セクション見出しは「ラベルセル＋パターン帯」の70pxバー
+       - Worksは巨大タイポグラフィ自体がビジュアルになる罫線グリッド
+     ============================================================ */
+  :root{
+    /* 固定ダークテーマ（2026-11-05改訂）：カラー切替は廃止。チャコール地＋白文字で統一する */
+    --themeColor:#93a9c4;
+    --paper:#151517;
+    --paper-deep:#1f1f23;
+    /* 本文文字色：オフホワイト（背景 #151517 とのコントラスト比 約16:1） */
+    --ink:#eceee9;
+    --white:#f5f5f1;
+    --ease-out:cubic-bezier(.19,1,.22,1);
+    --ease-line:cubic-bezier(1,0,0,1);
+    --ease-snap:cubic-bezier(.76,0,.24,1);
+    --ease-pop:cubic-bezier(.34,1.8,.5,1);
+    --serif:"QuincyCF",Georgia,"Times New Roman","Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif JP",serif;
+    --sans:"Lato","Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;background-color:#151517}
+  /* スムーズスクロール有効時（JSが付与）は、プログラム側の毎フレーム scrollTo と
+     CSSの smooth が二重に効かないよう auto に戻す */
+  html.js-smooth{scroll-behavior:auto}
+  html.js-flow .kv-line{will-change:transform}
+  body{
+    font-family:var(--sans);
+    font-weight:400;
+    letter-spacing:.055em;
+    font-feature-settings:"palt";
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    color:var(--themeColor);
+    background-color:var(--paper);
+    line-height:1;
+    transition:color .4s linear;
+    overflow-x:hidden;
+  }
+  /* 地の質感：微細ノイズ（自前のSVGノイズ。ダーク地に薄く粒を乗せる） */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+  ::selection{background:var(--themeColor);color:var(--paper)}
+  button{font-family:inherit;background:none;border:none;color:inherit}
+
+  /* 罫線（実サイトの .line--* 相当） */
+  .line{position:absolute;display:block;background:var(--themeColor);pointer-events:none;z-index:4;transition:background-color .4s linear,transform 1.2s var(--ease-line) .3s,opacity .4s linear}
+  .line--top,.line--bottom{width:100%;height:2px;left:0}
+  .line--top{top:0}.line--bottom{bottom:0}
+  .line--left,.line--right{width:2px;height:100%;top:0}
+  .line--left{left:0}.line--right{right:0}
+  .draw-x{transform:scaleX(0);transform-origin:left}
+  .draw-y{transform:scaleY(0);transform-origin:top}
+  .is-inview .draw-x,.is-loaded .draw-x{transform:scaleX(1)}
+  .is-inview .draw-y,.is-loaded .draw-y{transform:scaleY(1)}
+
+  /* 画面縁の固定フレーム（padding:25px 15px 15px、底辺ラインは無し＝メニューバー側） */
+  .frame{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;padding:25px 15px 15px;z-index:80}
+  .frame__inner{position:relative;width:100%;height:100%}
+  .frame .line--left,.frame .line--right{height:120vh}
+
+  /* local information（左上固定・セリフイタリック） */
+  .localTime{position:fixed;left:15px;top:7px;z-index:90;font-family:var(--serif);font-style:italic;font-weight:700;font-size:11px;letter-spacing:.015em;transition:color .4s linear}
+  @media(max-width:799px){.localTime{font-size:10px;left:15px}}
+
+  /* 底辺固定メニューバー（height:65px / inset 15px） */
+  .menuBar{position:fixed;left:15px;right:15px;bottom:15px;height:65px;z-index:90;display:flex;flex-wrap:nowrap;overflow:hidden;background:var(--paper-deep)}
+  .menuBar::before{content:"";position:absolute;inset:0;opacity:.45;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .menuBar .line{z-index:5}
+  .menuBar__logo{position:relative;display:flex;align-items:center;gap:9px;padding:0 18px;font-weight:900;font-size:14px;letter-spacing:.08em;flex:none}
+  .menuBar__logo svg{flex:none}
+  .menuBtn{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-width:0}
+  .menuBtn .line--left{height:100%}
+  .menuBtn__label{font-size:13px;font-weight:700;letter-spacing:.06em;position:relative;z-index:2;transition:color .3s linear}
+  .menuBtn::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
+  .menuBtn:hover::after{transform:scaleY(1)}
+  .menuBtn:hover .menuBtn__label{color:var(--paper)}
+  .menuBtn--contact{flex:1.2}
+  @media(max-width:799px){
+    .menuBar{height:58px}
+    .menuBar__logo{padding:0 12px;font-size:12.5px}
+    .menuBar__logo .logoTxt{display:none}
+    .menuBtn__label{font-size:11.5px}
+    .menuBtn--hideSP{display:none}
+  }
+
+  /* カスタムカーソル（フレーム＋Viewラベル。ネイティブカーソルは併用） */
+  .cursor{position:fixed;left:0;top:0;z-index:120;pointer-events:none;display:none}
+  @media(pointer:fine){.cursor{display:block}}
+  .cursor__frame{width:38px;height:38px;border:2px solid var(--themeColor);transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;transition:width .35s var(--ease-out),height .35s var(--ease-out),background-color .3s linear,border-color .3s linear}
+  .cursor__label{font-family:var(--serif);font-style:italic;font-weight:700;font-size:12px;color:var(--paper);opacity:0;transition:opacity .25s linear}
+  .cursor.is-view .cursor__frame{width:76px;height:76px;background:var(--themeColor)}
+  .cursor.is-view .cursor__label{opacity:1}
+  .cursor.is-down .cursor__frame{width:30px;height:30px}
+  .cursor.is-view.is-down .cursor__frame{width:64px;height:64px}
+
+  /* コンテンツ土台 */
+  .contents{position:relative;z-index:1;width:100%;padding:25px 15px 108px}
+  .cell{position:relative}
+
+  /* ヘッダー（indexHeader相当） */
+  .indexHeader{position:relative;padding:57px 20px 0}
+  .indexHeader__title{font-weight:700;font-size:17px;margin-bottom:23px;line-height:1.25}
+  .indexHeader__titleSub{display:block;font-size:14px;margin-top:13px;font-weight:700}
+  .indexHeader__lead{margin-top:18px;padding-bottom:16px;max-width:660px}
+  .indexHeader__leadTxt{letter-spacing:.025em;line-height:1.85;font-weight:700;font-size:15px;color:var(--ink)}
+  .indexHeader__leadTxt + .indexHeader__leadTxt{margin-top:10px}
+  .headerStats{display:flex;flex-wrap:wrap;margin-top:26px;position:relative}
+  .headerStats .hs{position:relative;padding:15px 22px 17px 15px;min-width:170px}
+  .headerStats .hs .v{font-family:var(--serif);font-style:italic;font-weight:700;font-size:34px;line-height:1}
+  .headerStats .hs .v .unit{font-size:17px;font-style:normal;margin-left:3px}
+  .headerStats .hs .k{font-size:12px;font-weight:700;letter-spacing:.06em;margin-top:8px;line-height:1.55;color:var(--ink)}
+  @media(max-width:799px){.headerStats .hs{min-width:44%;padding-right:12px}}
+
+  /* ライター用ポートフォリオへの導線（トップ・実績の下） */
+  .writerLink{position:relative;background:var(--paper-deep)}
+  .writerLink a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 15px;position:relative;overflow:hidden}
+  .writerLink a::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
+  .writerLink a:hover::after,.writerLink a:focus-visible::after{transform:scaleY(1)}
+  .writerLink__jp{font-size:16.5px;font-weight:700;letter-spacing:.04em;line-height:1.6;position:relative;z-index:2;color:var(--ink);transition:color .3s linear}
+  .writerLink__en{font-family:var(--serif);font-style:italic;font-weight:700;font-size:19px;white-space:nowrap;position:relative;z-index:2;transition:color .3s linear}
+  .writerLink a:hover .writerLink__jp,.writerLink a:hover .writerLink__en,
+  .writerLink a:focus-visible .writerLink__jp,.writerLink a:focus-visible .writerLink__en{color:var(--paper)}
+
+  /* KV（indexKV相当：巨大タイポグラフィ4行＋霧） */
+  .indexKV{position:relative;margin-top:6px;overflow:hidden}
+  .indexKV__inner{position:relative;padding:7vh 14px 6vh}
+  .kv-line{font-family:var(--serif);font-weight:500;letter-spacing:.015em;line-height:.98;white-space:nowrap;color:var(--themeColor)}
+  .kv-line .ch{display:inline-block;transform:translateY(112%);transition:transform 1.1s var(--ease-out)}
+  .is-loaded .kv-line .ch{transform:translateY(0)}
+  .kv-line--1{font-size:clamp(56px,12.6vw,196px)}
+  .kv-line--2{font-size:clamp(56px,12.6vw,196px);font-style:italic}
+  .kv-line--3{font-size:clamp(30px,6.4vw,99px);margin-top:2.2vh}
+  .kv-line--4{font-size:clamp(30px,6.4vw,99px);font-style:italic}
+  .kv-mask{display:block;overflow:hidden}
+  .kv-note{position:absolute;right:16px;bottom:14px;font-size:12px;font-weight:700;letter-spacing:.14em;text-align:right;line-height:1.9}
+  /* 霧レイヤー：カーソル周辺だけ晴れる（pointer:fineのみ） */
+  .kv-fog{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.6;
+    background:
+      radial-gradient(560px 300px at 18% 26%, rgba(21,21,23,.42), rgba(21,21,23,0) 70%),
+      radial-gradient(680px 360px at 82% 60%, rgba(21,21,23,.40), rgba(21,21,23,0) 70%),
+      radial-gradient(460px 260px at 55% 88%, rgba(21,21,23,.30), rgba(21,21,23,0) 70%),
+      linear-gradient(rgba(21,21,23,.16),rgba(21,21,23,.16));
+    -webkit-mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,45%), transparent 0 38%, #000 82%);
+    mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,45%), transparent 0 38%, #000 82%)}
+  @media(pointer:coarse){.kv-fog{display:none}}
+  /* 本文テキスト群（色は固定テーマの変数で統一） */
+  .indexHeader__leadTxt,.scell p,.witem__desc,.witem__cats,.profileStory p,.extras p,
+  .contactLead,.contactNote,.fineprint,.foot__desc,.foot__right,
+  .headerStats .hs .k{transition:color .4s linear}
 </style>
 </head>
-<body>
-  <div class="wrap">
-    <p>天野真のポートフォリオは、ライター用ポートフォリオへ移動しました。自動で移動しない場合は、次のリンクからご覧ください。</p>
-    <p><a href="writer/">ライター用ポートフォリオ（天野真｜看護学生ライター）</a></p>
+<body id="top">
+
+<!-- SVGパターン定義（自前で描画したタイル。罫線色＝currentColorでテーマ連動） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="pDiag" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="currentColor" stroke-width="2"/>
+    </pattern>
+    <pattern id="pDiagRev" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="currentColor" stroke-width="2"/>
+    </pattern>
+    <pattern id="pCross" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6"/>
+    </pattern>
+    <pattern id="pDots" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="currentColor"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- 固定フレーム -->
+<div class="frame" aria-hidden="true">
+  <div class="frame__inner">
+    <span class="line line--top draw-x"></span>
+    <span class="line line--left draw-y"></span>
+    <span class="line line--right draw-y"></span>
   </div>
+</div>
+
+<!-- local information -->
+<div class="localTime" aria-hidden="true">local information: <span id="localClock">--:--</span> - Tokyo</div>
+
+
+<!-- カスタムカーソル -->
+<div class="cursor" id="cursor" aria-hidden="true"><div class="cursor__frame"><span class="cursor__label" id="cursorLabel">View</span></div></div>
+
+<!-- 底辺メニューバー -->
+<nav class="menuBar" aria-label="メインメニュー">
+  <span class="line line--top"></span>
+  <span class="line line--bottom"></span>
+  <span class="line line--left"></span>
+  <span class="line line--right"></span>
+  <a class="menuBar__logo" href="#top" aria-label="トップへ戻る">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 10.2 3 3.6l5.6 2.7A11 11 0 0 1 12 5.6c1.2 0 2.3.24 3.4.7L21 3.6l-1.2 6.6c.14.6.2 1.2.2 1.8a8 8 0 1 1-16 0c0-.6.06-1.2.2-1.8Z" fill="currentColor"/><circle cx="9" cy="12.4" r="1.15" fill="#f4f1ea"/><circle cx="15" cy="12.4" r="1.15" fill="#f4f1ea"/></svg>
+    <span class="logoTxt">天野真</span>
+  </a>
+  <a class="menuBtn menuBtn--hideSP" href="#top"><span class="line line--left"></span><span class="menuBtn__label">Home</span></a>
+  <a class="menuBtn" href="#strengths"><span class="line line--left"></span><span class="menuBtn__label">Strengths</span></a>
+  <a class="menuBtn" href="#works"><span class="line line--left"></span><span class="menuBtn__label">Works</span></a>
+  <a class="menuBtn menuBtn--hideSP" href="#service"><span class="line line--left"></span><span class="menuBtn__label">Service</span></a>
+  <a class="menuBtn" href="#profile"><span class="line line--left"></span><span class="menuBtn__label">Profile</span></a>
+  <a class="menuBtn menuBtn--contact" href="https://crowdworks.jp/public/employees/7210757" target="_blank" rel="noopener"><span class="line line--left"></span><span class="menuBtn__label">Contact</span></a>
+</nav>
+
+<main class="contents">
+
+  <!-- ヘッダー -->
+  <header class="indexHeader">
+    <h1 class="indexHeader__title">天野真<span class="indexHeader__titleSub">Portfolio</span></h1>
+    <div class="indexHeader__lead">
+      <p class="indexHeader__leadTxt">現役看護学生。医療・健康に強い、ライター＆Web制作者です。</p>
+      <p class="indexHeader__leadTxt">看護を学ぶ現役の学生だから、医療・健康のテーマを「正確に、やさしく」伝えられます。一次情報のリサーチとファクトチェックを土台に、記事制作からLP・ホームページ、ショート動画まで。正確さと速さを両立させるのが仕事の流儀です。</p>
+    </div>
+    <div class="headerStats">
+      <span class="line line--top draw-x"></span>
+      <div class="hs"><div class="v">12<span class="unit">件</span></div><div class="k">受注実績（CrowdWorks）</div></div>
+      <div class="hs"><div class="v">★5.0</div><div class="k">クライアント評価（4件すべて）</div></div>
+      <div class="hs"><div class="v">済</div><div class="k">本人確認（CrowdWorks）</div></div>
+      <span class="line line--bottom draw-x"></span>
+    </div>
+    <div class="writerLink">
+      <a href="writer/">
+        <span class="writerLink__jp">ライター用ポートフォリオ（記事サンプル）はこちら</span>
+        <span class="writerLink__en">Writer Portfolio →</span>
+      </a>
+      <span class="line line--bottom draw-x"></span>
+    </div>
+  </header>
+
+  <!-- KV：巨大タイポグラフィ -->
+  <div class="indexKV" id="kv">
+    <div class="indexKV__inner">
+      <p class="kv-line kv-line--1"><span class="kv-mask">Makoto</span></p>
+      <p class="kv-line kv-line--2"><span class="kv-mask">Amano</span></p>
+      <p class="kv-line kv-line--3"><span class="kv-mask">Writing, Web</span></p>
+      <p class="kv-line kv-line--4"><span class="kv-mask">&amp; Video</span></p>
+      <p class="kv-note">Nursing Student<br>Writer / Web Creator</p>
+    </div>
+    <div class="kv-fog" aria-hidden="true"></div>
+    <span class="line line--bottom draw-x"></span>
+  </div>
+
+<style>
+  /* セクション見出しバー（ラベルセル＋パターン帯・70px） */
+  .secTitle{position:relative;display:flex;flex-wrap:nowrap;height:70px;z-index:5}
+  .secTitle__label{position:relative;font-family:var(--serif);font-style:italic;font-weight:700;font-size:40px;display:flex;align-items:center;height:100%;min-width:242px;width:242px;padding-left:20px;flex:none}
+  .secTitle__pat{flex:1;height:100%;color:var(--themeColor);transition:color .4s linear;overflow:hidden}
+  /* パターン帯は左右に24pxずつ余らせ、スクロール連動で横ドリフトさせても端が空かないようにする */
+  .secTitle__pat svg{display:block;width:calc(100% + 48px);height:100%;margin-left:-24px;will-change:transform}
+  @media(max-width:799px){
+    .secTitle{height:56px}
+    .secTitle__label{font-size:28px;min-width:38vw;width:38vw;padding-left:14px}
+  }
+  section.blk{position:relative;margin-top:-2px}
+  section.blk > .line--top{transform-origin:left}
+
+  /* 強み（罫線セルグリッド） */
+  .strengthGrid{display:flex;flex-wrap:wrap}
+  .scell{position:relative;padding:26px 22px 30px;width:50%}
+  .scell .line--left{height:100%}
+  .scell--wide{width:100%}
+  .scell .stat{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(44px,6vw,72px);line-height:1}
+  .scell .stat small{font-size:.38em;font-style:normal;font-weight:700;margin-left:6px}
+  .scell .sno{display:block;font-family:var(--serif);font-style:italic;font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--themeColor);margin-bottom:12px;transition:color .4s linear}
+  .scell h3{font-size:19px;font-weight:700;line-height:1.4;letter-spacing:.03em}
+  .scell p{margin-top:12px;font-size:15px;line-height:1.95;letter-spacing:.025em;font-weight:500;color:var(--ink)}
+  .scell .motto{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;font-weight:600;font-size:clamp(21px,3.4vw,32px);line-height:1.6;letter-spacing:.04em;margin-top:0}
+  @media(max-width:799px){.scell{width:100%}}
+
+  /* Worksリスト */
+  .worksList{display:flex;flex-wrap:wrap}
+  .witem{position:relative;width:50%;margin-top:-2px}
+  .witem.is-large{width:100%}
+  .witem__inner{display:block;position:relative;height:100%}
+  .witem__visual{position:relative;height:290px;overflow:hidden}
+  .witem.is-large .witem__visual{height:380px}
+  .witem__visual .bigword{position:absolute;left:20px;bottom:6px;font-family:var(--serif);font-weight:500;letter-spacing:.015em;line-height:1;color:#f7f4ec;white-space:nowrap;will-change:transform;transform:translateX(var(--bwx,0px));transition:transform .8s var(--ease-out);z-index:2}
+  /* スクロール連動フロー有効時は --bwx が毎フレーム更新されるため、追従を締める */
+  html.js-flow .bigword{transition:transform .45s var(--ease-out)}
+  .witem .bigword{font-size:clamp(54px,8.6vw,124px)}
+  .witem.is-large .bigword{font-size:clamp(64px,11.5vw,168px)}
+  @media(min-width:800px){.witem.is-large .bigword{left:280px}}
+  .witem:hover .bigword{transform:translateX(calc(var(--bwx,0px) + 14px))}
+  .wv-salon{background:linear-gradient(120deg,#3a2e39 0%,#7a4b63 48%,#c98a5e 100%)}
+  .wv-seitai{background:linear-gradient(120deg,#0d2b1d,#14532d 55%,#4c9a6c 100%)}
+  .wv-writing{background:linear-gradient(120deg,#101418,#2b3a4a 60%,#51677c 100%)}
+  .wv-video{background:#0a0a0c;display:flex;align-items:center;justify-content:center}
+  .wv-video video{height:100%;max-width:100%;display:block;background:#000}
+  .orb{position:absolute;border-radius:50%;filter:blur(56px);opacity:.5;pointer-events:none;animation:floaty 10s ease-in-out infinite}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+  .witem__contents{position:relative}
+  .witem__info{position:relative;padding:14px 15px 16px;display:flex;gap:18px;align-items:flex-start}
+  .witem__no{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:.015em;font-size:21px;white-space:nowrap;transition:opacity .4s linear .1s}
+  .witem__cats{display:flex;flex-direction:column;flex-wrap:wrap;gap:3px;font-size:12.5px;font-weight:700;letter-spacing:.05em;line-height:1.6;min-width:118px;color:var(--ink)}
+  .witem__desc{font-size:14.5px;line-height:1.9;letter-spacing:.025em;font-weight:500;flex:1;color:var(--ink)}
+  .witem__foot{display:flex;position:relative}
+  .witem__jpname{flex:1;padding:12px 15px;font-size:14.5px;font-weight:700;letter-spacing:.03em;line-height:1.5;position:relative}
+  .witem__view{position:relative;flex:none;width:196px;display:flex;align-items:center;justify-content:space-between;padding:12px 15px;overflow:hidden}
+  .witem__view .vlabel{font-family:var(--serif);font-style:italic;font-weight:700;font-size:15.5px;position:relative;z-index:2;transition:color .3s linear,opacity .4s linear .1s}
+  .witem__view .varrow{position:relative;z-index:2;font-size:15px;transition:transform .45s var(--ease-out),color .3s linear}
+  .witem__view::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)}
+  a.witem__inner:hover .witem__view::after{transform:scaleX(1)}
+  a.witem__inner:hover .witem__view .vlabel,a.witem__inner:hover .witem__view .varrow{color:var(--paper)}
+  a.witem__inner:hover .witem__view .varrow{transform:translateX(5px)}
+  a.witem__inner:hover .witem__no{opacity:.25}
+  .witem__spacer{display:block;width:100%;height:44px;color:var(--themeColor);transition:color .4s linear;position:relative}
+  .witem__spacer svg{display:block;width:100%;height:100%}
+  .witem .line{transition:background-color .4s linear,opacity .4s linear}
+  @media(max-width:799px){
+    .witem{width:100%}
+    .witem__visual{height:230px}
+    .witem.is-large .witem__visual{height:250px}
+    .witem__info{flex-wrap:wrap}
+    .witem__view{width:158px}
+  }
+  .worksMore{display:flex;position:relative;height:64px;align-items:stretch}
+  .worksMore a{flex:1;display:flex;align-items:center;justify-content:center;gap:12px;font-family:var(--serif);font-style:italic;font-weight:700;font-size:17px;position:relative;overflow:hidden}
+  .worksMore a::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
+  .worksMore a:hover::after{transform:scaleY(1)}
+  .worksMore a span{position:relative;z-index:2;transition:color .3s linear}
+  .worksMore a:hover span{color:var(--paper)}
+
+  /* サービス・料金 */
+  .priceRow{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:20px 15px}
+  .priceRow .n{font-size:16.5px;font-weight:700;letter-spacing:.03em;line-height:1.5}
+  .priceRow .n small{display:block;font-weight:500;color:var(--ink);font-size:13.5px;margin-top:4px;line-height:1.7;letter-spacing:.025em}
+  .priceRow .p{font-family:var(--serif);font-style:italic;font-weight:700;font-size:23px;white-space:nowrap}
+  .priceRow .p small{font-size:12.5px;font-style:normal;font-weight:700;margin-left:2px}
+  .fineprint{padding:18px 15px 24px;font-size:13px;line-height:1.9;letter-spacing:.025em;font-weight:500;color:var(--ink)}
+
+  /* profile巨大リンク（アウトライン文字・hoverで充填） */
+  .profileLink{position:relative;height:250px;overflow:hidden;display:block}
+  .profileLink__title{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;padding-left:14px;font-family:var(--serif);font-weight:500;font-size:240px;line-height:1;letter-spacing:0;color:color-mix(in srgb, var(--white) 16%, transparent);-webkit-text-stroke:3px var(--white);transform:translateX(var(--plx,0px));transition:color .35s linear,-webkit-text-stroke-color .4s linear,transform .8s var(--ease-out)}
+  .profileLink:hover .profileLink__title{color:var(--themeColor);-webkit-text-stroke-color:transparent;transform:translateX(calc(var(--plx,0px) + 16px))}
+  @media(max-width:799px){.profileLink{height:34vw}.profileLink__title{font-size:26.5vw}}
+
+  /* プロフィール本体 */
+  .profileGrid{display:flex;flex-wrap:wrap}
+  .profileStory{width:55%;padding:26px 26px 30px 20px;position:relative}
+  .profileStory p{font-size:15.5px;line-height:1.95;letter-spacing:.03em;font-weight:500;color:var(--ink)}
+  .profileStory p + p{margin-top:18px}
+  .facts{width:45%;position:relative}
+  .facts .frow{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 15px}
+  .facts .frow .fn{font-weight:700;font-size:12.5px;letter-spacing:.08em;min-width:64px;flex:none}
+  .facts .frow .fp{font-weight:500;font-size:15px;text-align:right;line-height:1.7;letter-spacing:.025em;color:var(--ink)}
+  .facts .frow .fp a{text-decoration:underline;text-underline-offset:3px}
+  .extras{display:flex;flex-wrap:wrap}
+  .extras .ecell{width:50%;position:relative;padding:24px 22px 28px}
+  .extras .ecell .line--left{height:100%}
+  .extras-h{font-size:13px;font-weight:700;letter-spacing:.14em;margin-bottom:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:0}
+  .chip{font-size:12.5px;font-weight:700;letter-spacing:.04em;padding:6px 12px;border:2px solid var(--themeColor);margin:0 -2px -2px 0;line-height:1.4;color:var(--ink)}
+  .extras p{font-size:15px;line-height:1.95;letter-spacing:.025em;font-weight:500;color:var(--ink)}
+  /* 愛犬イラスト（切り抜かず、余白込みのフレームで全体を表示する） */
+  .dogBlock{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;position:relative;padding:22px 20px 20px;align-items:start}
+  .dogBlock figure{border:2px solid var(--themeColor);padding:10px;min-width:0;background:var(--paper)}
+  .dogBlock img{display:block;width:100%;height:auto}
+  .dogBlock .dogCap{grid-column:1/-1;font-size:13px;font-weight:700;letter-spacing:.1em}
+  @media(max-width:799px){
+    .dogBlock{grid-template-columns:1fr;padding:18px 15px 16px}
+  }
+  @media(max-width:799px){
+    .profileStory,.facts{width:100%}
+    .extras .ecell{width:100%}
+  }
+
+  /* bottomContact：巨大マーキー */
+  .bottomContact{position:relative;overflow:hidden}
+  .bottomContact__head{display:flex;align-items:center;gap:14px;padding:16px 20px;position:relative}
+  .bottomContact__head .who{font-weight:900;font-size:14px;letter-spacing:.08em}
+  .bottomContact__head .role{font-size:11.5px;font-weight:700;letter-spacing:.08em}
+  .marquee{display:block;overflow:hidden;white-space:nowrap}
+  .marquee__inner{display:inline-flex;width:max-content;animation:mscroll 26s linear infinite;will-change:transform}
+  /* スムーズスクロール有効時はCSSアニメーションを止め、JSがスクロール連動で駆動する */
+  html.js-smooth .marquee__inner{animation:none}
+  .marquee__txt{font-family:var(--serif);font-weight:500;font-size:clamp(120px,29vw,355px);line-height:1.06;padding-right:.18em;color:color-mix(in srgb, var(--white) 16%, transparent);-webkit-text-stroke:3px var(--white);transition:color .35s linear,-webkit-text-stroke-color .4s linear}
+  .marquee:hover .marquee__txt{color:var(--themeColor);-webkit-text-stroke-color:transparent}
+  @keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .contactLead{padding:22px 20px 6px;font-size:15px;line-height:1.9;letter-spacing:.03em;font-weight:700;max-width:720px;color:var(--ink)}
+  .contactNote{padding:8px 20px 28px;font-size:13px;line-height:1.9;letter-spacing:.025em;font-weight:500;color:var(--ink)}
+
+  /* 連絡導線（CrowdWorksプロフィールへ一本化） */
+  .contactCw{padding:10px 20px 32px;max-width:880px}
+  .contactCwLead{font-size:14.5px;line-height:1.9;letter-spacing:.03em;font-weight:700;color:var(--ink)}
+  .contactCwBtn{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;padding:19px 20px;border:2px solid var(--themeColor);font-size:15px;font-weight:900;letter-spacing:.1em;color:var(--themeColor);overflow:hidden}
+  .contactCwBtn::after{content:"";position:absolute;inset:0;background:var(--themeColor);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease-out)}
+  .contactCwBtn:hover::after,.contactCwBtn:focus-visible::after{transform:scaleY(1)}
+  .contactCwBtn span{position:relative;z-index:2;transition:color .3s linear}
+  .contactCwBtn:hover span,.contactCwBtn:focus-visible span{color:var(--paper)}
+
+  /* フッター */
+  footer.foot{position:relative;padding:30px 20px 34px;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
+  .foot__desc{font-size:14.5px;font-weight:700;line-height:1.85;letter-spacing:.03em;max-width:520px;color:var(--ink)}
+  .foot__desc .arr{display:inline-block;margin-left:10px;font-family:var(--serif);font-style:italic}
+  .foot__right{text-align:right;font-size:12.5px;line-height:2;letter-spacing:.04em;font-weight:500;color:var(--ink)}
+  .foot__copy{font-family:var(--serif);font-style:italic;font-weight:700;font-size:14px}
+  .foot .cat{display:inline-flex;vertical-align:-3px;margin:0 4px}
+
+  /* スクロールリビール（橋本涼サイト風：キレのあるイージングで回転・弾けを伴う入場。全て入場時1回のみ、transform/opacityのみ）
+     署名イージング --ease-snap は本家 ryohashimoto.com の全域イージング cubic-bezier(.76,0,.24,1) と同値。
+     --ease-pop は back 系のオーバーシュート（弾けて現れる「ぱ！」用）。 */
+  .rv{opacity:0;transform:translateY(56px);transition:opacity .55s linear,transform .7s var(--ease-snap)}
+  .rv.is-inview{opacity:1;transform:none}
+  /* びゅん！：横から回転しながら滑り込む */
+  .rv-spin-l{transform:translateX(-72px) rotate(-8deg);transform-origin:0 100%;transition:opacity .5s linear,transform .8s var(--ease-snap)}
+  .rv-spin-r{transform:translateX(72px) rotate(8deg);transform-origin:100% 100%;transition:opacity .5s linear,transform .8s var(--ease-snap)}
+  /* ぱ！：スケールで弾けて現れる */
+  .rv-pop{transform:scale(.55);transition:opacity .45s linear,transform .6s var(--ease-pop)}
+  /* しゅん＋ぱ！：沈み込みながら小さく回転し、弾けて定位置へ */
+  .rv-popspin{transform:translateY(34px) scale(.6) rotate(6deg);transition:opacity .45s linear,transform .65s var(--ease-pop)}
+
+  /* セクション見出し：1文字ずつ弾んで出現（JSで .stch に分割。section の is-inview で発火） */
+  .secTitle__label{overflow:hidden}
+  .stch{display:inline-block;transform:translateY(170%) rotate(12deg);transition:transform .6s var(--ease-pop)}
+  section.blk.is-inview .stch{transform:translateY(0) rotate(0)}
+
+  /* スマホ可読性：小さい画面でも本文サイズの下限を保つ */
+  @media(max-width:799px){
+    .indexHeader__leadTxt{font-size:14.5px}
+    .witem__desc{font-size:14.5px}
+    .profileStory p{font-size:15px}
+    .extras p{font-size:14.5px}
+    .contactLead{font-size:14.5px}
+    .writerLink__jp{font-size:15.5px}
+    .writerLink__en{font-size:17px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee__inner,.orb{animation:none}
+    .kv-fog{display:none}
+    .rv,.rv-spin-l,.rv-spin-r,.rv-pop,.rv-popspin{opacity:1;transform:none;transition:none}
+    .stch{transform:none;transition:none}
+    .kv-line .ch{transform:none;transition:none}
+    .draw-x,.draw-y{transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+
+  <!-- 01 強み -->
+  <section class="blk" id="strengths">
+    <span class="line line--top draw-x"></span>
+    <h2 class="secTitle">
+      <span class="secTitle__label"><span class="line line--right"></span>Strengths</span>
+      <span class="secTitle__pat" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pDiag)"/></svg></span>
+      <span class="line line--bottom draw-x"></span>
+    </h2>
+    <div class="strengthGrid">
+      <div class="scell rv rv-spin-l">
+        <span class="sno">01</span>
+        <h3>医療・健康の専門性</h3>
+        <p>現役の看護学生として学ぶ基礎知識を土台に、一次情報と照合しながら書きます。症状や制度の話も、初めて読む人にも伝わるよう、言葉を噛み砕いて届けます。</p>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+      <div class="scell rv rv-pop">
+        <span class="line line--left draw-y"></span>
+        <span class="sno">02</span>
+        <h3>仕上げる力</h3>
+        <p>下書きや情報整理にはAIツールを補助として使い、事実確認と最後の仕上げは必ず自分の目で行います。受注実績は12件、いただいたクライアント評価はすべて★5.0です。</p>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+      <div class="scell rv rv-popspin">
+        <span class="sno">03</span>
+        <h3>判断とディレクション</h3>
+        <p>参考にするものの選定、品質の見極め、基準に合わない案の却下まで、自分で判断して進めます。つくる方向を決めるのは、自分の役割です。</p>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+      <div class="scell rv rv-spin-r">
+        <span class="line line--left draw-y"></span>
+        <span class="sno">04</span>
+        <h3>継続力</h3>
+        <p>筋トレも仕事も、決めたことは続けます。小さな積み重ねを止めないことが、実績につながってきました。愛犬ララとは小学2年生の頃から13年一緒で、続けることは暮らしの中でも実践しています。</p>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+      <div class="scell scell--wide rv">
+        <p class="motto">「AIより速くは書けない。でも、AIだけでは書けないものは書ける。」</p>
+        <p>読む人の迷いや不安に寄り添う一文は、現場を学ぶ人間にしか書けません。その一行のために、AIの速さを使います。</p>
+      </div>
+    </div>
+    <span class="line line--bottom draw-x"></span>
+  </section>
+
+  <!-- 02 Works -->
+  <section class="blk" id="works">
+    <span class="line line--top draw-x"></span>
+    <h2 class="secTitle">
+      <span class="secTitle__label"><span class="line line--right"></span>Works</span>
+      <span class="secTitle__pat" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pDiag)"/></svg></span>
+      <span class="line line--bottom draw-x"></span>
+    </h2>
+
+    <div class="worksList">
+      <article class="witem is-large rv rv-spin-l">
+        <a class="witem__inner" href="lp-salon/" data-cursor="View">
+          <div class="witem__visual wv-salon">
+            <div class="orb" style="width:260px;height:260px;background:#ff9d6f;top:-70px;left:-40px"></div>
+            <div class="orb" style="width:200px;height:200px;background:#7a4bff;bottom:-70px;right:12%;animation-delay:-5s"></div>
+            <span class="bigword">Lueur</span>
+          </div>
+          <div class="witem__contents">
+            <span class="line line--top"></span>
+            <div class="witem__info">
+              <span class="witem__no">001</span>
+              <ul class="witem__cats"><li>LP制作</li><li>デザイン＋コーディング</li><li>HTML / CSS / JavaScript</li><li>架空店舗サンプル</li></ul>
+              <p class="witem__desc">福岡・天神のプライベートヘアサロンを想定したランディングページ。Apple風のタイポグラフィと余白設計、スクロールで要素が現れる演出、数値のカウントアップ、予約フォームまでを単一HTMLファイルで実装。集客導線（料金→声→アクセス→予約）の流れを設計しました。</p>
+            </div>
+            <div class="witem__foot">
+              <span class="line line--top"></span>
+              <div class="witem__jpname">美容サロンLP「Lueur」</div>
+              <div class="witem__view"><span class="line line--left"></span><span class="vlabel">View Project</span><span class="varrow">→</span></div>
+            </div>
+          </div>
+          <span class="witem__spacer" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pDiag)"/></svg><span class="line line--top"></span><span class="line line--bottom"></span></span>
+          <span class="line line--left"></span>
+          <span class="line line--bottom"></span>
+        </a>
+      </article>
+
+      <article class="witem rv rv-spin-r">
+        <a class="witem__inner" href="lp-seitai/" data-cursor="View">
+          <div class="witem__visual wv-seitai">
+            <div class="orb" style="width:240px;height:240px;background:#8fd0a8;top:-60px;right:-30px"></div>
+            <span class="bigword">カラダ整え堂</span>
+          </div>
+          <div class="witem__contents">
+            <span class="line line--top"></span>
+            <div class="witem__info">
+              <span class="witem__no">002</span>
+              <ul class="witem__cats"><li>LP制作</li><li>デザイン＋コーディング</li><li>HTML / CSS / JavaScript</li><li>架空店舗サンプル</li></ul>
+              <p class="witem__desc">福岡・博多の整骨院を想定したランディングページ。白と深緑で「清潔感と安心感」を設計し、症状別の導線、料金、FAQアコーディオン、予約フォームを実装。医療系ジャンルならではの、誇大表現を避けた誠実なコピーも含めて制作しました。</p>
+            </div>
+            <div class="witem__foot">
+              <span class="line line--top"></span>
+              <div class="witem__jpname">整骨院LP「カラダ整え堂」</div>
+              <div class="witem__view"><span class="line line--left"></span><span class="vlabel">View Project</span><span class="varrow">→</span></div>
+            </div>
+          </div>
+          <span class="witem__spacer" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pCross)"/></svg><span class="line line--top"></span><span class="line line--bottom"></span></span>
+          <span class="line line--left"></span>
+          <span class="line line--bottom"></span>
+        </a>
+      </article>
+
+      <article class="witem rv rv-spin-l">
+        <div class="witem__inner">
+          <div class="witem__visual wv-video">
+            <video src="video/sample.mp4" poster="video/frame-logo.png" controls muted loop playsinline preload="metadata"></video>
+          </div>
+          <div class="witem__contents">
+            <span class="line line--top"></span>
+            <div class="witem__info">
+              <span class="witem__no">003</span>
+              <ul class="witem__cats"><li>動画制作</li><li>Remotion（コード生成）</li><li>モーショングラフィックス</li><li>720 × 1280・縦型</li></ul>
+              <p class="witem__desc">美容サロンLPの紹介ショート動画（15秒）。テキストアニメーションをプログラムで生成するRemotion製法で、文字の差し替えだけで量産できる設計です。SNSショート動画の文字主体の演出（タイトル出現→要点の提示→締め）に対応します。</p>
+            </div>
+            <div class="witem__foot">
+              <span class="line line--top"></span>
+              <div class="witem__jpname">ショート動画サンプル（15秒）</div>
+              <div class="witem__view"><span class="line line--left"></span><span class="vlabel">Play Movie</span><span class="varrow">▸</span></div>
+            </div>
+          </div>
+          <span class="witem__spacer" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pDiagRev)"/></svg><span class="line line--top"></span><span class="line line--bottom"></span></span>
+          <span class="line line--left"></span>
+          <span class="line line--bottom"></span>
+        </div>
+      </article>
+
+      <article class="witem is-large rv rv-spin-r">
+        <a class="witem__inner" href="https://crowdworks.jp/public/employees/7210757" target="_blank" rel="noopener" data-cursor="View">
+          <div class="witem__visual wv-writing">
+            <div class="orb" style="width:220px;height:220px;background:#51677c;top:-60px;right:8%"></div>
+            <span class="bigword">words, carefully.</span>
+          </div>
+          <div class="witem__contents">
+            <span class="line line--top"></span>
+            <div class="witem__info">
+              <span class="witem__no">004</span>
+              <ul class="witem__cats"><li>記事制作</li><li>医療・健康</li><li>コラム</li><li>SNS台本</li><li>リライト・校正</li></ul>
+              <p class="witem__desc">CrowdWorksを中心に、医療・健康系の記事、20代向けお金・暮らしのコラム、SNSショート動画の台本、リライト・校正などを継続受注。テスト案件で★5.0評価を積み、1記事¥3,000以上の継続ラインにつなげています。「専門用語を、初めて読む人の言葉に翻訳する」ことが強みです。</p>
+            </div>
+            <div class="witem__foot">
+              <span class="line line--top"></span>
+              <div class="witem__jpname">ライティング実績</div>
+              <div class="witem__view"><span class="line line--left"></span><span class="vlabel">View Profile</span><span class="varrow">→</span></div>
+            </div>
+          </div>
+          <span class="witem__spacer" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pDots)"/></svg><span class="line line--top"></span><span class="line line--bottom"></span></span>
+          <span class="line line--left"></span>
+          <span class="line line--bottom"></span>
+        </a>
+      </article>
+    </div>
+
+    <div class="worksMore">
+      <span class="line line--top draw-x"></span>
+      <a href="https://crowdworks.jp/public/employees/7210757" target="_blank" rel="noopener"><span>View on CrowdWorks</span><span>→</span></a>
+      <span class="line line--bottom draw-x"></span>
+    </div>
+  </section>
+
+  <!-- 03 サービス・料金 -->
+  <section class="blk" id="service">
+    <span class="line line--top draw-x"></span>
+    <h2 class="secTitle">
+      <span class="secTitle__label"><span class="line line--right"></span>Service</span>
+      <span class="secTitle__pat" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pCross)"/></svg></span>
+      <span class="line line--bottom draw-x"></span>
+    </h2>
+    <div class="rv rv-pop">
+      <div class="priceRow"><div class="n">LP制作<small>デザイン＋コーディング（静的HTML）／スマホ対応・基本SEO込み</small></div><div class="p">¥20,000<small>〜</small></div><span class="line line--bottom draw-x"></span></div>
+      <div class="priceRow"><div class="n">ホームページ制作<small>複数ページのコーポレートサイト・店舗サイト</small></div><div class="p">¥40,000<small>〜</small></div><span class="line line--bottom draw-x"></span></div>
+      <div class="priceRow"><div class="n">記事制作<small>医療・健康ジャンルが得意／1記事あたり（1,500〜5,000字目安）</small></div><div class="p">¥3,000<small>〜／記事</small></div><span class="line line--bottom draw-x"></span></div>
+      <div class="priceRow"><div class="n">ライティング文字単価<small>記事制作・リライト等の参考単価です（1文字あたり）</small></div><div class="p">0.5〜2円<small>／1文字</small></div><span class="line line--bottom draw-x"></span></div>
+      <div class="priceRow"><div class="n">ショート動画制作<small>文字主体のモーショングラフィックス／SNS縦型・1本あたり</small></div><div class="p">¥15,000<small>〜／本</small></div><span class="line line--bottom draw-x"></span></div>
+      <div class="priceRow"><div class="n">リライト・校正<small>既存記事の書き直し・校正校閲</small></div><div class="p">応相談</div><span class="line line--bottom draw-x"></span></div>
+      <p class="fineprint">※上記は目安です。ページ数・文字数・修正回数・納期によりお見積もりします。まずはCrowdWorks経由でお気軽にご相談ください。継続案件の場合は単価のご相談も可能です。作業は仮払い（エスクロー）確認後に開始します。</p>
+    </div>
+  </section>
+
+  <!-- profile 巨大リンク -->
+  <section class="blk">
+    <span class="line line--top draw-x"></span>
+    <a class="profileLink" href="#profile" aria-label="プロフィールへ移動">
+      <span class="profileLink__title">profile</span>
+      <span class="line line--bottom draw-x"></span>
+    </a>
+  </section>
+
+  <!-- 04 プロフィール -->
+  <section class="blk" id="profile">
+    <span class="line line--top draw-x"></span>
+    <h2 class="secTitle">
+      <span class="secTitle__label"><span class="line line--right"></span>Profile</span>
+      <span class="secTitle__pat" aria-hidden="true"><svg preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#pDiagRev)"/></svg></span>
+      <span class="line line--bottom draw-x"></span>
+    </h2>
+    <div class="profileGrid">
+      <div class="profileStory rv rv-spin-l">
+        <p>看護学生として医療を学びながら、ライティングとWeb制作の仕事をしています。きっかけは「医療の知識は、病院の外でも役に立つはず」という思いでした。健康情報は世の中にあふれているのに、正確で、やさしくて、読みやすいものは意外と少ない。その溝を埋める仕事がしたいと思っています。</p>
+        <p>制作ではAIを補助の道具として使います。ただし、事実確認と最後の仕上げは必ず人間（私）が担うこと。これは効率化であると同時に、医療ジャンルを扱う制作者としての責任でもあります。</p>
+        <p>今は学業と両立しながら取り組んでいます。一件ごとの仕事を、長く付き合える関係の第一歩にしたいと考えています。</p>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+      <div class="facts rv rv-spin-r">
+        <span class="line line--left draw-y"></span>
+        <div class="frow"><div class="fn">名前</div><div class="fp">天野真（あまの まこと）</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">肩書き</div><div class="fp">現役看護学生／ライター・Web制作者</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">学歴</div><div class="fp">令和健康科学大学 看護学部 看護学科 2年（在学中）</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">拠点</div><div class="fp">福岡（フルリモート対応）</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">稼働</div><div class="fp">週10時間程度（応相談）／平日夜間・週末中心</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">作業環境</div><div class="fp">自宅作業・オンライン対応。納品データの管理と情報の取り扱いに配慮しています。</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">スキル</div><div class="fp">記事制作／校正・校閲／HTML・CSS・JavaScript／動画制作（Remotion）</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">実績</div><div class="fp">受注12件・評価4件すべて★5.0・本人確認済み</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">活動歴</div><div class="fp">楽天ROOMでの商品紹介投稿（経験あり・現在は休止中）</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">趣味</div><div class="fp">筋トレ（ダンベル）、パソコン、犬が好き</div><span class="line line--bottom draw-x"></span></div>
+        <div class="frow"><div class="fn">note</div><div class="fp"><a href="https://note.com/nifty_bear4421" target="_blank" rel="noopener">記事・コラム（note）</a></div></div>
+      </div>
+    </div>
+    <div class="dogBlock rv rv-popspin">
+      <figure class="dogMain"><img src="images/lala-illustration-standing.webp" alt="カメラ目線で立つ愛犬のトイプードル「ララ」のイラスト" loading="lazy" decoding="async"></figure>
+      <figure class="dogSub"><img src="images/lala-illustration-sleeping.webp" alt="ピンクの服を着て寝そべる愛犬のトイプードル「ララ」のイラスト" loading="lazy" decoding="async"></figure>
+      <p class="dogCap">愛犬ララ（トイプードル・13歳）。小学2年生の頃から一緒です。</p>
+      <span class="line line--bottom draw-x"></span>
+    </div>
+    <div class="extras">
+      <div class="ecell rv rv-pop">
+        <h3 class="extras-h">使用可能ソフト・ツール</h3>
+        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Remotion（プログラムによる動画生成）</span><span class="chip">ffmpeg</span><span class="chip">Googleドキュメント</span><span class="chip">Microsoft Word</span><span class="chip">AIツール活用</span></div>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+      <div class="ecell rv rv-pop">
+        <span class="line line--left draw-y"></span>
+        <h3 class="extras-h">お受けしたい仕事</h3>
+        <p>医療・健康分野の記事制作／LP・ホームページ制作／文字主体のSNSショート動画制作／校正・リライト。正確さが求められるジャンルで、一次情報を確認しながら丁寧に仕上げる仕事でお役に立てます。</p>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+    </div>
+    <span class="line line--bottom draw-x"></span>
+  </section>
+
+  <!-- Contact：巨大マーキー -->
+  <section class="blk" id="contact">
+    <span class="line line--top draw-x"></span>
+    <div class="bottomContact">
+      <div class="bottomContact__head">
+        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 10.2 3 3.6l5.6 2.7A11 11 0 0 1 12 5.6c1.2 0 2.3.24 3.4.7L21 3.6l-1.2 6.6c.14.6.2 1.2.2 1.8a8 8 0 1 1-16 0c0-.6.06-1.2.2-1.8Z" fill="currentColor"/><circle cx="9" cy="12.4" r="1.15" fill="#f4f1ea"/><circle cx="15" cy="12.4" r="1.15" fill="#f4f1ea"/></svg>
+        <span class="who">天野真</span>
+        <span class="role">仕事のご相談は、CrowdWorksから。</span>
+        <span class="line line--bottom draw-x"></span>
+      </div>
+      <a class="marquee" href="https://crowdworks.jp/public/employees/7210757" target="_blank" rel="noopener" aria-label="CrowdWorksプロフィールを見る">
+        <span class="marquee__inner"><span class="marquee__txt">Contact&nbsp;-&nbsp;</span><span class="marquee__txt" aria-hidden="true">Contact&nbsp;-&nbsp;</span></span>
+      </a>
+      <p class="contactLead">記事制作、LP・ホームページ制作、ショート動画制作のご相談を受け付けています。まずはお気軽にメッセージください。条件を確認のうえ、誠実にお返事します。</p>
+      <p class="contactNote">対応時間の目安：平日夜間・週末（学業と両立のため、返信は夜間になる場合があります）<br>面談は日曜日、または平日20時以降が調整しやすいです。</p>
+
+      <!-- 連絡導線はCrowdWorksプロフィールに一本化 -->
+      <div class="contactCw rv">
+        <p class="contactCwLead">ご相談・ご依頼は、CrowdWorksのプロフィールからお送りください。プロフィール上で実績・評価もあわせてご確認いただけます。</p>
+        <a class="contactCwBtn" href="https://crowdworks.jp/public/employees/7210757" target="_blank" rel="noopener"><span>CrowdWorksプロフィールを見る</span><span>→</span></a>
+      </div>
+      <span class="line line--bottom draw-x"></span>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="foot">
+    <span class="line line--top draw-x"></span>
+    <p class="foot__desc">医療・健康に強いライター＆Web制作者、天野真のポートフォリオです。正確に、やさしく、速く——現場を学ぶ学生だから書けるものを届けます。<a href="#profile">Profile<span class="arr">→</span></a></p>
+    <div class="foot__right">
+      <span class="foot__copy">© 2026 Makoto Amano</span>
+      <span class="cat"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 10.2 3 3.6l5.6 2.7A11 11 0 0 1 12 5.6c1.2 0 2.3.24 3.4.7L21 3.6l-1.2 6.6c.14.6.2 1.2.2 1.8a8 8 0 1 1-16 0c0-.6.06-1.2.2-1.8Z" fill="currentColor"/><circle cx="9" cy="12.4" r="1.15" fill="#f4f1ea"/><circle cx="15" cy="12.4" r="1.15" fill="#f4f1ea"/></svg></span><br>
+      天野真 — Portfolio｜現役看護学生<br>
+      ※Works内の店舗名・サービスは制作サンプル（架空）です。実績数値・評価はCrowdWorks上の実績です。
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // ロード時：フレーム線・KV文字の出現
+  addEventListener('load', () => {
+    requestAnimationFrame(() => document.body.classList.add('is-loaded'));
+  });
+  // フォールバック（loadが遅い場合）
+  setTimeout(() => document.body.classList.add('is-loaded'), 900);
+
+  // KV文字：1文字ずつspan化してスタッガー出現（animationChars相当）
+  document.querySelectorAll('.kv-line').forEach((line, li) => {
+    const mask = line.querySelector('.kv-mask');
+    if (!mask) return;
+    const text = mask.textContent;
+    mask.textContent = '';
+    [...text].forEach((c, i) => {
+      const s = document.createElement('span');
+      s.className = 'ch';
+      s.textContent = c === ' ' ? ' ' : c;
+      s.style.transitionDelay = (li * 130 + i * 34) + 'ms';
+      mask.appendChild(s);
+    });
+  });
+
+  // セクション見出し：1文字ずつspan化し、section の is-inview で弾んで出現させる
+  document.querySelectorAll('.secTitle__label').forEach(label => {
+    [...label.childNodes].forEach(node => {
+      if (node.nodeType !== 3) return;
+      const frag = document.createDocumentFragment();
+      [...node.textContent].forEach((c, i) => {
+        const s = document.createElement('span');
+        s.className = 'stch';
+        s.textContent = c === ' ' ? ' ' : c;
+        s.style.transitionDelay = (i * 40) + 'ms';
+        frag.appendChild(s);
+      });
+      label.replaceChild(frag, node);
+    });
+  });
+
+  // リビールのスタガー：同一親の中に複数の .rv 兄弟がある場合、順番に遅延を付けて連続入場させる
+  document.querySelectorAll('.rv').forEach(el => {
+    if (!el.parentElement) return;
+    const sibs = [...el.parentElement.children].filter(c => c.classList && c.classList.contains('rv'));
+    if (sibs.length > 1) el.style.transitionDelay = Math.min(sibs.indexOf(el) * 80, 400) + 'ms';
+  });
+
+  // local information 時計
+  const clock = document.getElementById('localClock');
+  function tickClock() {
+    const d = new Date();
+    clock.textContent = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+  }
+  tickClock();
+  setInterval(tickClock, 10000);
+
+  // KVの霧：カーソル周辺だけ晴れる
+  const kv = document.getElementById('kv');
+  if (kv && matchMedia('(pointer:fine)').matches) {
+    kv.addEventListener('pointermove', e => {
+      const r = kv.getBoundingClientRect();
+      kv.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      kv.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  }
+
+  // スクロールリビール＋線の引き
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-inview');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv, section.blk, .headerStats, footer.foot').forEach(el => io.observe(el));
+
+  // カスタムカーソル（フレームが慣性追従。Works上では "View" に変形）
+  const cursor = document.getElementById('cursor');
+  const cursorLabel = document.getElementById('cursorLabel');
+  if (cursor && matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let tx = innerWidth / 2, ty = innerHeight / 2, cx = tx, cy = ty;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    addEventListener('pointerdown', () => cursor.classList.add('is-down'));
+    addEventListener('pointerup', () => cursor.classList.remove('is-down'));
+    (function loop() {
+      cx += (tx - cx) * 0.16; cy += (ty - cy) * 0.16;
+      cursor.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('[data-cursor]').forEach(el => {
+      el.addEventListener('pointerenter', () => { cursorLabel.textContent = el.dataset.cursor; cursor.classList.add('is-view'); });
+      el.addEventListener('pointerleave', () => cursor.classList.remove('is-view'));
+    });
+  } else if (cursor) {
+    cursor.style.display = 'none';
+  }
+
+  // プレースホルダリンク（note）は遷移させない
+  document.querySelectorAll('a[data-link-status="placeholder"]').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); });
+  });
+
+</script>
+<script>
+  // ============================================================
+  // スムーズスクロール＋スクロール連動フロー
+  // （ryohashimoto.com の「画面全体が流れる」体験の仕組みを、
+  //   外部ライブラリなしのバニラJSで再現したもの。
+  //   動きの仕組みのみを再現し、素材・文言はコピーしていない）
+  //
+  // 【スクロール方式】
+  //   ホイール入力を「目標位置 targetY」に蓄積し、毎フレーム
+  //   現在位置 currentY を lerp（係数 0.115）で追従させて
+  //   window.scrollTo する仮想スクロール。
+  //   レイアウト自体は通常フローのままなので、既存の
+  //   IntersectionObserver リビール／霧／
+  //   カスタムカーソルはそのまま共存する。
+  //   スクロールバーのドラッグ・キーボード操作・scrollIntoView 等、
+  //   自分以外が起こしたスクロールは scroll イベントで検知して
+  //   targetY/currentY を即同期し、奪い合わない。
+  //
+  // 【アンカー統合】
+  //   a[href^="#"] のクリックは横取りし、目標位置への
+  //   スムーズスクロールに変換する（履歴のハッシュも更新）。
+  //
+  // 【スクロール連動の連続モーション】（毎フレーム、transform/opacity のみ）
+  //   - KVの巨大タイポグラフィ4行：行ごとに異なる速度で横ドリフト
+  //   - Worksの .bigword：ビューポート中心との距離に応じて横流れ（--bwx）
+  //   - セクション見出しのパターン帯：背景レイヤーとして速度差ドリフト
+  //   - profile 巨大リンク：アウトライン文字が横に流れる（--plx）
+  //   - Contactマーキー：CSSアニメーションを止め、時間経過＋スクロール量で
+  //     JS駆動に切替（スクロールすると流れが加速する）
+  //   既存のポップ系リビール（入場時1回）はアクセントとして併存させる。
+  //
+  // 【フォールバック（無効化条件）】いずれもネイティブスクロールに戻る
+  //   - タッチ主体デバイス（pointer: coarse）
+  //   - prefers-reduced-motion: reduce
+  // ============================================================
+  (function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!matchMedia('(pointer: fine)').matches) return;
+
+    const root = document.documentElement;
+    root.classList.add('js-smooth', 'js-flow');
+
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const maxScroll = () => Math.max(0, root.scrollHeight - innerHeight);
+
+    let targetY = window.scrollY;
+    let currentY = window.scrollY;
+    let lastSetY = window.scrollY;
+    let lastTol = 3; // 自分が scrollTo した位置との許容誤差（scrollイベントの誤検知防止）
+    const EASE = 0.115;
+
+    // --- ホイール入力を目標位置へ蓄積 ---
+    addEventListener('wheel', e => {
+      if (e.ctrlKey) return; // ピンチズーム等はブラウザに任せる
+      // フォーム入力要素上のホイールは要素側（textarea等）に任せる
+      if (e.target && e.target.closest && e.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+      e.preventDefault();
+      let d = e.deltaY;
+      if (e.deltaMode === 1) d *= 33;                 // 行単位 → px換算
+      else if (e.deltaMode === 2) d *= innerHeight;   // ページ単位
+      targetY = clamp(targetY + d, 0, maxScroll());
+    }, { passive: false });
+
+    // --- 自分以外のスクロールには同期して追従（奪い合わない） ---
+    addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (Math.abs(y - lastSetY) > lastTol) {
+        targetY = y; currentY = y; lastSetY = y;
+      }
+    }, { passive: true });
+
+    // --- アンカー遷移はスムーズスクロール経由に統合 ---
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (!id || id.length < 2) return; // "#" のみは既存のプレースホルダ抑止に任せる
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        targetY = clamp(el.getBoundingClientRect().top + window.scrollY, 0, maxScroll());
+        try { history.pushState(null, '', id); } catch (err) {}
+      });
+    });
+
+    // --- スクロール連動フロー要素の計測（ドキュメント座標でキャッシュ） ---
+    const kvLines = [...document.querySelectorAll('.kv-line')];
+    const kvRates = [-0.10, 0.07, -0.05, 0.09]; // 行ごとに速度と向きを変える
+    const bigwords = [...document.querySelectorAll('.witem__visual .bigword')];
+    const patSvgs = [...document.querySelectorAll('.secTitle__pat svg')];
+    const profileTitle = document.querySelector('.profileLink__title');
+    const mqInner = document.querySelector('.marquee__inner');
+    let centers = new Map();
+    let mqHalf = 0;
+
+    function measure() {
+      centers = new Map();
+      const y = window.scrollY;
+      bigwords.forEach(el => centers.set(el, y + el.getBoundingClientRect().top + el.offsetHeight / 2));
+      patSvgs.forEach(el => {
+        const host = el.closest('.secTitle') || el;
+        centers.set(el, y + host.getBoundingClientRect().top + host.offsetHeight / 2);
+      });
+      if (profileTitle) centers.set(profileTitle, y + profileTitle.getBoundingClientRect().top + profileTitle.offsetHeight / 2);
+      if (mqInner) mqHalf = mqInner.scrollWidth / 2;
+    }
+    measure();
+    addEventListener('load', measure);
+    setTimeout(measure, 2000); // Webフォント・遅延画像の読み込み後のレイアウト確定に追随
+    let resizeTimer = null;
+    addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(measure, 150);
+    });
+
+    // ビューポート中心からの相対位置（およそ -1〜+1）
+    const relOf = el => {
+      const c = centers.get(el);
+      if (c === undefined) return 0;
+      return (c - (currentY + innerHeight / 2)) / innerHeight;
+    };
+
+    let mqDist = 0; // マーキーの時間経過ぶんの移動距離
+    function updateFlow(dt) {
+      // KV巨大文字：ページ先頭からのスクロール量で各行が横に流れる
+      kvLines.forEach((el, i) => {
+        const x = clamp(currentY * (kvRates[i] || 0), -64, 64);
+        el.style.transform = 'translateX(' + x.toFixed(1) + 'px)';
+      });
+      // Works巨大文字：中心に近づくほど流れ、通過すると逆へ抜ける
+      bigwords.forEach(el => {
+        el.style.setProperty('--bwx', clamp(-relOf(el) * 60, -60, 60).toFixed(1) + 'px');
+      });
+      // 見出しパターン帯：本文より遅い速度でドリフト（速度差）
+      patSvgs.forEach((el, i) => {
+        const dir = i % 2 === 0 ? 1 : -1;
+        el.style.transform = 'translateX(' + clamp(-relOf(el) * 24 * dir, -22, 22).toFixed(1) + 'px)';
+      });
+      // profile巨大リンク：アウトライン文字の横流れ
+      if (profileTitle) {
+        profileTitle.style.setProperty('--plx', clamp(-relOf(profileTitle) * 32, -32, 32).toFixed(1) + 'px');
+      }
+      // Contactマーキー：時間の流れ＋スクロール量で加速する
+      if (mqInner && mqHalf > 0) {
+        mqDist += dt * (mqHalf / 26); // 従来のCSSアニメーション 26s と同じ基礎速度
+        const off = -((mqDist + currentY * 0.5) % mqHalf);
+        mqInner.style.transform = 'translateX(' + off.toFixed(1) + 'px)';
+      }
+    }
+
+    // --- メインループ：スクロール追従＋連動フロー ---
+    let lastT = performance.now();
+    (function frame(now) {
+      const dt = Math.min((now - lastT) / 1000, 0.05);
+      lastT = now;
+      const diff = targetY - currentY;
+      if (Math.abs(diff) > 0.05) {
+        currentY += diff * EASE;
+        if (Math.abs(targetY - currentY) <= 0.05) currentY = targetY;
+        lastTol = Math.abs(diff * EASE) + 3;
+        lastSetY = currentY;
+        window.scrollTo(0, currentY);
+      }
+      updateFlow(dt);
+      requestAnimationFrame(frame);
+    })(performance.now());
+  })();
+</script>
 </body>
 </html>
