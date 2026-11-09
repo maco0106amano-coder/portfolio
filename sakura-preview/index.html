@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>さくら美容室｜北九州市八幡西区・則松の美容室（制作提案モックアップ）</title>
+<meta name="description" content="北九州市八幡西区則松の美容室「さくら美容室」のホームページ制作提案モックアップです。">
+<!--
+  ============================================================
+  店舗情報の差し替えポイント
+  ページ末尾の <script> 内「SHOP」オブジェクトの値を書き換えると、
+  店名・電話番号・住所・最寄り駅がページ全体（data-shop 属性の箇所）に反映されます。
+  本文の初期表示も同じ内容で記載してあるので、どちらを直しても構いません。
+  ※ 料金メニュー・営業時間・定休日は「仮組み」です。実際のお店の内容に
+     差し替える前提で、ページ内にも仮表記の注記を入れています。
+  ※ これは制作提案用のモックアップです。公開・配布はしないでください。
+  ============================================================
+-->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2326231d'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%23f8f4ed' font-family='serif'>さ</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f8f4ed;          /* 温かみのあるオフホワイト */
+    --paper:#fdfbf6;       /* カードではなく面の色 */
+    --ink:#26231d;         /* チャコール */
+    --ink-soft:#57534a;    /* 濃淡で弱めた本文 */
+    --ink-faint:#8a857a;   /* さらに淡い補助文字 */
+    --line:#ddd4c2;        /* 罫線（ベージュ系） */
+    --beige:#e9e1d1;
+    --beige-deep:#d8ccb2;
+    --accent:#a67c4e;      /* 差し色はブロンズ1色だけ、細く使う */
+    --dark:#33302a;
+    --serif:"Shippori Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif CJK JP",serif;
+    --latin:"Cormorant Garamond",serif;
+    --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-size:15.5px;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block}
+  ::selection{background:var(--beige-deep)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 48px}
+  @media(max-width:767px){.wrap{padding:0 24px}}
+
+  /* モックアップ帯 */
+  .mock-bar{background:var(--ink);color:#efe9db;font-size:11.5px;letter-spacing:.08em;text-align:center;padding:8px 16px;line-height:1.6}
+
+  /* ヘッダー */
+  header{position:sticky;top:0;z-index:50;background:rgba(248,244,237,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .inner{max-width:1120px;margin:0 auto;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{display:flex;align-items:baseline;gap:12px}
+  .logo .jp{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.14em}
+  .logo .en{font-family:var(--latin);font-size:12px;letter-spacing:.42em;color:var(--ink-faint)}
+  nav.main{display:flex;gap:32px}
+  nav.main a{font-size:13px;letter-spacing:.12em;color:var(--ink-soft)}
+  nav.main a:hover{color:var(--ink)}
+  .tel-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);padding:8px 16px;font-size:13.5px;letter-spacing:.06em;white-space:nowrap;transition:background .3s,color .3s}
+  .tel-btn:hover{background:var(--ink);color:var(--bg)}
+  .tel-btn svg{width:15px;height:15px;flex:none}
+  @media(max-width:900px){nav.main{display:none}}
+  @media(max-width:767px){header .inner{padding:0 24px;height:64px}.logo .en{display:none}.tel-btn{padding:8px 12px;font-size:13px}}
+
+  /* セクション共通 */
+  section{padding:128px 0;scroll-margin-top:88px}
+  @media(max-width:767px){section{padding:80px 0}}
+  .label{display:flex;align-items:center;gap:16px;font-family:var(--latin);font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase}
+  .label::after{content:"";height:1px;width:64px;background:var(--accent);opacity:.55}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,36px);line-height:1.55;letter-spacing:.06em;margin-top:24px}
+  .sec-lead{margin-top:24px;color:var(--ink-soft);max-width:640px}
+
+  /* ファーストビュー：写真パネル主役 */
+  .hero{position:relative;min-height:calc(100vh - 104px);min-height:calc(100svh - 104px);display:flex;align-items:flex-end;overflow:hidden;background:var(--beige)}
+  .hero .panel{position:absolute;inset:0}
+  .hero .panel svg{width:100%;height:100%}
+  .hero .grain{position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,24,19,.62) 0%,rgba(26,24,19,.18) 42%,rgba(26,24,19,0) 65%)}
+  .hero .content{position:relative;width:100%;max-width:1120px;margin:0 auto;padding:0 48px 72px;color:#f6f1e6;text-shadow:0 1px 16px rgba(26,24,19,.45)}
+  @media(max-width:767px){
+    .hero .content{padding:0 24px 96px}
+    .hero .scrim{background:linear-gradient(to top,rgba(26,24,19,.68) 0%,rgba(26,24,19,.34) 55%,rgba(26,24,19,.14) 100%)}
+  }
+  .hero .eyebrow{font-size:12px;letter-spacing:.34em;color:#e8dfca}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,6vw,58px);letter-spacing:.16em;line-height:1.3;margin-top:16px}
+  .hero .copy{margin-top:16px;font-size:15px;letter-spacing:.1em;color:#efe9db}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:14px;letter-spacing:.1em;border:1px solid #f6f1e6;transition:background .3s,color .3s}
+  .btn svg{width:15px;height:15px}
+  .btn.solid{background:#f6f1e6;color:var(--ink)}
+  .btn.solid:hover{background:#fff}
+  .btn.ghost{color:#f6f1e6}
+  .btn.ghost:hover{background:rgba(246,241,230,.14)}
+  .hero .scroll{position:absolute;right:48px;bottom:72px;writing-mode:vertical-rl;font-family:var(--latin);font-size:11px;letter-spacing:.4em;color:rgba(246,241,230,.75)}
+  @media(max-width:767px){.hero .scroll{display:none}}
+
+  /* コンセプト */
+  .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:8px}
+  @media(max-width:900px){.concept-grid{grid-template-columns:1fr;gap:48px}}
+  .photo-panel{position:relative;overflow:hidden;background:var(--beige)}
+  .photo-panel svg{width:100%;height:auto}
+  .photo-panel .grain{position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .photo-panel .cap{position:absolute;left:16px;bottom:12px;font-family:var(--latin);font-size:11px;letter-spacing:.32em;color:rgba(38,35,29,.62)}
+  .features{margin-top:48px;border-top:1px solid var(--line)}
+  .feature{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .feature .ic{flex:none;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .feature .ic svg{width:19px;height:19px}
+  .feature h3{font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.06em}
+  .feature p{color:var(--ink-soft);font-size:14.5px;margin-top:4px}
+
+  /* メニュー */
+  .menu-sec{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-list{margin-top:56px;border-top:1px solid var(--line)}
+  .price-row{display:flex;align-items:baseline;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+  .price-row .n{font-family:var(--serif);font-size:17px;letter-spacing:.05em}
+  .price-row .d{color:var(--ink-faint);font-size:13px;margin-top:2px;letter-spacing:.03em}
+  .price-row .dots{flex:1;border-bottom:1px dotted var(--beige-deep);transform:translateY(-4px)}
+  .price-row .p{font-family:var(--serif);font-size:18px;white-space:nowrap}
+  .price-row .p small{font-size:12px;color:var(--ink-faint);margin-right:4px}
+  .fineprint{margin-top:24px;font-size:12.5px;color:var(--ink-faint);line-height:1.8}
+
+  /* スタイリスト */
+  .stylist-grid{display:grid;grid-template-columns:400px 1fr;gap:64px;align-items:center}
+  @media(max-width:900px){.stylist-grid{grid-template-columns:1fr;gap:48px}}
+  .stylist-grid .photo-panel{max-width:400px}
+  .stylist-name{font-family:var(--serif);font-size:22px;letter-spacing:.1em;margin-top:24px}
+  .stylist-role{font-size:12.5px;letter-spacing:.22em;color:var(--accent);margin-top:8px}
+  .stylist-msg{margin-top:24px;color:var(--ink-soft);max-width:560px}
+
+  /* 予約 */
+  .book-sec{background:var(--dark);color:#f1ebdd}
+  .book-sec .label{color:#c8a877}
+  .book-sec .label::after{background:#c8a877}
+  .book-sec h2{color:#f6f1e6}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:56px}
+  @media(max-width:900px){.steps{grid-template-columns:1fr;gap:0}}
+  .step{border-top:1px solid rgba(241,235,221,.28);padding-top:24px}
+  @media(max-width:900px){.step{padding:24px 0;border-top:none;border-bottom:1px solid rgba(241,235,221,.28)}}
+  .step .num{font-family:var(--latin);font-size:26px;color:#c8a877;letter-spacing:.1em}
+  .step h3{font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:.08em;margin-top:12px}
+  .step p{font-size:14px;color:rgba(241,235,221,.78);margin-top:8px}
+  .book-cta{margin-top:64px;text-align:center;border:1px solid rgba(241,235,221,.28);padding:48px 24px}
+  .book-cta .t1{font-size:13px;letter-spacing:.26em;color:rgba(241,235,221,.8)}
+  .book-cta .num-big{font-family:var(--serif);font-size:clamp(32px,6vw,48px);letter-spacing:.12em;margin-top:16px}
+  .book-cta .num-big a{border-bottom:1px solid rgba(241,235,221,.4);padding-bottom:4px}
+  .book-cta .t2{font-size:12.5px;color:rgba(241,235,221,.65);margin-top:16px;letter-spacing:.08em}
+  .form{max-width:640px;margin:56px auto 0;text-align:left}
+  .form label{display:block;font-size:13px;letter-spacing:.1em;margin:24px 0 8px;color:rgba(241,235,221,.85)}
+  .form label:first-child{margin-top:0}
+  .form input,.form select,.form textarea{width:100%;padding:12px 14px;border:1px solid rgba(241,235,221,.35);background:transparent;color:#f6f1e6;font-size:15px;font-family:inherit;border-radius:0}
+  .form textarea{min-height:96px;resize:vertical}
+  .form .submit{margin-top:32px;width:100%;background:#f6f1e6;color:var(--ink);border:none;font-size:15px;letter-spacing:.14em;padding:16px;cursor:pointer}
+  .form .done{display:none;margin-top:24px;border:1px solid rgba(241,235,221,.4);padding:16px 20px;font-size:14px}
+  .form-note{max-width:640px;margin:16px auto 0;font-size:12px;color:rgba(241,235,221,.55)}
+
+  /* アクセス */
+  .access-list{margin-top:56px;border-top:1px solid var(--line)}
+  .access-row{display:flex;gap:32px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .access-row .k{flex:none;width:120px;font-size:13px;letter-spacing:.18em;color:var(--ink-faint)}
+  .access-row .v{font-size:15.5px}
+  .access-row .v a{border-bottom:1px solid var(--accent);color:var(--ink)}
+  @media(max-width:767px){.access-row{flex-direction:column;gap:4px}.access-row .k{width:auto}}
+
+  footer{border-top:1px solid var(--line);padding:64px 0 96px;color:var(--ink-soft)}
+  @media(max-width:767px){footer{padding-bottom:120px}}
+  footer .fname{font-family:var(--serif);font-size:19px;letter-spacing:.14em;color:var(--ink)}
+  footer .fmeta{font-size:13px;margin-top:12px;line-height:2}
+  footer .fmeta a{border-bottom:1px solid var(--accent)}
+  footer .mock-note{margin-top:32px;border:1px solid var(--line);padding:16px 20px;font-size:12px;color:var(--ink-faint);line-height:1.9;max-width:720px}
+
+  /* スマホ固定の予約バー */
+  .mobile-bar{display:none}
+  @media(max-width:767px){
+    .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:#f6f1e6}
+    .mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 8px calc(16px + env(safe-area-inset-bottom));font-size:14.5px;letter-spacing:.12em}
+    .mobile-bar a svg{width:16px;height:16px}
+    .mobile-bar a.sub{flex:0 0 38%;background:#45413a;font-size:13px}
+  }
+
+  /* 軽い出現アニメーションのみ（重い演出は入れない） */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .rv.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="mock-bar">このページは、ホームページ制作のご提案用モックアップ（イメージ）です</div>
+
+<header>
+  <div class="inner">
+    <a class="logo" href="#top">
+      <span class="jp" data-shop="name">さくら美容室</span>
+      <span class="en">SAKURA&nbsp;HAIR</span>
+    </a>
+    <nav class="main">
+      <a href="#concept">コンセプト</a>
+      <a href="#menu">メニュー</a>
+      <a href="#stylist">スタイリスト</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <a class="tel-btn" data-tel href="tel:0936915320">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span data-shop="telDisplay">093-691-5320</span>
+    </a>
+  </div>
+</header>
+
+<!-- ファーストビュー：写真（デュオトーンパネル）を主役に、文字は最小限 -->
+<div class="hero" id="top">
+  <div class="panel" aria-hidden="true">
+    <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+      <rect width="1600" height="1000" fill="#e6dcc8"/>
+      <rect y="620" width="1600" height="380" fill="#cfc2a6"/>
+      <path d="M0 620 L1600 560 L1600 1000 L0 1000 Z" fill="#bfb094"/>
+      <path d="M880 1000 L880 260 Q880 120 1030 120 Q1180 120 1180 260 L1180 1000 Z" fill="#efe7d4"/>
+      <path d="M920 1000 L920 280 Q920 165 1030 165 Q1140 165 1140 280 L1140 1000 Z" fill="#d9cbae"/>
+      <circle cx="420" cy="300" r="150" fill="#f2ead8"/>
+      <circle cx="420" cy="300" r="150" fill="none" stroke="#a08c62" stroke-width="2"/>
+      <path d="M120 1000 Q300 560 260 240 Q240 90 330 30" fill="none" stroke="#8a7a58" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+      <path d="M190 1000 Q350 600 320 260 Q305 110 385 55" fill="none" stroke="#f0e7d2" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+      <path d="M60 1000 Q210 640 190 330 Q180 200 250 140" fill="none" stroke="#6f6247" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+      <path d="M1330 1000 Q1260 620 1330 330 Q1370 170 1310 60" fill="none" stroke="#8a7a58" stroke-width="8" stroke-linecap="round" opacity=".45"/>
+      <path d="M1420 1000 Q1360 660 1420 400 Q1450 260 1400 160" fill="none" stroke="#efe6d0" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+      <rect x="0" y="0" width="1600" height="1000" fill="#3a352a" opacity=".06"/>
+    </svg>
+  </div>
+  <div class="grain"></div>
+  <div class="scrim"></div>
+  <div class="content">
+    <div class="eyebrow">北九州市八幡西区・則松の美容室</div>
+    <h1 data-shop="name">さくら美容室</h1>
+    <p class="copy">いつもの髪を、少しだけ特別に。</p>
+    <div class="cta-row">
+      <a class="btn solid" data-tel href="tel:0936915320">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        電話で予約する
+      </a>
+      <a class="btn ghost" href="#menu">メニューを見る</a>
+    </div>
+  </div>
+  <div class="scroll">SCROLL</div>
+</div>
+
+<!-- コンセプト -->
+<section id="concept">
+  <div class="wrap">
+    <div class="concept-grid">
+      <div class="rv">
+        <div class="label">Concept</div>
+        <h2>近所に、信頼できる<br>一軒を。</h2>
+        <p class="sec-lead">則松の住宅街にたたずむ、小さな美容室です。派手なことはしません。その代わり、一人ひとりの髪の状態をよく見て、家でも扱いやすい髪に整えることを大切にしています。</p>
+        <div class="features">
+          <div class="feature">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88"/><path d="M14.47 14.48 20 20"/><path d="M8.12 8.12 12 12"/></svg></div>
+            <div><h3>一人ひとりに合わせたカット</h3><p>髪質や骨格、普段のスタイリングの仕方をうかがってから、無理なくまとまる形に仕上げます。</p></div>
+          </div>
+          <div class="feature">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div><h3>白髪染め・カラーの相談</h3><p>色の持ちや、伸びてきたときの見え方まで。気になることは、施術の前に気軽にご相談ください。</p></div>
+          </div>
+          <div class="feature">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h3>折尾駅から徒歩約15分</h3><p>則松1丁目の住宅街の中にあります。近所の方に、気軽に通っていただける距離です。</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="photo-panel rv" aria-hidden="true">
+        <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="1000" fill="#e2d7c0"/>
+          <path d="M140 1000 L140 340 Q140 180 400 180 Q660 180 660 340 L660 1000 Z" fill="#efe7d3"/>
+          <path d="M185 1000 L185 360 Q185 225 400 225 Q615 225 615 360 L615 1000 Z" fill="#d3c5a5"/>
+          <circle cx="400" cy="470" r="105" fill="#f4eddb"/>
+          <circle cx="400" cy="470" r="105" fill="none" stroke="#a08c62" stroke-width="2"/>
+          <path d="M90 1000 Q170 640 150 380 Q140 240 200 170" fill="none" stroke="#8a7a58" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+          <path d="M710 1000 Q650 680 680 430 Q695 300 650 220" fill="none" stroke="#f0e7d2" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+          <rect y="800" width="800" height="200" fill="#bfb094"/>
+        </svg>
+        <div class="grain"></div>
+        <div class="cap">INTERIOR — IMAGE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- メニュー（仮組み） -->
+<section id="menu" class="menu-sec">
+  <div class="wrap">
+    <div class="label rv">Menu</div>
+    <h2 class="rv">メニューと料金</h2>
+    <p class="sec-lead rv">通いやすい料金で、必要なことをきちんと。下記は一般的なメニューの仮組みです。</p>
+    <div class="price-list rv">
+      <div class="price-row"><div><div class="n">カット</div><div class="d">シャンプー・ブロー込み</div></div><div class="dots"></div><div class="p"><small>税込</small>¥4,400</div></div>
+      <div class="price-row"><div><div class="n">カット＋カラー</div><div class="d">全体カラー／白髪染め対応</div></div><div class="dots"></div><div class="p"><small>税込</small>¥11,000</div></div>
+      <div class="price-row"><div><div class="n">カラー</div><div class="d">リタッチ（根元のみ）</div></div><div class="dots"></div><div class="p"><small>税込</small>¥6,600</div></div>
+      <div class="price-row"><div><div class="n">カット＋パーマ</div><div class="d">デジタルパーマはご相談ください</div></div><div class="dots"></div><div class="p"><small>税込</small>¥11,550</div></div>
+      <div class="price-row"><div><div class="n">トリートメント</div><div class="d">髪の状態に合わせて選定</div></div><div class="dots"></div><div class="p"><small>税込</small>¥3,300〜</div></div>
+      <div class="price-row"><div><div class="n">ヘッドスパ</div><div class="d">頭皮のケアとリラックスに</div></div><div class="dots"></div><div class="p"><small>税込</small>¥3,300</div></div>
+    </div>
+    <p class="fineprint rv">※上記の料金・メニューは仮の内容です。実際の料金はお店にご確認ください。※髪の長さや状態により、料金が変わる場合があります。</p>
+  </div>
+</section>
+
+<!-- スタイリスト -->
+<section id="stylist">
+  <div class="wrap">
+    <div class="stylist-grid">
+      <div class="photo-panel rv" aria-hidden="true">
+        <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="1000" fill="#ddd2ba"/>
+          <circle cx="400" cy="300" r="210" fill="#efe7d3"/>
+          <circle cx="400" cy="430" r="88" fill="#c9ba98"/>
+          <path d="M400 342 Q486 430 470 560 Q462 640 400 660 Q338 640 330 560 Q314 430 400 342Z" fill="#8a7a58"/>
+          <path d="M215 1000 Q235 760 400 745 Q565 760 585 1000 Z" fill="#4a453a"/>
+          <path d="M400 745 Q390 860 400 1000" stroke="#37342c" stroke-width="5" fill="none"/>
+          <path d="M120 1000 Q150 700 130 470 Q120 330 175 250" fill="none" stroke="#f0e7d2" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+          <rect y="880" width="800" height="120" fill="#bfb094"/>
+        </svg>
+        <div class="grain"></div>
+        <div class="cap">STYLIST — IMAGE</div>
+      </div>
+      <div class="rv">
+        <div class="label">Stylist</div>
+        <h2>担当スタイリスト</h2>
+        <div class="stylist-name">店主スタイリスト</div>
+        <div class="stylist-role">OWNER&nbsp;STYLIST</div>
+        <p class="stylist-msg">「髪型を変えたいけれど、何が似合うか分からない」——そんな相談からで大丈夫です。今の髪の状態と、普段のお手入れの仕方をうかがいながら、無理のない形をご提案します。気になることがあれば、予約のお電話のときにでも気軽にお聞きください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 予約案内 -->
+<section id="book" class="book-sec">
+  <div class="wrap">
+    <div class="label rv">Reservation</div>
+    <h2 class="rv">ご予約は、お電話で。</h2>
+    <div class="steps rv">
+      <div class="step"><div class="num">01</div><h3>お電話ください</h3><p>ご希望の日時とメニューをお聞かせください。髪のお悩みの相談だけでも大丈夫です。</p></div>
+      <div class="step"><div class="num">02</div><h3>ご来店・カウンセリング</h3><p>髪の状態を見ながら、仕上がりのイメージを一緒に決めていきます。</p></div>
+      <div class="step"><div class="num">03</div><h3>施術・仕上げ</h3><p>家でのスタイリングの仕方も、最後にお伝えします。</p></div>
+    </div>
+    <div class="book-cta rv">
+      <div class="t1">ご予約・お問い合わせ</div>
+      <div class="num-big"><a data-tel data-shop="telDisplay" href="tel:0936915320">093-691-5320</a></div>
+      <div class="t2">スマートフォンでは、番号をタップするとそのまま発信できます</div>
+    </div>
+    <form class="form rv" id="bookForm">
+      <label for="f-name">お名前</label>
+      <input id="f-name" type="text" placeholder="例）山田 花子" required>
+      <label for="f-menu">ご希望メニュー</label>
+      <select id="f-menu">
+        <option>カット</option>
+        <option>カット＋カラー</option>
+        <option>カラー</option>
+        <option>カット＋パーマ</option>
+        <option>トリートメント</option>
+        <option>相談して決めたい</option>
+      </select>
+      <label for="f-date">ご希望日</label>
+      <input id="f-date" type="date">
+      <label for="f-msg">ご要望・ご質問（任意）</label>
+      <textarea id="f-msg" placeholder="髪の悩みや、なりたいイメージがあればご記入ください"></textarea>
+      <button class="submit" type="submit">この内容で送信する</button>
+      <div class="done" id="formDone">ありがとうございます。内容を受け付けました（このフォームはモックアップのため、実際には送信されません）。</div>
+    </form>
+    <p class="form-note rv">※フォームは見た目の確認用です。実際のご予約はお電話でお願いします。</p>
+  </div>
+</section>
+
+<!-- アクセス -->
+<section id="access">
+  <div class="wrap">
+    <div class="label rv">Access</div>
+    <h2 class="rv">店舗情報</h2>
+    <div class="access-list rv">
+      <div class="access-row"><div class="k">店名</div><div class="v" data-shop="name">さくら美容室</div></div>
+      <div class="access-row"><div class="k">住所</div><div class="v" data-shop="address">福岡県北九州市八幡西区則松1-3-10</div></div>
+      <div class="access-row"><div class="k">最寄り駅</div><div class="v" data-shop="station">折尾駅から徒歩約15分</div></div>
+      <div class="access-row"><div class="k">電話</div><div class="v"><a data-tel data-shop="telDisplay" href="tel:0936915320">093-691-5320</a></div></div>
+      <div class="access-row"><div class="k">営業時間</div><div class="v">10:00 – 19:00</div></div>
+      <div class="access-row"><div class="k">定休日</div><div class="v">火曜日</div></div>
+    </div>
+    <p class="fineprint rv">※営業時間・定休日は仮の表記です。ご来店前に、お電話でご確認ください。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fname" data-shop="name">さくら美容室</div>
+    <div class="fmeta">
+      <span data-shop="address">福岡県北九州市八幡西区則松1-3-10</span><br>
+      TEL：<a data-tel data-shop="telDisplay" href="tel:0936915320">093-691-5320</a>
+    </div>
+    <div class="mock-note">
+      ※このページは、ホームページ制作のご提案イメージ（モックアップ）です。さくら美容室の公式サイトではありません。掲載している料金・営業時間・定休日などは仮の内容を含みます。写真エリアはイメージ図で、実際の店舗写真ではありません。
+    </div>
+  </div>
+</footer>
+
+<!-- スマホ固定バー：予約導線を落とさない -->
+<div class="mobile-bar">
+  <a data-tel href="tel:0936915320">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    電話で予約
+  </a>
+  <a class="sub" href="#menu">メニュー</a>
+</div>
+
+<script>
+  /* ===== 店舗情報（差し替えはここだけ） ===== */
+  const SHOP = {
+    name: "さくら美容室",
+    address: "福岡県北九州市八幡西区則松1-3-10",
+    station: "折尾駅から徒歩約15分",
+    telDisplay: "093-691-5320",
+    telLink: "tel:0936915320"
+  };
+  document.querySelectorAll("[data-shop]").forEach(el => {
+    const key = el.dataset.shop;
+    if (SHOP[key]) el.textContent = SHOP[key];
+  });
+  document.querySelectorAll("[data-tel]").forEach(el => el.setAttribute("href", SHOP.telLink));
+
+  /* 軽い出現アニメーション */
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+  /* フォーム（モックアップ用デモ：送信はされません） */
+  document.getElementById("bookForm").addEventListener("submit", e => {
+    e.preventDefault();
+    document.getElementById("formDone").style.display = "block";
+    e.target.querySelector(".submit").textContent = "受け付けました";
+  });
+</script>
+</body>
+</html>
