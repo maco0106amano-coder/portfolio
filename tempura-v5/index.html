@@ -14,6 +14,8 @@
     線を細く・小さく再設計し、店名ロゴタイプとの「ロゴロックアップ」として FV とフッターに置く
   ・★評価の巨大ブロックは置かず、実績はコンセプト直下の静かな事実ラインに
   ・写真は役割ごとにサイズとトリミングを変える（接写／定食／店内／外観）
+  ・こだわりは たかお式 に改修（2026-11-10）：象徴写真の接写クロップ＋見出し＋濃い段落の
+    セットを交互配置。お品書き末尾に うどん・そば の小ブロック（価格は ざるそば¥550 のみ）を追加
   ・黒い面は使わない（基調は生成り）。暗い面は FV の写真側だけ
   ・事実はリサーチメモの範囲のみ。油の種類は未確認のため記載しない。
     価格は口コミ投稿時点の値（ページ内に注記）。塩辛は「おひとり様一皿まで」。
@@ -106,24 +108,23 @@
   .concept .facts{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14.5px;letter-spacing:.06em;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:8px 30px}
   .concept .facts b{color:var(--ink);font-weight:600}
 
-  /* こだわり（章立て：一の品〜三の品） */
+  /* こだわり（たかお式：象徴写真＋見出し＋濃い段落のセットを交互に配置／章ラベルは静かに残す） */
   .commit{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .commit-grid{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:start}
-  @media(max-width:900px){.commit-grid{grid-template-columns:1fr;gap:52px}}
-  .commit-photo{margin-top:44px}
-  .commit-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
-  .commit-photo.sub{margin-top:36px;width:78%}
-  .commit-photo.sub img{aspect-ratio:16/10;object-fit:cover;object-position:50% 42%}
-  @media(max-width:767px){.commit-photo.sub{width:88%}}
+  .kd-list{margin-top:30px;border-top:1px solid var(--line)}
+  .kd-item{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:54px 0;border-bottom:1px solid var(--line)}
+  .kd-item .kd-photo img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .kd-item.rev .kd-photo{order:2}
+  @media(max-width:900px){
+    .kd-item{grid-template-columns:1fr;gap:26px;padding:44px 0}
+    .kd-item.rev .kd-photo{order:0}
+  }
   /* 章ラベル（v4の様式を静かに：漢数字＋細罫＋英字小見出し／落款なし） */
-  .ch-list{border-top:1px solid var(--line)}
-  .ch-item{padding:32px 0;border-bottom:1px solid var(--line)}
   .ch-label{display:flex;align-items:center;gap:16px}
   .ch-kanji{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.3em;color:var(--ink);white-space:nowrap}
   .ch-rule{flex:1;height:1px;background:var(--line)}
   .ch-en{font-size:10.5px;letter-spacing:.4em;color:var(--accent);font-weight:600;white-space:nowrap}
-  .ch-item h3{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.06em;line-height:1.6;margin-top:18px}
-  .ch-item p{margin-top:10px;color:var(--ink-soft);font-size:15.5px;line-height:1.95}
+  .kd-text h3{font-family:var(--serif);font-size:clamp(21px,2.4vw,25px);font-weight:600;letter-spacing:.06em;line-height:1.6;margin-top:18px}
+  .kd-text p{margin-top:14px;color:var(--ink-soft);font-size:15.5px;line-height:2.0}
 
   /* お品書き */
   .menu-list{margin-top:52px;border-top:1px solid var(--line);max-width:820px}
@@ -136,6 +137,16 @@
   @media(max-width:767px){.menu-row{flex-wrap:wrap;gap:4px 14px}.menu-row .dots{display:none}.menu-row .p{margin-left:auto}}
   .menu-more{margin-top:28px;font-size:15px;color:var(--ink-soft)}
   .fineprint{margin-top:18px;font-size:13px;color:var(--ink-faint);line-height:1.85}
+
+  /* うどん・そば（お品書きの末尾に、コースの脇役として静かに置く） */
+  .noodle{margin-top:48px;max-width:820px}
+  .noodle-head{display:flex;align-items:center;gap:16px}
+  .noodle-title{font-family:var(--serif);font-weight:600;font-size:16.5px;letter-spacing:.14em;white-space:nowrap}
+  .noodle-txt{margin-top:12px;font-size:14.5px;color:var(--ink-soft)}
+  .noodle-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px;max-width:540px}
+  .noodle-grid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .noodle-grid figcaption .np{font-family:var(--serif);font-weight:600;color:var(--ink);margin-left:8px}
+  @media(max-width:767px){.noodle-grid{gap:16px}}
 
   /* 店舗情報 */
   .info-sec{background:var(--paper);border-top:1px solid var(--line)}
@@ -264,39 +275,47 @@
   </div>
 </section>
 
-<!-- こだわり（章立て：一の品〜三の品） -->
+<!-- こだわり（たかお式：象徴写真＋見出し＋濃い段落のセットを交互に） -->
 <section class="commit">
   <div class="wrap">
-    <div class="commit-grid">
-      <div class="rv">
-        <div class="label">COMMITMENT</div>
-        <h2>さくらのこだわり</h2>
-        <figure class="commit-photo">
-          <img src="img/food-set.jpg" alt="天ぷらとごはん・味噌汁の定食" loading="lazy">
-          <figcaption>定食のイメージ ― ごはん・味噌汁はおかわり自由</figcaption>
+    <div class="rv">
+      <div class="label">COMMITMENT</div>
+      <h2>さくらのこだわり</h2>
+    </div>
+    <div class="kd-list">
+      <article class="kd-item rv">
+        <figure class="kd-photo">
+          <img src="img/kodawari-fry.jpg" alt="網の上の揚げたての天ぷら" loading="lazy">
+          <figcaption>揚げたての天ぷら ― 一品ずつ、網へ</figcaption>
         </figure>
-        <figure class="commit-photo sub">
-          <img src="img/interior-counter.jpg" alt="カウンター席のある店内" loading="lazy">
-          <figcaption>店内 ― カウンター席</figcaption>
-        </figure>
-      </div>
-      <div class="ch-list rv">
-        <div class="ch-item">
+        <div class="kd-text">
           <div class="ch-label"><span class="ch-kanji">一の品</span><span class="ch-rule"></span><span class="ch-en">IPPIN</span></div>
           <h3>揚げたてを、一品ずつ</h3>
-          <p>まとめて出さず、揚がったものから順に一品ずつお席へ運びます。熱々をいちばんおいしい状態で味わっていただくための、この店の提供スタイルです。「油も重たくなく、カラッと軽い」とお客様に評される揚げ上がりも持ち味です。</p>
+          <p>揚げはじめるのは、注文を受けてから。揚がったものから順に、一品ずつお席の網へ運びます。まとめて出さず、一品ずつ届けるのは、衣のサクッとした軽さと熱々の美味しさを、いちばんいい状態で味わっていただくためです。「油も重たくなく、カラッと軽い」とは、お客様からいただく声。天つゆの味わいにも定評があります。一品ごとに熱々が続くのが、この店のコースの醍醐味です。</p>
         </div>
-        <div class="ch-item">
+      </article>
+      <article class="kd-item rev rv">
+        <figure class="kd-photo">
+          <img src="img/kodawari-rice.jpg" alt="白ごはんの椀と味噌汁" loading="lazy">
+          <figcaption>ごはんの椀 ― おかわり自由</figcaption>
+        </figure>
+        <div class="kd-text">
           <div class="ch-label"><span class="ch-kanji">二の品</span><span class="ch-rule"></span><span class="ch-en">OKAWARI</span></div>
-          <h3>ごはん・味噌汁・高菜はおかわり自由</h3>
-          <p>コース・定食には、ごはん、味噌汁、高菜がつき、おかわりは自由です。名物のイカの塩辛は、おひとり様一皿まで。それでも注文の多い一品です。</p>
+          <h3>ごはんと味噌汁は、おかわり自由</h3>
+          <p>コースと定食には、ごはんと味噌汁、高菜がつきます。ごはんと味噌汁はおかわり自由、高菜は取り放題です。味噌汁をおかわりされるお客様も少なくありません。もうひとつの名物が、イカの塩辛です。以前は食べ放題でしたが、現在はおひとり様一皿まで。それでも多くの方が楽しみにされる、ごはんの進む一品です。お腹いっぱい、天ぷらを楽しんでいただくための取り合わせです。</p>
         </div>
-        <div class="ch-item">
+      </article>
+      <article class="kd-item rv">
+        <figure class="kd-photo">
+          <img src="img/kodawari-broccoli.jpg" alt="網の上のブロッコリーと魚の天ぷら" loading="lazy">
+          <figcaption>網の上の天ぷら ― 名物のブロッコリー</figcaption>
+        </figure>
+        <div class="kd-text">
           <div class="ch-label"><span class="ch-kanji">三の品</span><span class="ch-rule"></span><span class="ch-en">MEIBUTSU</span></div>
           <h3>名物は、ブロッコリーと半熟卵</h3>
-          <p>珍しいブロッコリーの天ぷらは、この店ならではの名物。とろりと半熟に揚げた卵の天ぷらも、追加注文の多い一品です。</p>
+          <p>野菜の天ぷらのなかでも、ひときわ名指しで評判なのがブロッコリーです。「初めての経験。これがまた美味い」「僕は一押し」と、口コミでも繰り返し名前が挙がる、この店ならではの名物。海鮮コースにも顔を出します。そして、とろりと半熟に揚げた卵の天ぷらは追加注文の定番で、「ご飯のお供には最高」と評される一品です。</p>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -326,7 +345,21 @@
         <div class="p"><small>税込</small>¥1,030</div>
       </div>
     </div>
-    <p class="menu-more rv">このほか、桜コース、天ざる、ごぼう天うどん、単品の追加もございます。どのコースにも、ごはん・味噌汁のおかわり自由と高菜がつきます。</p>
+    <p class="menu-more rv">このほか、桜コース、天ざる、単品の追加もございます。どのコースにも、ごはん・味噌汁のおかわり自由と高菜がつきます。</p>
+    <div class="noodle rv">
+      <div class="noodle-head"><span class="noodle-title">うどん・そば</span><span class="ch-rule"></span></div>
+      <p class="noodle-txt">天ぷらの合間に、うどん・そばもございます。</p>
+      <div class="noodle-grid">
+        <figure>
+          <img src="img/food-udon.jpg" alt="ごぼう天うどん" loading="lazy">
+          <figcaption>ごぼう天うどん</figcaption>
+        </figure>
+        <figure>
+          <img src="img/food-soba.jpg" alt="ざるそば" loading="lazy">
+          <figcaption>ざるそば<span class="np">¥550</span></figcaption>
+        </figure>
+      </div>
+    </div>
     <p class="fineprint rv">※ 価格・内容は口コミ投稿時点の情報をもとにした仮の表記です。現在の価格とは異なる場合がありますので、最新情報はお店にご確認ください。</p>
   </div>
 </section>
