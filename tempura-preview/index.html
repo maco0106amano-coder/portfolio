@@ -13,7 +13,7 @@
   店名・電話番号・住所・最寄り駅がページ全体（data-shop 属性の箇所）に反映されます。
   ※ メニュー価格は食べログ掲載情報（来店者の投稿時点）をもとに記載しています。
      最新の価格・内容はお店にご確認いただく前提で、ページ内にも注記を入れています。
-  ※ 写真は img/ フォルダの実写真（Googleマップ掲載写真）を使用しています。
+  ※ 写真は img/graded/ フォルダの実写真（Googleマップ掲載写真を統一グレーディングしたもの）を使用しています。
      駐車場の台数・正確な位置は未確認のため、案内図は模式図（イメージ）として描いています。
   ※ これは制作提案用のモックアップです。公開・配布はしないでください。
   ============================================================
@@ -51,6 +51,13 @@
   a{color:inherit;text-decoration:none}
   img,svg{display:block}
   ::selection{background:var(--beige-deep)}
+  body{overflow-x:clip}
+  /* スクロールバーも色味を統一 */
+  html{scrollbar-color:var(--beige-deep) var(--bg)}
+  ::-webkit-scrollbar{width:10px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:var(--beige-deep);border:2px solid var(--bg);border-radius:6px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
   .wrap{max-width:1120px;margin:0 auto;padding:0 48px}
   @media(max-width:767px){.wrap{padding:0 24px}}
@@ -74,26 +81,50 @@
   @media(max-width:767px){header .inner{padding:0 16px;height:64px}.logo .en{display:none}.logo .jp{font-size:15px;white-space:nowrap}.tel-btn{padding:8px 10px;font-size:12.5px}}
 
   /* セクション共通 */
-  section{padding:128px 0;scroll-margin-top:88px}
-  @media(max-width:767px){section{padding:80px 0}}
+  section{padding:144px 0;scroll-margin-top:88px;position:relative}
+  @media(max-width:767px){section{padding:88px 0}}
+  .wrap{position:relative;z-index:1}
+  /* セクション番号：編集デザインのアクセントに、大きく淡く置く */
+  .sec-no{position:absolute;top:88px;right:calc(50% - 512px);font-family:var(--latin);font-weight:500;font-size:clamp(72px,9vw,124px);line-height:1;color:transparent;-webkit-text-stroke:1px var(--beige-deep);opacity:.6;pointer-events:none;z-index:0}
+  @media(max-width:1120px){.sec-no{right:48px}}
+  @media(max-width:767px){.sec-no{top:52px;right:24px;font-size:56px;opacity:.45}}
   .label{display:flex;align-items:center;gap:16px;font-family:var(--latin);font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase}
   .label::after{content:"";height:1px;width:64px;background:var(--accent);opacity:.55}
-  h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,36px);line-height:1.55;letter-spacing:.06em;margin-top:24px}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.4vw,44px);line-height:1.5;letter-spacing:.07em;margin-top:28px}
   .sec-lead{margin-top:24px;color:var(--ink-soft);max-width:640px}
 
   /* ファーストビュー：写真パネル主役 */
   .hero{position:relative;min-height:calc(100vh - 104px);min-height:calc(100svh - 104px);display:flex;align-items:flex-end;overflow:hidden;background:var(--beige)}
-  .hero .panel{position:absolute;inset:0}
+  /* パララックスで動く分、上下に余分を持たせる */
+  .hero .panel{position:absolute;inset:-9% 0;will-change:transform;animation:heroFade 1.4s ease both}
   .hero .panel svg{width:100%;height:100%}
+  /* FV写真のゆっくりしたズーム（Ken Burns） */
+  .hero .photo-slot img{animation:kenburns 26s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1.03)}to{transform:scale(1.13) translate(-1.4%,-1.2%)}}
+  @keyframes heroFade{from{opacity:0}to{opacity:1}}
   .hero .grain{position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-  .hero .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,24,19,.62) 0%,rgba(26,24,19,.18) 42%,rgba(26,24,19,0) 65%)}
-  .hero .content{position:relative;width:100%;max-width:1120px;margin:0 auto;padding:0 48px 72px;color:#f6f1e6;text-shadow:0 1px 16px rgba(26,24,19,.45)}
+  /* スクリム：下部を締めて「ポスター」として文字を立てる＋上部はヘッダーの可読性用 */
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(24,22,17,.72) 0%,rgba(24,22,17,.34) 40%,rgba(24,22,17,.04) 62%),linear-gradient(to bottom,rgba(24,22,17,.30) 0%,rgba(24,22,17,0) 26%)}
+  .hero .content{position:relative;width:100%;max-width:1120px;margin:0 auto;padding:0 48px 80px;color:#f6f1e6;text-shadow:0 1px 16px rgba(26,24,19,.45)}
   @media(max-width:767px){
-    .hero .content{padding:0 24px 96px}
-    .hero .scrim{background:linear-gradient(to top,rgba(26,24,19,.68) 0%,rgba(26,24,19,.34) 55%,rgba(26,24,19,.14) 100%)}
+    .hero .content{padding:0 24px 104px}
+    .hero .scrim{background:linear-gradient(to top,rgba(24,22,17,.76) 0%,rgba(24,22,17,.42) 52%,rgba(24,22,17,.16) 100%)}
+    /* 狭幅では罫線付きフレックスをやめ、折り返しを自然にする */
+    .hero .eyebrow{display:block}
+    .hero .eyebrow::before{display:none}
   }
-  .hero .eyebrow{font-size:12px;letter-spacing:.3em;color:#e8dfca}
-  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,5.2vw,50px);letter-spacing:.12em;line-height:1.35;margin-top:16px}
+  /* 冒頭の短い導入演出：要素が順にふっと出る（合計でも1.6秒以内） */
+  .hero .content>*{opacity:0;animation:heroRise .95s cubic-bezier(.22,.61,.28,1) forwards}
+  .hero .content>*:nth-child(1){animation-delay:.08s}
+  .hero .content>*:nth-child(2){animation-delay:.2s}
+  .hero .content>*:nth-child(3){animation-delay:.32s}
+  .hero .content>*:nth-child(4){animation-delay:.44s}
+  .hero .content>*:nth-child(5){animation-delay:.58s}
+  @keyframes heroRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .hero .v-copy{opacity:0;animation:heroFade 1.2s ease .7s forwards}
+  .hero .eyebrow{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.3em;color:#e8dfca}
+  .hero .eyebrow::before{content:"";width:36px;height:1px;background:#c8a86a;flex:none}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,6.4vw,68px);letter-spacing:.14em;line-height:1.35;margin-top:20px}
   .hero .copy{margin-top:16px;font-size:15.5px;letter-spacing:.1em;color:#efe9db}
   .hero .meta{margin-top:14px;font-size:13px;letter-spacing:.08em;color:#e8dfca}
   .hero .meta b{font-weight:600;color:#f6f1e6}
@@ -105,11 +136,13 @@
   .btn.ghost{color:#f6f1e6}
   .btn.ghost:hover{background:rgba(246,241,230,.14)}
   .hero .v-copy{position:absolute;right:44px;top:50%;transform:translateY(-50%);font-size:15px;color:rgba(246,241,230,.92);text-shadow:0 1px 12px rgba(26,24,19,.5);border-right:1px solid rgba(246,241,230,.4);padding-right:18px}
-  @media(max-width:767px){.hero .v-copy{display:none}.hero h1{font-size:27px;letter-spacing:.07em;white-space:nowrap}}
+  @media(max-width:767px){.hero .v-copy{display:none}.hero h1{font-size:29px;letter-spacing:.08em;white-space:nowrap}}
 
   /* 店の特徴 */
-  .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:8px}
-  @media(max-width:900px){.concept-grid{grid-template-columns:1fr;gap:48px}}
+  .concept-grid{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:start;margin-top:8px}
+  /* 写真側を一段下げて、均等な並びにしない */
+  .concept-grid .photo-panel{margin-top:72px}
+  @media(max-width:900px){.concept-grid{grid-template-columns:1fr;gap:48px}.concept-grid .photo-panel{margin-top:0}}
   .photo-panel{position:relative;overflow:hidden;background:var(--beige)}
   .photo-panel svg{width:100%;height:auto}
   .photo-panel .grain{position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -160,16 +193,39 @@
   .tel-cta .num-big a{border-bottom:1px solid var(--beige-deep);padding-bottom:4px}
   .tel-cta .t2{font-size:12.5px;color:var(--ink-faint);margin-top:16px;letter-spacing:.08em}
 
-  /* 実写真の軽い補正（明るさ・色味のみ。内容は変えない） */
-  img.real{filter:saturate(1.07) brightness(1.03) contrast(1.02)}
-  .photo-panel .cap{background:rgba(253,251,245,.88);padding:3px 10px;color:var(--ink-soft)}
-  /* 写真の横並び（店内・メニュー） */
-  .photo-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
-  @media(max-width:767px){.photo-row{grid-template-columns:1fr}}
+  /* 写真はグレーディング済み（img/graded/）を使うので、CSS側の二重補正はしない */
+  img.real{filter:none}
+  /* 写真の遅延フェードイン（読み込めたものから静かに出す） */
+  img.ph{opacity:0;transition:opacity .9s ease}
+  img.ph.ld{opacity:1}
+  /* キャプション様式を全写真で統一：小さな英字ラベル＋下の罫線 */
+  .photo-fig .cap,.photo-panel .cap,.g-wide .cap{position:absolute;left:14px;bottom:12px;background:rgba(253,251,245,.9);padding:5px 12px 7px;font-family:var(--latin);font-size:11px;letter-spacing:.3em;color:var(--ink-soft);line-height:1.5;z-index:2}
+  .photo-fig .cap::after,.photo-panel .cap::after,.g-wide .cap::after{content:"";display:block;width:26px;height:1px;background:var(--accent);margin-top:4px;opacity:.85}
   .photo-fig{position:relative;overflow:hidden;background:var(--beige);aspect-ratio:4/3}
-  .photo-fig.wide{aspect-ratio:16/10}
   .photo-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .photo-fig .cap{position:absolute;left:12px;bottom:10px;background:rgba(253,251,245,.88);padding:3px 10px;font-family:var(--latin);font-size:11px;letter-spacing:.24em;color:var(--ink-soft)}
+  /* 店内ギャラリー：1枚目は画面幅いっぱいに、2枚目は小さく右へ寄せてリズムを作る */
+  .g-wide{position:relative;overflow:hidden;background:var(--beige);width:100vw;margin:40px 0 0 calc((100% - 100vw)/2);aspect-ratio:16/9}
+  .g-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+  @media(max-width:767px){.g-wide{aspect-ratio:4/3;margin-top:32px}}
+  .g-offset{width:62%;margin:72px 0 0 auto}
+  .g-offset .photo-fig{aspect-ratio:3/2}
+  @media(max-width:767px){.g-offset{width:100%;margin-top:24px}}
+  /* メニュー写真：大小の非対称グリッド（均等な横並びにしない） */
+  .menu-photos{display:grid;grid-template-columns:1.9fr 1fr;gap:24px;margin-top:64px;align-items:start}
+  .menu-photos .mp-a{aspect-ratio:3/2}
+  .menu-photos .mp-b{aspect-ratio:1/1;margin-top:72px}
+  @media(max-width:767px){.menu-photos{grid-template-columns:1fr}.menu-photos .mp-b{margin-top:0}}
+  /* ホバー表現（ポインタが細かい環境だけ） */
+  @media(hover:hover) and (pointer:fine){
+    nav.main a{position:relative}
+    nav.main a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
+    nav.main a:hover::after{transform:scaleX(1);transform-origin:left}
+    .photo-fig img,.g-wide img{transition:transform 1.2s cubic-bezier(.22,.61,.28,1)}
+    .photo-fig:hover img,.g-wide:hover img{transform:scale(1.04)}
+    .price-row{transition:background .3s ease}
+    .price-row:hover{background:rgba(238,226,203,.35)}
+    .to-top:hover{color:var(--ink)}
+  }
   /* 駐車場のご案内 */
   .parking{margin-top:72px;border-top:1px solid var(--line);padding-top:56px}
   .parking h3{font-family:var(--serif);font-weight:500;font-size:clamp(21px,2.6vw,26px);letter-spacing:.08em;margin-top:20px}
@@ -188,6 +244,10 @@
   footer{border-top:1px solid var(--line);padding:64px 0 96px;color:var(--ink-soft)}
   @media(max-width:767px){footer{padding-bottom:120px}}
   footer .fname{font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink)}
+  /* フッターの作り込み：店名を大きく、罫線で締める */
+  .foot-top{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:30px;margin-bottom:30px}
+  .fname-big{font-family:var(--serif);font-size:clamp(24px,4vw,38px);letter-spacing:.14em;color:var(--ink)}
+  .to-top{font-family:var(--latin);font-size:11px;letter-spacing:.32em;color:var(--ink-soft);border-bottom:1px solid var(--accent);padding-bottom:4px;white-space:nowrap;transition:color .3s}
   footer .fmeta{font-size:13px;margin-top:12px;line-height:2}
   footer .fmeta a{border-bottom:1px solid var(--accent)}
   footer .mock-note{margin-top:32px;border:1px solid var(--line);padding:16px 20px;font-size:12px;color:var(--ink-faint);line-height:1.9;max-width:720px}
@@ -207,6 +267,13 @@
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     .rv{opacity:1;transform:none;transition:none}
+    /* 動きを抑える設定では、ズーム・導入演出・パララックス前提の演出をすべて止める */
+    .hero .panel{animation:none}
+    .hero .photo-slot img{animation:none}
+    .hero .content>*{animation:none;opacity:1;transform:none}
+    .hero .v-copy{animation:none;opacity:1}
+    img.ph{opacity:1;transition:none}
+    .photo-fig img,.g-wide img{transition:none}
   }
 </style>
 </head>
@@ -256,7 +323,7 @@
       <path d="M1420 1000 Q1360 720 1420 500" fill="none" stroke="#8a6a34" stroke-width="6" stroke-linecap="round" opacity=".35"/>
       <rect x="0" y="0" width="1600" height="1000" fill="#3a2f1a" opacity=".05"/>
     </svg>
-    <div class="photo-slot"><img class="slot real" alt="揚げたての天ぷら" src="img/food-closeup.jpg" onerror="this.style.display='none'"></div>
+    <div class="photo-slot"><img class="slot real" alt="揚げたての天ぷら" src="img/graded/food-closeup.jpg" onerror="this.style.display='none'"></div>
   </div>
   <div class="grain"></div>
   <div class="scrim"></div>
@@ -278,6 +345,7 @@
 
 <!-- 店の特徴 -->
 <section id="about">
+  <span class="sec-no" aria-hidden="true">01</span>
   <div class="wrap">
     <div class="concept-grid">
       <div class="rv">
@@ -315,8 +383,8 @@
           <path d="M620 300 Q602 235 620 185 Q640 235 620 300" fill="none" stroke="#f6ead2" stroke-width="7" stroke-linecap="round" opacity=".6"/>
           <rect y="810" width="800" height="190" fill="#d3af6d"/>
         </svg>
-        <!-- ▼料理写真：Googleマップ掲載の実写真（img/food-set.jpg） -->
-        <img class="slot real" alt="天ぷらとごはん・味噌汁の定食" src="img/food-set.jpg" onerror="this.style.display='none'">
+        <!-- ▼料理写真：Googleマップ掲載の実写真（グレーディング済み img/graded/food-set.jpg） -->
+        <img class="slot real ph" alt="天ぷらとごはん・味噌汁の定食" src="img/graded/food-set.jpg" onerror="this.style.display='none'">
         <div class="grain"></div>
         <div class="cap">TEMPURA SET</div>
       </div>
@@ -327,16 +395,20 @@
       <div class="stat"><div class="n">2009<small> 年</small></div><div class="t">遠賀町・今古賀で開店</div></div>
       <div class="stat"><div class="n">13<small> 選</small></div><div class="t">ねとらぼ「福岡県の天ぷらの名店」選出（2025年）</div></div>
     </div>
-    <p class="sec-lead rv" style="margin-top:64px">店内の様子 — 揚げる様子が見えるカウンターと、窓際の小上がり。お一人でも、家族連れでもどうぞ。</p>
-    <div class="photo-row rv" style="margin-top:24px">
-      <figure class="photo-fig"><img class="real" src="img/interior-counter.jpg" alt="店内：カウンター席と厨房" loading="lazy"><figcaption class="cap">INSIDE — COUNTER</figcaption></figure>
-      <figure class="photo-fig"><img class="real" src="img/interior-zashiki.jpg" alt="店内：窓際の小上がり座敷と壁のお品書き" loading="lazy"><figcaption class="cap">INSIDE — ZASHIKI</figcaption></figure>
+    <p class="sec-lead rv" style="margin-top:72px">店内の様子 — 揚げる様子が見えるカウンターと、窓際の小上がり。お一人でも、家族連れでもどうぞ。</p>
+    <figure class="g-wide rv">
+      <img class="real ph" src="img/graded/interior-counter.jpg" alt="店内：カウンター席と厨房" loading="lazy">
+      <figcaption class="cap">INSIDE — COUNTER</figcaption>
+    </figure>
+    <div class="g-offset rv">
+      <figure class="photo-fig"><img class="real ph" src="img/graded/interior-zashiki.jpg" alt="店内：窓際の小上がり座敷と壁のお品書き" loading="lazy"><figcaption class="cap">INSIDE — ZASHIKI</figcaption></figure>
     </div>
   </div>
 </section>
 
 <!-- メニュー -->
 <section id="menu" class="menu-sec">
+  <span class="sec-no" aria-hidden="true">02</span>
   <div class="wrap">
     <span class="v-side v-text" aria-hidden="true">お品書き</span>
     <div class="label rv">Menu</div>
@@ -352,9 +424,9 @@
       <div class="price-row"><div><div class="n">大海老天丼</div><div class="d">大きな海老をのせた天丼</div></div><div class="dots"></div><div class="p"><small>税込</small>¥1,030</div></div>
     </div>
     <p class="sec-lead rv" style="font-size:14px">看板の桜コース（魚2品・季節野菜3品・豚1品・海老2品・茶碗蒸し）やスタミナコース、天ざる、ごぼう天うどんもございます。追加の単品では、ブロッコリーの天ぷらと半熟卵の天ぷらが名物です。</p>
-    <div class="photo-row rv">
-      <figure class="photo-fig wide"><img class="real" src="img/food-udon.jpg" alt="ごぼう天うどんと高菜" loading="lazy"><figcaption class="cap">GOBOU-TEN UDON</figcaption></figure>
-      <figure class="photo-fig wide"><img class="real" src="img/food-soba.jpg" alt="ざるそば" loading="lazy" style="object-position:50% 18%"><figcaption class="cap">ZARU SOBA</figcaption></figure>
+    <div class="menu-photos rv">
+      <figure class="photo-fig mp-a"><img class="real ph" src="img/graded/food-udon.jpg" alt="ごぼう天うどんと高菜" loading="lazy"><figcaption class="cap">GOBOU-TEN UDON</figcaption></figure>
+      <figure class="photo-fig mp-b"><img class="real ph" src="img/graded/food-soba.jpg" alt="ざるそば" loading="lazy" style="object-position:50% 18%"><figcaption class="cap">ZARU SOBA</figcaption></figure>
     </div>
     <p class="fineprint rv">※価格は口コミ投稿時点の実績値をもとにした仮の表記です。価格・内容は変更になる場合がありますので、最新情報はお店にご確認ください。</p>
   </div>
@@ -362,6 +434,7 @@
 
 <!-- アクセス・店舗情報 -->
 <section id="access">
+  <span class="sec-no" aria-hidden="true">03</span>
   <div class="wrap">
     <div class="label rv">Access</div>
     <h2 class="rv">店舗情報</h2>
@@ -389,7 +462,7 @@
       <p class="p-lead">お車でお越しの方へ。店舗の前に駐車場がございます。初めての方は、店舗正面の木の看板とピンクの垂れ幕を目印にお越しください。駐車場の場所が分からないときは、お電話いただければご案内します。</p>
       <div class="parking-grid">
         <figure class="photo-fig">
-          <img class="real" src="img/exterior.jpg" alt="店舗外観：店の前に駐車場があります" style="object-position:50% 28%">
+          <img class="real ph" src="img/graded/exterior.jpg" alt="店舗外観：店の前に駐車場があります" style="object-position:50% 28%">
           <figcaption class="cap">SHOP FRONT</figcaption>
         </figure>
         <figure class="park-map" role="img" aria-label="店舗と駐車場の位置関係を示す案内図（イメージ）">
@@ -455,7 +528,10 @@
 
 <footer>
   <div class="wrap">
-    <div class="fname" data-shop="name">揚げだし天ぷらさくら</div>
+    <div class="foot-top">
+      <div class="fname-big" data-shop="name">揚げだし天ぷらさくら</div>
+      <a class="to-top" href="#top">BACK TO TOP</a>
+    </div>
     <div class="fmeta">
       <span data-shop="address">福岡県遠賀郡遠賀町大字今古賀45-13</span><br>
       TEL：<a data-tel data-shop="telDisplay" href="tel:0932933908">093-293-3908</a>
@@ -495,6 +571,28 @@
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+  /* 写真の遅延フェードイン：読み込みが終わった写真から静かに出す */
+  document.querySelectorAll("img.ph").forEach(im => {
+    if (im.complete && im.naturalWidth) im.classList.add("ld");
+    else im.addEventListener("load", () => im.classList.add("ld"));
+  });
+
+  /* FV写真の軽いパララックス（スクロール量の16%だけ・ヒーロー範囲内のみ） */
+  const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!RM) {
+    const panel = document.querySelector(".hero .panel");
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (panel && y < window.innerHeight) panel.style.transform = "translateY(" + (y * 0.16) + "px)";
+        ticking = false;
+      });
+    }, { passive: true });
+  }
 </script>
 </body>
 </html>
