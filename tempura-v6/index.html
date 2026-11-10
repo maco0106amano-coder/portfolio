@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>揚げだし天ぷらさくら｜福岡県遠賀町の天ぷら店（制作提案モックアップ）</title>
+<meta name="description" content="福岡県遠賀郡遠賀町の天ぷら店「揚げだし天ぷらさくら」のホームページ制作提案モックアップです。">
+<!--
+  ============================================================
+  v6 設計方針（CC版v3デザインの再現：切り抜きFV＋クリーム＋赤茶）
+  ・FVは網台写真の被写体を切り抜いてクリーム背景に浮かせる（四角く貼らない）
+  ・見出しは「赤い小見出し＋大見出し＋細い縦線」の中央揃えで統一
+  ・情報バーは5セル＋右端に赤茶の電話セル
+  ・文言・価格・注記は v5 を正とする（未確認の価格は入れない／油の種類は記載しない）
+  ・写真の上に文字を置かない（FVの縦書きは余白側のみ）
+  ※ これは制作提案用のモックアップです。公開・配布はしないでください。
+  ============================================================
+-->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle cx='60' cy='60' r='45' fill='none' stroke='%2323201a' stroke-width='5'/><path d='M60 58 C49 52 45.5 42 48.5 32.5 L60 39 L71.5 32.5 C74.5 42 71 52 60 58 Z' fill='%23a63d21'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Yuji+Syuku&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e6;            /* クリーム */
+    --bg-soft:#fbf8f0;       /* 明るい面 */
+    --band:#f0e8d4;          /* お品書きの帯 */
+    --paper:#fffdf7;
+    --ink:#262019;           /* 墨 */
+    --ink-soft:#57523f;
+    --ink-faint:#8b8471;
+    --line:#ddd2ba;
+    --rust:#a63d21;          /* 赤茶（差し色） */
+    --rust-dark:#8c331b;
+    --serif:"Shippori Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif CJK JP",serif;
+    --brush:"Yuji Syuku","Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;
+    --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  ::selection{background:#e7d9b8}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 48px}
+  @media(max-width:767px){.wrap{padding:0 24px}}
+
+  /* モックアップ帯（濃い墨の細帯） */
+  .mock-bar{background:#211d15;color:#e9e3d3;font-size:11.5px;letter-spacing:.1em;text-align:center;padding:7px 16px;line-height:1.6}
+
+  /* 店の紋（v5から流用） */
+  .mon{display:block;flex:none;color:var(--ink)}
+
+  /* ヘッダー */
+  .site-head{background:var(--bg)}
+  .site-head .inner{max-width:1180px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .lockup{display:flex;align-items:center;gap:13px}
+  .lockup .mon{width:40px;height:40px}
+  .lockup .lname{font-family:var(--brush);font-size:22px;line-height:1.2;letter-spacing:.04em;white-space:nowrap}
+  .lockup .lname small{font-size:13px;letter-spacing:.14em;margin-right:8px;color:var(--ink-soft)}
+  .head-right{display:flex;align-items:center;gap:34px}
+  .head-nav{display:flex;gap:28px;font-size:13.5px;letter-spacing:.18em;color:var(--ink-soft)}
+  .head-nav a{padding:4px 0;border-bottom:1px solid transparent}
+  .head-nav a:hover{border-bottom-color:var(--rust);color:var(--ink)}
+  .head-tel{font-family:var(--serif);font-weight:800;font-size:19px;letter-spacing:.06em;color:var(--rust);white-space:nowrap}
+  @media(max-width:767px){
+    .site-head .inner{padding:14px 20px}
+    .head-nav{display:none}
+    .lockup .mon{width:34px;height:34px}
+    .lockup .lname{font-size:18px}
+    .head-tel{font-size:13.5px;letter-spacing:.02em}
+    .site-head .inner{gap:10px;padding:14px 14px}
+  }
+
+  /* ===== ファーストビュー：切り抜き写真を浮かせる ===== */
+  .hero{overflow:hidden}
+  .hero .inner{max-width:1180px;margin:0 auto;padding:56px 40px 74px;display:grid;grid-template-columns:400px 1fr;gap:24px;align-items:center}
+  .hero-copy{position:relative}
+  .vtext{display:flex;gap:30px;align-items:flex-start}
+  .vtext .v-main{writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:clamp(34px,3.6vw,45px);letter-spacing:.14em;line-height:1.5;height:400px}
+  .vtext .v-name{writing-mode:vertical-rl;font-family:var(--brush);font-size:clamp(40px,4.2vw,54px);letter-spacing:.18em;line-height:1.3;height:400px;padding-top:6px}
+  .vtext .v-sub{writing-mode:vertical-rl;font-size:12.5px;letter-spacing:.42em;color:var(--ink-faint);height:400px;padding-top:10px}
+  .hero-loc{display:inline-block;margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 18px;font-size:13px;letter-spacing:.16em;color:var(--ink-soft)}
+  .hero-sub{margin-top:22px;font-size:15.5px;letter-spacing:.05em;color:var(--ink-soft);line-height:2.05;max-width:400px}
+  .hero-fact{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;letter-spacing:.07em;color:var(--ink-soft)}
+  .hero-fact .star{color:var(--rust);letter-spacing:.1em}
+  .hero-fact b{color:var(--ink);font-weight:600}
+  .hero-photo{position:relative}
+  .hero-photo img{width:100%;transform:rotate(-1.2deg);filter:drop-shadow(0 26px 30px rgba(74,54,22,.28))}
+  @media(max-width:900px){
+    .hero .inner{display:flex;flex-direction:column;padding:30px 24px 52px;gap:8px;align-items:stretch}
+    .hero-photo{order:-1}
+    .hero-photo img{width:100%;margin-left:0;transform:rotate(-1deg)}
+    .vtext{gap:22px;margin-top:26px}
+    .vtext .v-main{height:292px;font-size:32px}
+    .vtext .v-name{height:292px;font-size:38px}
+    .vtext .v-sub{height:292px}
+    .hero-sub{max-width:none}
+  }
+
+  /* ===== 情報バー（5セル＋赤茶の電話セル） ===== */
+  .info-bar{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .info-bar .inner{max-width:1180px;margin:0 auto;display:flex;align-items:stretch}
+  .ib-cell{flex:1;padding:16px 22px;border-left:1px solid var(--line)}
+  .ib-cell:first-child{border-left:none}
+  .ib-cell .k{display:block;font-size:11px;letter-spacing:.3em;color:var(--ink-faint)}
+  .ib-cell .v{display:block;font-family:var(--serif);font-weight:600;font-size:16.5px;letter-spacing:.05em;margin-top:3px}
+  .ib-tel{flex:1.25;background:var(--rust);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:14px 26px}
+  .ib-tel .k{font-size:11px;letter-spacing:.3em;color:#f3cdbd}
+  .ib-tel .v{font-family:var(--serif);font-weight:800;font-size:21px;letter-spacing:.08em;margin-top:2px}
+  .ib-tel:hover{background:var(--rust-dark)}
+  @media(max-width:767px){
+    .info-bar .inner{display:grid;grid-template-columns:1fr 1fr}
+    .ib-cell{border-left:none;border-top:1px solid var(--line);padding:13px 18px}
+    .ib-cell:nth-child(-n+2){border-top:none}
+    .ib-cell:nth-child(even){border-left:1px solid var(--line)}
+    .ib-tel{grid-column:1/-1;align-items:center;padding:16px}
+    .ib-tel .v{font-size:23px}
+  }
+
+  /* セクション共通：中央見出し（赤い小見出し＋大見出し＋細い縦線） */
+  section{padding:104px 0}
+  @media(max-width:767px){section{padding:72px 0}}
+  .sec-head{text-align:center}
+  .sec-label{font-size:12px;letter-spacing:.42em;color:var(--rust);font-weight:600}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(27px,3.2vw,36px);letter-spacing:.1em;line-height:1.5;margin-top:16px}
+  .vline{width:1px;height:44px;background:#c9b992;margin:24px auto 0}
+  figcaption{margin-top:12px;font-size:13px;letter-spacing:.1em;color:var(--ink-faint)}
+
+  /* コンセプト（引用ブロックとして静かに） */
+  .concept{padding:88px 0}
+  .concept .sentence{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.9vw,31px);line-height:2.1;letter-spacing:.05em;text-align:center;max-width:880px;margin:26px auto 0}
+  .concept .facts{margin-top:42px;padding-top:24px;border-top:1px solid var(--line);font-size:14.5px;letter-spacing:.06em;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:8px 30px;justify-content:center}
+  .concept .facts b{color:var(--ink);font-weight:600}
+
+  /* こだわり */
+  .commit{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .kd-item{display:grid;grid-template-columns:54% 1fr;gap:56px;align-items:center;margin-top:72px}
+  .kd-item:first-of-type{margin-top:60px}
+  .kd-item.rev{grid-template-columns:1fr 54%}
+  .kd-item.rev .kd-photo{order:2}
+  .kd-photo img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .ch-label{display:flex;align-items:center;gap:16px}
+  .ch-kanji{font-family:var(--serif);font-weight:600;font-size:14.5px;letter-spacing:.3em;white-space:nowrap}
+  .ch-rule{flex:1;height:1px;background:var(--line)}
+  .ch-en{font-size:10.5px;letter-spacing:.4em;color:var(--rust);font-weight:600;white-space:nowrap}
+  .kd-text h3{font-family:var(--serif);font-size:clamp(21px,2.4vw,26px);font-weight:600;letter-spacing:.06em;line-height:1.6;margin-top:18px}
+  .kd-text p{margin-top:14px;color:var(--ink-soft);font-size:15.5px;line-height:2.0}
+  @media(max-width:900px){
+    .kd-item,.kd-item.rev{grid-template-columns:1fr;gap:24px;margin-top:56px}
+    .kd-item.rev .kd-photo{order:0}
+  }
+
+  /* お品書き */
+  .menu-sec{background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .feat{display:grid;grid-template-columns:52% 1fr;gap:56px;align-items:center;margin-top:64px}
+  .feat.rev{grid-template-columns:1fr 52%}
+  .feat.rev .feat-photo{order:2}
+  .feat-photo img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .feat-text .fname{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.8vw,30px);letter-spacing:.07em}
+  .feat-text .fprice{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.5vw,28px);margin-top:10px}
+  .feat-text .fprice small{font-size:12.5px;color:var(--ink-faint);font-weight:400;margin-right:6px}
+  .feat-text .fdesc{margin-top:14px;color:var(--ink-soft);font-size:15.5px;line-height:2.0}
+  .feat-text-only{max-width:820px;margin:56px auto 0;border-top:1px solid #d8cba6;border-bottom:1px solid #d8cba6;padding:30px 8px;text-align:left}
+  @media(max-width:900px){
+    .feat,.feat.rev{grid-template-columns:1fr;gap:22px;margin-top:48px}
+    .feat.rev .feat-photo{order:0}
+  }
+  /* 点線リーダーの価格表 */
+  .price-list{margin:64px auto 0;max-width:820px}
+  .price-row{display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid #d8cba6}
+  .price-row:first-child{border-top:1px solid #d8cba6}
+  .price-row .n{font-family:var(--serif);font-size:17.5px;font-weight:600;letter-spacing:.05em;white-space:nowrap}
+  .price-row .dots{flex:1;border-bottom:1px dotted #b3a077;transform:translateY(-4px);min-width:24px}
+  .price-row .p{font-family:var(--serif);font-size:17.5px;font-weight:600;white-space:nowrap}
+  .price-row .p.note{font-family:var(--sans);font-size:13.5px;font-weight:400;color:var(--ink-faint)}
+  @media(max-width:767px){.price-row{flex-wrap:wrap;gap:2px 14px}.price-row .dots{display:none}.price-row .p{margin-left:auto}}
+  .menu-more{margin:30px auto 0;max-width:820px;font-size:15px;color:var(--ink-soft)}
+  .fineprint{margin:16px auto 0;max-width:820px;font-size:13px;color:var(--ink-faint);line-height:1.85}
+  /* うどん・そば */
+  .noodle{margin:52px auto 0;max-width:820px}
+  .noodle-head{display:flex;align-items:center;gap:16px}
+  .noodle-title{font-family:var(--serif);font-weight:600;font-size:16.5px;letter-spacing:.14em;white-space:nowrap}
+  .noodle-txt{margin-top:12px;font-size:14.5px;color:var(--ink-soft)}
+  .noodle-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px;max-width:700px}
+  .noodle-grid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .noodle-grid figcaption .np{font-family:var(--serif);font-weight:600;color:var(--ink);margin-left:8px}
+  @media(max-width:767px){.noodle-grid{gap:16px}}
+
+  /* 口コミ */
+  .rating-sec{background:var(--paper);text-align:center}
+  .rating-num{font-family:var(--serif);font-weight:600;font-size:clamp(56px,7vw,76px);line-height:1.1;letter-spacing:.03em}
+  .rating-num small{font-size:clamp(20px,2.4vw,26px);color:var(--ink-faint);margin-left:6px}
+  .rating-stars{margin-top:12px;font-size:21px;letter-spacing:.35em;color:var(--rust)}
+  .rating-stars .off{color:#d9cfb4}
+  .rating-line{margin-top:14px;font-size:14.5px;letter-spacing:.08em;color:var(--ink-soft)}
+  .rating-line b{color:var(--ink)}
+
+  /* 店舗情報 */
+  .info-sec{background:var(--bg-soft);border-top:1px solid var(--line)}
+  .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:60px;align-items:start}
+  @media(max-width:900px){.access-grid{grid-template-columns:1fr;gap:44px}}
+  .shop-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .shop-photo.sub{margin-top:22px}
+  .shop-photo.sub img{aspect-ratio:3/2}
+  .info-list{border-top:1px solid var(--line)}
+  .info-row{display:flex;gap:30px;padding:17px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .info-row .k{flex:none;width:76px;font-size:13.5px;letter-spacing:.22em;color:var(--ink-faint)}
+  .info-row .v{font-size:15.5px}
+  .info-row .v.rust{color:var(--rust);font-weight:600}
+  .info-row .v a{border-bottom:1px solid var(--rust)}
+  @media(max-width:767px){.info-row{gap:18px}.info-row .k{width:64px}}
+  .btn-row{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+  .btn-tel{background:var(--rust);color:#fff;font-size:15px;letter-spacing:.1em;padding:15px 32px;display:inline-block}
+  .btn-tel:hover{background:var(--rust-dark)}
+  .btn-map{border:1px solid var(--ink);font-size:15px;letter-spacing:.1em;padding:15px 32px;display:inline-block;background:transparent}
+  .btn-map:hover{background:var(--ink);color:var(--bg)}
+  .access-sub{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:64px;align-items:start}
+  @media(max-width:900px){.access-sub{grid-template-columns:1fr;gap:44px}}
+  .access-sub h3{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.08em}
+  .access-sub .txt{margin-top:14px;color:var(--ink-soft);font-size:15px}
+  .park-diagram{margin-top:22px;border:1px solid var(--line);background:var(--bg);padding:18px 18px 12px}
+  .park-diagram svg{width:100%;height:auto;display:block}
+  .park-diagram .cap{margin-top:10px;font-size:12.5px;color:var(--ink-faint);letter-spacing:.05em}
+  .map-frame{margin-top:22px;border:1px solid var(--line)}
+  .map-frame iframe{display:block;width:100%;height:320px;border:0}
+  .map-link{margin-top:14px;font-size:14.5px}
+  .map-link a{border-bottom:1px solid var(--rust)}
+
+  /* フッター */
+  footer{border-top:1px solid var(--line);padding:70px 0 84px;background:var(--bg);text-align:center}
+  footer .mon{width:36px;height:36px;margin:0 auto}
+  footer .fname{font-family:var(--brush);font-size:25px;letter-spacing:.05em;margin-top:14px}
+  footer .fname small{font-size:14px;letter-spacing:.14em;color:var(--ink-soft);margin-right:9px}
+  footer .fmeta{font-size:14px;margin-top:14px;letter-spacing:.1em;color:var(--ink-soft)}
+  footer .mock-note{margin:34px auto 0;font-size:12.5px;color:var(--ink-faint);line-height:1.9;max-width:760px;text-align:left}
+
+  /* 出現フェードのみ */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+  .rv.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- 店の紋：円相＋桜の花びら＋揚げ網の格子（v5から流用） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="mon-net-clip"><circle cx="60" cy="70" r="24"/></clipPath>
+    <symbol id="mon" viewBox="0 0 120 120">
+      <g clip-path="url(#mon-net-clip)" stroke="currentColor" stroke-width="0.9">
+        <path d="M42 46v48M48 46v48M54 46v48M60 46v48M66 46v48M72 46v48M78 46v48"/>
+        <path d="M36 52h48M36 58h48M36 64h48M36 70h48M36 76h48M36 82h48M36 88h48"/>
+      </g>
+      <circle cx="60" cy="70" r="24" fill="none" stroke="currentColor" stroke-width="1.1"/>
+      <path d="M60 58 C49 52 45.5 42 48.5 32.5 L60 39 L71.5 32.5 C74.5 42 71 52 60 58 Z" fill="#a63d21"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="258 37" transform="rotate(35 60 60)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="mock-bar">このページは、ホームページ制作のご提案用モックアップ（イメージ）です</div>
+
+<!-- ヘッダー -->
+<header class="site-head">
+  <div class="inner">
+    <div class="lockup">
+      <svg class="mon" viewBox="0 0 120 120" aria-hidden="true"><use href="#mon"/></svg>
+      <span class="lname"><small>揚げだし天ぷら</small>さくら</span>
+    </div>
+    <div class="head-right">
+      <nav class="head-nav">
+        <a href="#kodawari">こだわり</a>
+        <a href="#menu">お品書き</a>
+        <a href="#access">店舗情報</a>
+      </nav>
+      <a class="head-tel" href="tel:0932933908">093-293-3908</a>
+    </div>
+  </div>
+</header>
+
+<!-- ファーストビュー：切り抜き写真＋縦書き（文字は余白側のみ） -->
+<div class="hero">
+  <div class="inner">
+    <div class="hero-copy">
+      <div class="vtext" aria-label="揚げたてを、一品ずつ。揚げだし天ぷら さくら">
+        <span class="v-main">揚げたてを、<br>一品ずつ。</span>
+        <span class="v-name">さくら</span>
+        <span class="v-sub">揚げだし天ぷら</span>
+      </div>
+      <span class="hero-loc">福岡県遠賀町 ・ 天ぷら</span>
+      <p class="hero-sub">揚がったそばから、ひとつずつ、あなたの網へ。まとめて出さないのは、いちばん美味しい瞬間を逃さないためです。2009年創業、ランチのみの営業です。</p>
+      <p class="hero-fact"><span class="star">★</span> Google口コミ <b>281件 ・ 評価4.1</b></p>
+    </div>
+    <div class="hero-photo">
+      <img src="img/fv-cutout.png" alt="揚げたての天ぷらがのった網台">
+    </div>
+  </div>
+</div>
+
+<!-- 情報バー -->
+<div class="info-bar">
+  <div class="inner">
+    <div class="ib-cell"><span class="k">営業時間</span><span class="v">11:00–15:00</span></div>
+    <div class="ib-cell"><span class="k">定休日</span><span class="v">月曜日</span></div>
+    <div class="ib-cell"><span class="k">お支払い</span><span class="v">現金のみ</span></div>
+    <div class="ib-cell"><span class="k">駐車場</span><span class="v">店舗前にあり</span></div>
+    <a class="ib-tel" href="tel:0932933908"><span class="k">ご予約・お問い合わせ</span><span class="v">093-293-3908</span></a>
+  </div>
+</div>
+
+<!-- コンセプト（引用ブロック） -->
+<section class="concept">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">CONCEPT</div>
+    </div>
+    <p class="sentence rv">注文を受けてから揚げ、できたてを一品ずつ運ぶ。<br>遠賀町で十七年続く、天ぷらの昼ごはんです。</p>
+    <div class="facts rv">
+      <span><b>2009年</b> 創業</span>
+      <span>ねとらぼ調査 <b>「福岡県の天ぷらの名店13選」</b> 選出（2025年）</span>
+    </div>
+  </div>
+</section>
+
+<!-- こだわり -->
+<section class="commit" id="kodawari">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">こだわり</div>
+      <h2>さくらの天ぷら</h2>
+      <div class="vline"></div>
+    </div>
+    <article class="kd-item rv">
+      <figure class="kd-photo">
+        <img src="img/kodawari-fry.jpg" alt="網の上の揚げたての天ぷら" loading="lazy">
+        <figcaption>揚げたての天ぷら ― 一品ずつ、網へ</figcaption>
+      </figure>
+      <div class="kd-text">
+        <div class="ch-label"><span class="ch-kanji">一の品</span><span class="ch-rule"></span><span class="ch-en">IPPIN</span></div>
+        <h3>揚げたてを、一品ずつ</h3>
+        <p>揚げはじめるのは、注文を受けてから。揚がったものから順に、一品ずつお席の網へ運びます。まとめて出さず、一品ずつ届けるのは、衣のサクッとした軽さと熱々の美味しさを、いちばんいい状態で味わっていただくためです。「油も重たくなく、カラッと軽い」とは、お客様からいただく声。天つゆの味わいにも定評があります。一品ごとに熱々が続くのが、この店のコースの醍醐味です。</p>
+      </div>
+    </article>
+    <article class="kd-item rev rv">
+      <figure class="kd-photo">
+        <img src="img/kodawari-rice.jpg" alt="白ごはんの椀と味噌汁" loading="lazy">
+        <figcaption>ごはんの椀 ― おかわり自由</figcaption>
+      </figure>
+      <div class="kd-text">
+        <div class="ch-label"><span class="ch-kanji">二の品</span><span class="ch-rule"></span><span class="ch-en">OKAWARI</span></div>
+        <h3>ごはんと味噌汁は、おかわり自由</h3>
+        <p>コースと定食には、ごはんと味噌汁、高菜がつきます。ごはんと味噌汁はおかわり自由、高菜は取り放題です。味噌汁をおかわりされるお客様も少なくありません。もうひとつの名物が、イカの塩辛です。以前は食べ放題でしたが、現在はおひとり様一皿まで。それでも多くの方が楽しみにされる、ごはんの進む一品です。お腹いっぱい、天ぷらを楽しんでいただくための取り合わせです。</p>
+      </div>
+    </article>
+    <article class="kd-item rv">
+      <figure class="kd-photo">
+        <img src="img/kodawari-broccoli.jpg" alt="網の上のブロッコリーと魚の天ぷら" loading="lazy">
+        <figcaption>網の上の天ぷら ― 名物のブロッコリー</figcaption>
+      </figure>
+      <div class="kd-text">
+        <div class="ch-label"><span class="ch-kanji">三の品</span><span class="ch-rule"></span><span class="ch-en">MEIBUTSU</span></div>
+        <h3>名物は、ブロッコリーと半熟卵</h3>
+        <p>野菜の天ぷらのなかでも、ひときわ名指しで評判なのがブロッコリーです。「初めての経験。これがまた美味い」「僕は一押し」と、口コミでも繰り返し名前が挙がる、この店ならではの名物。海鮮コースにも顔を出します。そして、とろりと半熟に揚げた卵の天ぷらは追加注文の定番で、「ご飯のお供には最高」と評される一品です。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- お品書き -->
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">お品書き</div>
+      <h2>お品書き</h2>
+      <div class="vline"></div>
+    </div>
+
+    <div class="feat rv">
+      <figure class="feat-photo">
+        <img src="img/food-set.jpg" alt="大桜コースの天ぷら定食" loading="lazy">
+      </figure>
+      <div class="feat-text">
+        <div class="fname">大桜コース</div>
+        <div class="fprice"><small>税込</small>¥1,680</div>
+        <p class="fdesc">桜コースの上位版、品数たっぷりのコースです。揚げたての天ぷらを一品ずつ。どのコースにも、ごはん・味噌汁のおかわり自由と高菜がつきます。</p>
+      </div>
+    </div>
+
+    <div class="feat-text-only rv">
+      <div class="feat-text">
+        <div class="fname">海鮮コース</div>
+        <div class="fprice"><small>税込</small>¥1,150</div>
+        <p class="fdesc">ブロッコリー・キス・帆立・海老・茄子・イカ・南瓜など（仕入れにより変わります）。</p>
+      </div>
+    </div>
+
+    <div class="feat rev rv">
+      <figure class="feat-photo">
+        <img src="img/ai-tendon.jpg" alt="大海老天丼（イメージ）" loading="lazy">
+        <figcaption>大海老天丼（イメージ）</figcaption>
+      </figure>
+      <div class="feat-text">
+        <div class="fname">大海老天丼</div>
+        <div class="fprice"><small>税込</small>¥1,030</div>
+        <p class="fdesc">大きな海老をのせた天丼です。</p>
+      </div>
+    </div>
+
+    <div class="price-list rv">
+      <div class="price-row"><span class="n">桜コース</span><span class="dots"></span><span class="p note">お店でご確認ください</span></div>
+      <div class="price-row"><span class="n">大桜コース</span><span class="dots"></span><span class="p">¥1,680</span></div>
+      <div class="price-row"><span class="n">海鮮コース</span><span class="dots"></span><span class="p">¥1,150</span></div>
+      <div class="price-row"><span class="n">大海老天丼</span><span class="dots"></span><span class="p">¥1,030</span></div>
+      <div class="price-row"><span class="n">天ざる・ごぼう天うどん など</span><span class="dots"></span><span class="p note">店内のお品書きで</span></div>
+    </div>
+    <p class="menu-more rv">このほか、桜コース、天ざる、単品の追加もございます。どのコースにも、ごはん・味噌汁のおかわり自由と高菜がつきます。</p>
+
+    <div class="noodle rv">
+      <div class="noodle-head"><span class="noodle-title">うどん・そば</span><span class="ch-rule"></span></div>
+      <p class="noodle-txt">天ぷらの合間に、うどん・そばもございます。</p>
+      <div class="noodle-grid">
+        <figure>
+          <img src="img/food-udon.jpg" alt="ごぼう天うどん" loading="lazy">
+          <figcaption>ごぼう天うどん</figcaption>
+        </figure>
+        <figure>
+          <img src="img/food-soba.jpg" alt="ざるそば" loading="lazy">
+          <figcaption>ざるそば<span class="np">¥550</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="fineprint rv">※ 価格・内容は口コミ投稿時点の情報をもとにした仮の表記です。現在の価格とは異なる場合がありますので、最新情報はお店にご確認ください。</p>
+  </div>
+</section>
+
+<!-- 口コミ -->
+<section class="rating-sec">
+  <div class="wrap rv">
+    <div class="rating-num">4.1<small>/5</small></div>
+    <div class="rating-stars" aria-hidden="true">★★★★<span class="off">★</span></div>
+    <p class="rating-line">Googleの口コミ <b>281件</b>（提案資料作成時点）</p>
+  </div>
+</section>
+
+<!-- 店舗情報 -->
+<section class="info-sec" id="access">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-label">店舗情報</div>
+      <h2>営業時間・アクセス</h2>
+      <div class="vline"></div>
+    </div>
+    <div class="access-grid">
+      <div class="rv">
+        <figure class="shop-photo">
+          <img src="img/exterior.jpg" alt="店舗外観：店の前に駐車場があります" loading="lazy">
+          <figcaption>店舗外観（店前に駐車場）</figcaption>
+        </figure>
+        <figure class="shop-photo sub">
+          <img src="img/interior-counter.jpg" alt="店内：カウンター席" loading="lazy">
+          <figcaption>店内 ― カウンター席</figcaption>
+        </figure>
+      </div>
+      <div class="rv">
+        <div class="info-list">
+          <div class="info-row"><div class="k">営業時間</div><div class="v">11:00–15:00（昼のみ）</div></div>
+          <div class="info-row"><div class="k">定休日</div><div class="v">月曜日（祝日の場合は翌日）</div></div>
+          <div class="info-row"><div class="k">お支払い</div><div class="v rust">現金のみ</div></div>
+          <div class="info-row"><div class="k">お席</div><div class="v">34席（カウンター・テーブル・小上がり）</div></div>
+          <div class="info-row"><div class="k">駐車場</div><div class="v">店舗前にあり</div></div>
+          <div class="info-row"><div class="k">住所</div><div class="v">福岡県遠賀郡遠賀町大字今古賀45-13<br>JR遠賀川駅から約583m</div></div>
+          <div class="info-row"><div class="k">電話</div><div class="v"><a href="tel:0932933908">093-293-3908</a></div></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn-tel" href="tel:0932933908">電話で予約する</a>
+          <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%81%A0%E8%B3%80%E9%83%A1%E9%81%A0%E8%B3%80%E7%94%BA%E5%A4%A7%E5%AD%97%E4%BB%8A%E5%8F%A4%E8%B3%8045-13" target="_blank" rel="noopener">Googleマップ →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="access-sub">
+      <div class="rv">
+        <h3>駐車場のご案内</h3>
+        <p class="txt">お車でお越しの方へ。店舗の前に駐車場がございます（無料）。お店は交差点の角にあり、店舗正面の木の看板とピンクの垂れ幕が目印です。場所が分からないときは、お電話いただければご案内します。</p>
+        <div class="park-diagram" role="img" aria-label="店舗と駐車場の位置関係を示す案内図（イメージ）">
+          <svg viewBox="0 0 400 300" font-family="'Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif" aria-hidden="true">
+            <rect width="400" height="300" fill="#f6f1e6"/>
+            <rect x="86" y="24" width="228" height="74" fill="#efe7d2" stroke="#8b8471" stroke-width="1.25"/>
+            <text x="200" y="58" text-anchor="middle" font-size="16" letter-spacing="6" fill="#262019" font-family="'Shippori Mincho',serif">店舗</text>
+            <text x="200" y="82" text-anchor="middle" font-size="10.5" letter-spacing="2" fill="#57523f">揚げだし天ぷらさくら</text>
+            <rect x="184" y="98" width="32" height="10" fill="#a63d21"/>
+            <text x="200" y="126" text-anchor="middle" font-size="10.5" fill="#a63d21" letter-spacing="3">入口</text>
+            <text x="44" y="142" font-size="11" letter-spacing="2" fill="#8b8471">駐車場（店舗前）</text>
+            <g fill="#fffdf7" stroke="#cfc3a5" stroke-width="1.25">
+              <rect x="44" y="150" width="64" height="62"/>
+              <rect x="122" y="150" width="64" height="62"/>
+              <rect x="200" y="150" width="64" height="62"/>
+              <rect x="278" y="150" width="64" height="62"/>
+            </g>
+            <g font-size="16" fill="#57523f" text-anchor="middle" font-family="'Shippori Mincho',serif">
+              <text x="76" y="179">P</text>
+              <text x="154" y="179">P</text>
+              <text x="232" y="179">P</text>
+              <text x="310" y="179">P</text>
+            </g>
+            <g fill="none" stroke="#8b8471" stroke-width="1.25">
+              <rect x="132" y="184" width="44" height="21" rx="5"/>
+              <rect x="288" y="184" width="44" height="21" rx="5"/>
+            </g>
+            <rect x="0" y="246" width="400" height="54" fill="#e9dfc8"/>
+            <line x1="0" y1="273" x2="400" y2="273" stroke="#8b8471" stroke-width="1.5" stroke-dasharray="16 12" opacity=".65"/>
+            <text x="382" y="238" text-anchor="end" font-size="11" letter-spacing="3" fill="#8b8471">道路</text>
+          </svg>
+          <p class="cap">※ 案内図は位置関係を示すイメージです。台数・区画は目安としてご覧ください。</p>
+        </div>
+      </div>
+      <div class="rv">
+        <h3>地図</h3>
+        <p class="txt">JR鹿児島本線・遠賀川駅から583m。お車の方は、店舗前の駐車場をご利用ください。</p>
+        <div class="map-frame">
+          <iframe title="揚げだし天ぷらさくらの地図" src="https://www.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%81%A0%E8%B3%80%E9%83%A1%E5%8F%A4%E8%B3%8045-13&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <p class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E9%81%A0%E8%B3%80%E9%83%A1%E9%81%A0%E8%B3%80%E7%94%BA%E5%A4%A7%E5%AD%97%E4%BB%8A%E5%8F%A4%E8%B3%8045-13" target="_blank" rel="noopener">Googleマップで開く</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <svg class="mon" viewBox="0 0 120 120" aria-hidden="true"><use href="#mon"/></svg>
+    <div class="fname"><small>揚げだし天ぷら</small>さくら</div>
+    <div class="fmeta">福岡県遠賀郡遠賀町大字今古賀45-13 ／ TEL 093-293-3908</div>
+    <p class="mock-note">※このページは、ホームページ制作のご提案イメージ（モックアップ）です。揚げだし天ぷらさくらの公式サイトではありません。掲載しているメニュー価格は口コミ投稿時点の情報をもとにしたもので、最新の内容とは異なる場合があります。外観・店内の写真はGoogleマップに掲載された写真を、一部の料理写真はAI生成のイメージを使用しています（実際の制作時には、お店で撮影した写真への差し替えを前提としています）。駐車場の案内図は位置関係を示すイメージ図です。</p>
+  </div>
+</footer>
+
+<script>
+  /* 出現フェードのみ */
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
