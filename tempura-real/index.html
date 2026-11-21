@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>揚げだし天ぷらさくら｜福岡県遠賀町の天ぷら店（制作提案モックアップ）</title>
-<meta name="description" content="福岡県遠賀郡遠賀町の天ぷら店「揚げだし天ぷらさくら」のホームページ制作提案モックアップです。2026年11月21日に実地撮影した写真と、店内メニューに基づく価格で作成しています。">
+<meta name="description" content="福岡県遠賀郡遠賀町の天ぷら店「揚げだし天ぷらさくら」のホームページ制作提案モックアップです。2026年11月21日に実地撮影した写真をもとに作成したイメージと、店内メニューに基づく価格で作成しています。">
 <!--
   ============================================================
-  tempura-real 設計方針（v6のデザインを土台に実写・実メニュー版として新規作成）
-  ・写真はすべて2026-11-21に本人が現地で撮影した実写を使用
+  tempura-real 設計方針（v6のデザインを土台に実写ベース・実メニュー版として新規作成）
+  ・写真は2026-11-21に本人が現地で撮影した実写、およびそれをもとに作成したAIイメージを使用（外観・店頭案内は実写のまま）
   ・価格・内容は2026年11月時点の店内メニュー（実物）に基づく
   ・店頭表示に合わせ、定休日は「不定休」
   ・本日確認できなかった品（イカの塩辛など）は掲載しない
@@ -52,7 +52,7 @@
   .mon{display:block;flex:none;color:var(--ink)}
 
   /* ヘッダー */
-  .site-head{background:var(--bg)}
+  .site-head{background:var(--bg);position:sticky;top:0;z-index:100}
   .site-head .inner{max-width:1180px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
   .lockup{display:flex;align-items:center;gap:13px}
   .lockup .mon{width:40px;height:40px}
@@ -309,7 +309,7 @@
   </div>
 </header>
 
-<!-- ファーストビュー：実写の料理写真＋縦書き（文字は余白側のみ） -->
+<!-- ファーストビュー：料理写真（実写をもとにしたAIイメージ）＋縦書き（文字は余白側のみ） -->
 <div class="hero">
   <div class="inner">
     <div class="hero-copy">
@@ -323,7 +323,7 @@
       <p class="hero-fact"><span class="star">★</span> Google口コミ <b>281件 ・ 評価4.1</b></p>
     </div>
     <div class="hero-photo">
-      <img src="img/broccoli.jpg" alt="揚げたての天ぷら ― 大きく揚がったブロッコリー">
+      <img src="img/hero.jpg" alt="揚げたての天ぷらの盛り合わせ ― 大海老・イカ・ブロッコリーなど">
     </div>
   </div>
 </div>
@@ -517,7 +517,7 @@
       <div class="rv">
         <div class="info-list">
           <div class="info-row"><div class="k">営業時間</div><div class="v">11:00–15:00（昼のみ）</div></div>
-          <div class="info-row"><div class="k">定休日</div><div class="v">不定休</div></div>
+          <div class="info-row"><div class="k">定休日</div><div class="v">不定休<br><small style="font-size:12.5px;color:var(--ink-faint)">臨時休業はお電話でご確認ください</small></div></div>
           <div class="info-row"><div class="k">お支払い</div><div class="v rust">現金のみ</div></div>
           <div class="info-row"><div class="k">お席</div><div class="v">34席（カウンター・テーブル・小上がり）</div></div>
           <div class="info-row"><div class="k">駐車場</div><div class="v">店舗前にあり</div></div>
@@ -584,7 +584,7 @@
     <svg class="mon" viewBox="0 0 120 120" aria-hidden="true"><use href="#mon"/></svg>
     <div class="fname"><small>揚げだし天ぷら</small>さくら</div>
     <div class="fmeta">福岡県遠賀郡遠賀町大字今古賀45-13 ／ TEL 093-293-3908</div>
-    <p class="mock-note">※このページは、ホームページ制作のご提案イメージ（モックアップ）です。揚げだし天ぷらさくらの公式サイトではありません。掲載しているメニュー・価格は2026年11月時点の店内メニューをもとにしていますが、最新の内容とは異なる場合があります。掲載している写真はご提案用に撮影した実写です（正式な制作・公開の際には、お店の確認をいただいたうえで使用します）。駐車場の案内図は位置関係を示すイメージ図です。</p>
+    <p class="mock-note">※このページは、ホームページ制作のご提案イメージ（モックアップ）です。揚げだし天ぷらさくらの公式サイトではありません。掲載しているメニュー・価格は2026年11月時点の店内メニューをもとにしていますが、最新の内容とは異なる場合があります。掲載している写真は、実地で撮影した写真をもとに作成したイメージを含みます（正式な制作・公開の際には、お店の確認をいただいたうえで使用します）。駐車場の案内図は位置関係を示すイメージ図です。</p>
   </div>
 </footer>
 
