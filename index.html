@@ -8,272 +8,258 @@
 <meta property="og:title" content="天野真｜看護学生ライター＆Web制作">
 <meta property="og:description" content="医療・健康に強い記事作成と、個人店向けのホームページ制作・修正。オンライン完結。">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#16202a; --sub:#56616d; --line:#dfe4e8; --bg:#fbfaf7; --card:#ffffff;
-  --accent:#0f766e; --accent-soft:#e3f2ef; --warm:#f4b860;
-}
+:root{--ink:#2b2620;--sub:#7a7066;--cream:#f8f2e7;--card:#fffaf2;--line:#e8dccb;--peach:#f6cfae;--sage:#cfe0cc;--rose:#f1d3d0;--accent:#b4683a}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
-a{color:var(--accent)}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic New",sans-serif;font-size:16px;line-height:1.95;-webkit-font-smoothing:antialiased;letter-spacing:.02em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.serif{font-family:"Shippori Mincho",serif}
+/* bg glow */
+.glow{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+.glow i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75}
+.glow i:nth-child(1){width:520px;height:520px;background:var(--peach);top:-120px;right:-80px}
+.glow i:nth-child(2){width:420px;height:420px;background:var(--sage);top:260px;left:-140px}
+.glow i:nth-child(3){width:300px;height:300px;background:var(--rose);top:420px;right:22%}
 /* nav */
-nav.top{position:sticky;top:0;z-index:10;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
-.brand{font-weight:800;letter-spacing:.02em;text-decoration:none;color:var(--ink);white-space:nowrap}
-.navlinks{display:flex;gap:18px;font-size:14px;overflow-x:auto}
-.navlinks a{color:var(--sub);text-decoration:none;white-space:nowrap}
+nav.top .wrap{display:flex;justify-content:space-between;align-items:center;height:76px}
+.logo{font-family:"Shippori Mincho";font-weight:700;font-size:20px;text-decoration:none;letter-spacing:.12em}
+.navlinks{display:flex;gap:28px;font-size:14px}
+.navlinks a{text-decoration:none;color:var(--sub)}
 .navlinks a:hover{color:var(--ink)}
 /* hero */
-.hero{padding:72px 0 56px}
-.tag{display:inline-flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0;list-style:none}
-.tag li{font-size:13px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:2px 12px}
-.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.25;margin:0 0 18px;letter-spacing:-.01em}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--warm) 62%)}
-.hero p.lead{font-size:clamp(16px,2.2vw,19px);color:var(--sub);max-width:680px;margin:0 0 28px}
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid var(--ink)}
-.btn.primary{background:var(--ink);color:#fff}
-.btn.ghost{color:var(--ink);background:transparent}
-.btn:hover{opacity:.85}
+.hero{position:relative;padding:72px 0 96px}
+.eyebrow{font-size:13px;letter-spacing:.24em;color:var(--accent);margin:0 0 22px}
+.hero h1{font-family:"Shippori Mincho";font-weight:500;font-size:clamp(38px,6.4vw,76px);line-height:1.38;margin:0 0 32px;letter-spacing:.04em}
+.hero p.lead{max-width:560px;color:var(--sub);font-size:17px;margin:0 0 40px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{text-decoration:none;padding:14px 30px;border-radius:999px;font-weight:700;font-size:15px}
+.btn.dark{background:var(--ink);color:var(--cream)}
+.btn.line{border:1px solid var(--ink)}
+.btn:hover{opacity:.82}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px}
+.facts span{background:rgba(255,250,242,.7);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:14px;backdrop-filter:blur(6px)}
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:44px 0 0;padding:0;list-style:none}
-.stats li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.stats b{display:block;font-size:30px;line-height:1.2;color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:30px 20px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{font-family:"Shippori Mincho";font-weight:500;font-size:44px;line-height:1.1;display:block}
 .stats span{font-size:13.5px;color:var(--sub)}
-.src{font-size:12.5px;color:var(--sub);margin-top:10px}
+.src{font-size:12.5px;color:var(--sub);margin:12px 0 0}
 /* sections */
-section{padding:56px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(24px,3.6vw,34px);margin:0 0 8px;line-height:1.35}
-.kicker{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--accent);margin:0 0 6px}
-.intro{color:var(--sub);margin:0 0 28px;max-width:720px}
-.grid{display:grid;gap:16px}
-.g3{grid-template-columns:repeat(3,1fr)}
-.g2{grid-template-columns:repeat(2,1fr)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.card h3{margin:0 0 8px;font-size:18px;line-height:1.5}
-.card p{margin:0 0 10px;color:var(--sub);font-size:15px}
-.card ul{margin:0;padding-left:1.2em;font-size:15px;color:var(--sub)}
-.icon{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;margin-bottom:12px}
-.label{display:inline-block;font-size:12px;font-weight:700;background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:1px 8px;margin-bottom:8px}
-.label.gray{background:#eef0f2;color:var(--sub)}
-.work .more{font-weight:700;text-decoration:none}
-.work .more::after{content:" →"}
+section{padding:110px 0 0}
+.sh{display:grid;grid-template-columns:240px 1fr;gap:32px;margin-bottom:48px}
+.sh .no{font-size:13px;letter-spacing:.24em;color:var(--accent);padding-top:14px}
+.sh h2{font-family:"Shippori Mincho";font-weight:500;font-size:clamp(28px,4vw,44px);line-height:1.45;margin:0}
+.sh p{color:var(--sub);margin:10px 0 0;max-width:560px}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc article{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px 28px}
+.svc .mark{width:52px;height:52px;border-radius:50%;margin-bottom:22px}
+.svc article:nth-child(1) .mark{background:radial-gradient(circle at 30% 30%,#fff,var(--peach))}
+.svc article:nth-child(2) .mark{background:radial-gradient(circle at 30% 30%,#fff,var(--rose))}
+.svc article:nth-child(3) .mark{background:radial-gradient(circle at 30% 30%,#fff,var(--sage))}
+.svc h3{font-family:"Shippori Mincho";font-weight:700;font-size:21px;margin:0 0 10px;line-height:1.5}
+.svc p{color:var(--sub);font-size:15px;margin:0 0 16px}
+.svc ul{list-style:none;margin:0;padding:0;font-size:14.5px}
+.svc li{padding:8px 0;border-top:1px solid var(--line)}
+/* works */
+.works{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.work{text-decoration:none;display:block}
+.work .ph{border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 20px 40px -24px rgba(80,50,20,.35);transition:transform .3s}
+.work:hover .ph{transform:translateY(-4px)}
+.work img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block}
+.work .meta{padding:18px 4px 0}
+.work small{font-size:12.5px;color:var(--accent);letter-spacing:.06em}
+.work h3{font-family:"Shippori Mincho";font-weight:700;font-size:21px;margin:4px 0 4px}
+.work p{margin:0;color:var(--sub);font-size:15px}
+.list{margin-top:44px;border-top:1px solid var(--line)}
+.list a{display:grid;grid-template-columns:140px 1fr auto;gap:20px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+.list a:hover{background:rgba(255,250,242,.7)}
+.list small{font-size:12.5px;color:var(--accent);letter-spacing:.06em}
+.list h3{font-family:"Shippori Mincho";font-weight:700;font-size:18px;margin:0}
+.list p{margin:2px 0 0;color:var(--sub);font-size:14px}
+.list .arr{font-size:20px;color:var(--sub)}
+.honest{color:var(--sub);font-size:13.5px;margin-top:18px}
 /* voices */
-blockquote{margin:0;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--warm);border-radius:12px;padding:18px 20px}
-blockquote p{margin:0 0 8px}
-blockquote cite{font-style:normal;font-size:13px;color:var(--sub)}
-/* steps */
-ol.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
-ol.steps li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;counter-increment:s}
-ol.steps li::before{content:"0" counter(s);display:block;font-weight:800;font-size:22px;color:var(--accent);margin-bottom:4px}
-ol.steps b{display:block}
-ol.steps span{font-size:14.5px;color:var(--sub)}
-.promise{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}
-.promise li{font-size:14px;background:var(--accent-soft);color:var(--accent);font-weight:700;border-radius:999px;padding:4px 14px}
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.voice{background:linear-gradient(160deg,var(--card),#fbefe3);border-radius:24px;padding:32px 28px;border:1px solid var(--line)}
+.voice p{font-family:"Shippori Mincho";font-size:18px;line-height:1.9;margin:0 0 18px}
+.voice small{color:var(--sub);font-size:13px}
+/* price */
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.price div{border-top:2px solid var(--ink);padding:22px 4px 0}
+.price h3{font-size:15px;margin:0;color:var(--sub);font-weight:500}
+.price .yen{font-family:"Shippori Mincho";font-size:38px;line-height:1.3;display:block;margin:6px 0 10px}
+.price .yen small{font-size:15px}
+.price p{margin:0;color:var(--sub);font-size:14.5px}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:f}
+.flow div{counter-increment:f}
+.flow div::before{content:counter(f,decimal-leading-zero);font-family:"Shippori Mincho";font-size:30px;color:var(--accent);display:block;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:12px}
+.flow h3{font-size:17px;margin:0 0 4px}
+.flow p{margin:0;color:var(--sub);font-size:14.5px}
+.rules{margin-top:36px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 28px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14.5px}
+.rules span::before{content:"— ";color:var(--accent)}
 /* profile */
-table.info{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-table.info th,table.info td{padding:12px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:15px}
-table.info tr:last-child th,table.info tr:last-child td{border-bottom:0}
-table.info th{width:28%;background:#f4f6f7;white-space:nowrap}
+.profile{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+.quote{font-family:"Shippori Mincho";font-size:22px;line-height:2;margin:0}
+.quote+p{color:var(--sub);font-size:15px}
+dl{margin:0;border-top:1px solid var(--line)}
+dl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+dt{color:var(--sub)}
+dd{margin:0}
 /* contact */
-.contact{background:var(--ink);color:#fff;border-radius:20px;padding:36px 28px;margin:0 0 24px}
-.contact h2{color:#fff}
-.contact p{color:#cfd6dc}
-.contact .btn{border-color:#fff}
-.contact .btn.primary{background:#fff;color:var(--ink)}
-.contact .btn.ghost{color:#fff}
-footer{padding:24px 0 40px;color:var(--sub);font-size:13px}
-@media (max-width:860px){
-  .g3,ol.steps{grid-template-columns:1fr 1fr}
+.contact{position:relative;margin:120px 0 0;border-radius:36px;overflow:hidden;padding:88px 32px;text-align:center;background:linear-gradient(135deg,#f6d9c0,#f4e6d4 45%,#d9e7d4)}
+.contact h2{font-family:"Shippori Mincho";font-weight:500;font-size:clamp(30px,5vw,52px);line-height:1.5;margin:0 0 16px}
+.contact p{color:#5d544b;margin:0 auto 34px;max-width:520px}
+.contact .btns{justify-content:center}
+footer{padding:40px 0 48px;color:var(--sub);font-size:13px;text-align:center}
+@media (max-width:900px){
+  .svc,.voices,.price{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr}
-}
-@media (max-width:560px){
-  .g3,.g2,ol.steps{grid-template-columns:1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .flow{grid-template-columns:1fr 1fr}
+  .sh{grid-template-columns:1fr;gap:4px}
+  .sh .no{padding-top:0}
+  .profile{grid-template-columns:1fr;gap:24px}
   .navlinks{display:none}
-  .hero{padding:48px 0 40px}
-  table.info th{width:34%}
+}
+@media (max-width:600px){
+  .svc,.voices,.price,.works,.flow{grid-template-columns:1fr}
+  .wrap{padding:0 18px}
+  section{padding-top:80px}
+  .hero{padding:40px 0 64px}
+  .stats b{font-size:34px}
+  .stats div{padding:22px 14px}
+  .list a{grid-template-columns:1fr auto;gap:6px 12px}
+  .list a small{grid-column:1/-1}
+  dl div{grid-template-columns:84px 1fr}
+  .contact{padding:64px 22px;border-radius:28px}
+  .glow i:nth-child(1){width:320px;height:320px}
 }
 </style>
 </head>
 <body>
+<div class="glow" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <nav class="top"><div class="wrap">
-  <a class="brand" href="#">天野真</a>
-  <div class="navlinks">
-    <a href="#services">できること</a>
-    <a href="#works">制作実績</a>
-    <a href="#voices">評価</a>
-    <a href="#flow">進め方</a>
-    <a href="#profile">プロフィール</a>
-    <a href="#contact">ご依頼</a>
-  </div>
+  <a class="logo" href="#">天野 真</a>
+  <div class="navlinks"><a href="#services">できること</a><a href="#works">制作物</a><a href="#price">料金</a><a href="#profile">プロフィール</a><a href="#contact">ご相談</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <ul class="tag"><li>男性・19歳</li><li>看護学生</li><li>ライター</li><li>Web制作</li></ul>
-  <h1>医療・健康の記事と、<br>お店のホームページを<em>ていねいに</em>。</h1>
-  <p class="lead">令和健康科学大学 看護学部2年の天野真です。看護で学んでいる知識を活かした記事作成と、個人店向けのホームページ制作・修正を、オンライン完結でお受けしています。</p>
-  <div class="btns">
-    <a class="btn primary" href="#contact">相談する</a>
-    <a class="btn ghost" href="#works">制作実績を見る</a>
-  </div>
-
-  <ul class="stats">
-    <li><b>24件</b><span>受注実績</span></li>
-    <li><b>★5.0</b><span>評価16件すべて★5.0</span></li>
-    <li><b>確認済み</b><span>本人確認・NDA締結</span></li>
-    <li><b>24h以内</b><span>メッセージ返信の目安</span></li>
-  </ul>
-  <p class="src">※数値はクラウドワークスのプロフィール表示（2026年11月26日時点）です。</p>
+  <p class="eyebrow">NURSING STUDENT ／ WRITER ／ WEB</p>
+  <h1>やさしい言葉で、<br>正しく伝える。</h1>
+  <p class="lead">令和健康科学大学 看護学部2年の天野真です。看護で学んでいる知識を活かした記事作成と、個人のお店のホームページ制作・修正を、オンラインで請け負っています。</p>
+  <div class="btns"><a class="btn dark" href="#contact">相談する</a><a class="btn line" href="#works">制作物を見る</a></div>
+  <div class="facts"><span>男性・19歳</span><span>看護学生</span><span>福岡県</span><span>オンライン完結</span></div>
 </div></header>
+
+<div class="wrap">
+  <div class="stats">
+    <div><b>24</b><span>受注実績（件）</span></div>
+    <div><b>5.0</b><span>評価16件すべて★5</span></div>
+    <div><b>済</b><span>本人確認・NDA締結</span></div>
+    <div><b>24h</b><span>以内に返信</span></div>
+  </div>
+  <p class="src">※クラウドワークスのプロフィール表示より（2026年11月26日時点）</p>
+</div>
 
 <main>
 <section id="services"><div class="wrap">
-  <p class="kicker">SERVICES</p>
-  <h2>できること</h2>
-  <p class="intro">「書く」と「作る」の両方を、ひとりで対応できます。</p>
-  <div class="grid g3">
-    <div class="card">
-      <div class="icon">文</div>
-      <h3>記事作成・リライト</h3>
-      <p>医療・健康を中心に、暮らし・お金・美容などのWeb記事を書きます。</p>
-      <ul><li>1,500〜5,000文字の記事</li><li>リライト・校正・校閲</li><li>公的機関の一次情報で裏取り</li></ul>
-    </div>
-    <div class="card">
-      <div class="icon">台</div>
-      <h3>SNS投稿文・台本</h3>
-      <p>ショート動画の台本や、Instagramなどの投稿文を作ります。</p>
-      <ul><li>ショート動画台本</li><li>投稿キャプション</li><li>テスト案件の実績あり</li></ul>
-    </div>
-    <div class="card">
-      <div class="icon">&lt;/&gt;</div>
-      <h3>ホームページ制作・修正</h3>
-      <p>飲食店・美容室・治療院など、個人店のサイトをHTML/CSSで作ります。</p>
-      <ul><li>LP・1ページサイト制作</li><li>スマホ表示の修正</li><li>Googleマップ・電話ボタン設置</li></ul>
-    </div>
+  <div class="sh"><div class="no">01 ─ SERVICES</div><div><h2>書くことと、作ること。</h2><p>記事もホームページも、ひとりで最後まで対応します。</p></div></div>
+  <div class="svc">
+    <article><div class="mark"></div><h3>記事作成・リライト</h3><p>医療・健康を中心に、暮らし・お金・美容まで。</p>
+      <ul><li>1,500〜5,000文字の記事</li><li>リライト・校正・校閲</li><li>公的機関の一次情報で裏取り</li></ul></article>
+    <article><div class="mark"></div><h3>SNS投稿文・台本</h3><p>ショート動画の台本や、投稿キャプションを。</p>
+      <ul><li>ショート動画台本</li><li>Instagramなどの投稿文</li><li>テスト案件の検収実績あり</li></ul></article>
+    <article><div class="mark"></div><h3>ホームページ制作・修正</h3><p>飲食店・美容室・治療院など、個人のお店向け。</p>
+      <ul><li>LP・1ページサイト制作</li><li>スマホ表示の修正</li><li>地図・電話ボタンの設置</li></ul></article>
   </div>
 </div></section>
 
 <section id="works"><div class="wrap">
-  <p class="kicker">WORKS</p>
-  <h2>制作実績・サンプル</h2>
-  <p class="intro">実際に見ていただけるものだけを載せています。「サンプル」と書いたものは、受注した案件ではなく、制作力を見ていただくために作ったものです。</p>
-
-  <h3 style="margin:0 0 12px">Webサイト</h3>
-  <div class="grid g3 work">
-    <div class="card">
-      <span class="label">制作提案サンプル</span>
-      <h3>天ぷら店のホームページ</h3>
-      <p>福岡県の天ぷら店を想定した提案用サイト。メニュー・地図・スマホ対応。</p>
-      <a class="more" href="https://agedashi-sakura-k7q2.netlify.app/">サイトを見る</a>
-    </div>
-    <div class="card">
-      <span class="label">制作サンプル（架空の店舗）</span>
-      <h3>美容室のLP</h3>
-      <p>集客を意識した構成のランディングページ。HTML/CSSでコーディング。</p>
-      <a class="more" href="lp-salon/">サイトを見る</a>
-    </div>
-    <div class="card">
-      <span class="label">制作サンプル（架空の店舗）</span>
-      <h3>整骨院のLP</h3>
-      <p>信頼感のある和モダンのデザイン。料金表・アクセス・予約導線つき。</p>
-      <a class="more" href="lp-seitai/">サイトを見る</a>
-    </div>
+  <div class="sh"><div class="no">02 ─ WORKS</div><div><h2>これまでに作ったもの</h2><p>実際に開いて見ていただけるものだけを載せています。</p></div></div>
+  <div class="works">
+    <a class="work" href="https://agedashi-sakura-k7q2.netlify.app/"><div class="ph"><img src="images/works/tempura.jpg" alt="天ぷら店のホームページ（制作提案サンプル）" loading="lazy"></div>
+      <div class="meta"><small>制作提案サンプル</small><h3>天ぷら店のホームページ</h3><p>縦書きの見出しで、和の落ち着きを出した提案用サイト。</p></div></a>
+    <a class="work" href="kakemochin/"><div class="ph"><img src="images/works/kakemochin.jpg" alt="かけもちん（シフト・収入管理アプリのWeb版）" loading="lazy"></div>
+      <div class="meta"><small>自主制作アプリ</small><h3>かけもちん（Web版）</h3><p>掛け持ちバイトのシフトと収入を管理。ブラウザでそのまま動きます。</p></div></a>
+    <a class="work" href="lp-salon/"><div class="ph"><img src="images/works/salon.jpg" alt="美容室のLP（架空の店舗のサンプル）" loading="lazy"></div>
+      <div class="meta"><small>制作サンプル・架空の店舗</small><h3>美容室のランディングページ</h3><p>大きな見出しで、予約まで迷わせない構成。</p></div></a>
+    <a class="work" href="lp-seitai/"><div class="ph"><img src="images/works/seitai.jpg" alt="整骨院のLP（架空の店舗のサンプル）" loading="lazy"></div>
+      <div class="meta"><small>制作サンプル・架空の店舗</small><h3>整骨院のランディングページ</h3><p>料金・流れ・アクセス・予約までを1ページに。</p></div></a>
   </div>
-
-  <h3 style="margin:28px 0 12px">記事</h3>
-  <div class="grid g2 work">
-    <div class="card">
-      <span class="label">記事サンプル</span>
-      <h3>医療・健康の執筆サンプル</h3>
-      <p>健康診断の数値の見方、脱水症状の初期サインと予防など。公的機関の情報をもとに、一般読者向けに書いています。</p>
-      <a class="more" href="writer/">記事サンプル集を見る</a>
-    </div>
-    <div class="card">
-      <span class="label">個人メディア</span>
-      <h3>note（制度・税金・副業実務）</h3>
-      <p>学生納付特例、年収の壁、源泉徴収など、正確さが必要なテーマの解説記事を公開しています。</p>
-      <a class="more" href="https://note.com/nifty_bear4421">noteを見る</a>
-    </div>
+  <div class="list">
+    <a href="writer/"><small>記事サンプル</small><div><h3>医療・健康の執筆サンプル</h3><p>健康診断の数値の見方、脱水症状のサインと予防など</p></div><span class="arr">→</span></a>
+    <a href="https://note.com/nifty_bear4421"><small>note</small><div><h3>制度・税金・副業の解説記事</h3><p>学生納付特例、年収の壁、源泉徴収など</p></div><span class="arr">→</span></a>
+    <a href="https://coconala.com/services/4499820"><small>ココナラ出品中</small><div><h3>和食・個人飲食店のホームページを作ります</h3><p>スマホ対応・Googleマップ・電話ボタン込み</p></div><span class="arr">→</span></a>
+    <a href="https://coconala.com/services/4521149"><small>ココナラ出品中</small><div><h3>飲食店HPのスマホ表示を直します</h3><p>無料の簡易診断つき</p></div><span class="arr">→</span></a>
   </div>
-
-  <h3 style="margin:28px 0 12px">ココナラで出品中のサービス</h3>
-  <div class="grid g2 work">
-    <div class="card">
-      <span class="label gray">ココナラ</span>
-      <h3>和食・個人飲食店のホームページを作ります</h3>
-      <p>スマホ対応・Googleマップ・電話ボタン込み。</p>
-      <a class="more" href="https://coconala.com/services/4499820">サービスを見る</a>
-    </div>
-    <div class="card">
-      <span class="label gray">ココナラ</span>
-      <h3>飲食店HPのスマホ表示を直します</h3>
-      <p>無料診断つき。直すべき点を分かりやすくお伝えします。</p>
-      <a class="more" href="https://coconala.com/services/4521149">サービスを見る</a>
-    </div>
-  </div>
+  <p class="honest">※「サンプル」は受注した仕事ではなく、制作力を見ていただくために作ったものです。</p>
 </div></section>
 
 <section id="voices"><div class="wrap">
-  <p class="kicker">VOICES</p>
-  <h2>クライアントからの評価</h2>
-  <p class="intro">クラウドワークスでいただいた評価16件は、すべて総合★5.0です。コメントの一部を原文のまま紹介します。</p>
-  <div class="grid g3">
-    <blockquote><p>「レスポンスも早く、納品までスムーズに進めていただき大変助かりました。」</p><cite>★5.0｜美容家電の紹介記事（2026年11月）</cite></blockquote>
-    <blockquote><p>「とてもスムーズに、かつ丁寧にご対応いただき、とても気持ちよく進めることができました。」</p><cite>★5.0｜SNSショート動画の台本作成（2026年11月）</cite></blockquote>
-    <blockquote><p>「素早く対応してくださりありがとうございます！」</p><cite>★5.0｜旅行・ホテル紹介記事</cite></blockquote>
+  <div class="sh"><div class="no">03 ─ VOICES</div><div><h2>いただいた言葉</h2><p>クラウドワークスの評価16件は、すべて総合★5.0。コメントを原文のまま紹介します。</p></div></div>
+  <div class="voices">
+    <div class="voice"><p>「レスポンスも早く、納品までスムーズに進めていただき大変助かりました。」</p><small>★5.0｜美容家電の紹介記事（2026年11月）</small></div>
+    <div class="voice"><p>「とてもスムーズに、かつ丁寧にご対応いただき、とても気持ちよく進めることができました。」</p><small>★5.0｜SNSショート動画の台本作成（2026年11月）</small></div>
+    <div class="voice"><p>「素早く対応してくださりありがとうございます！」</p><small>★5.0｜旅行・ホテル紹介記事</small></div>
   </div>
   <p class="src">評価の全文は<a href="https://crowdworks.jp/public/employees/7210757">クラウドワークスのプロフィール</a>でご確認いただけます。</p>
 </div></section>
 
+<section id="price"><div class="wrap">
+  <div class="sh"><div class="no">04 ─ PRICE</div><div><h2>料金のめやす</h2><p>ココナラの出品と同じ金額です。内容に合わせてお見積りします。</p></div></div>
+  <div class="price">
+    <div><h3>記事作成</h3><span class="yen">1円〜<small>／文字</small></span><p>医療・健康ジャンルは1.5円〜。テスト案件も歓迎です。</p></div>
+    <div><h3>ホームページ制作</h3><span class="yen">30,000円〜</span><p>5ページまで・スマホ対応・地図・電話ボタン込み。先着3件のモニター価格は3ページ19,800円（レビューが条件）。</p></div>
+    <div><h3>ホームページ修正</h3><span class="yen">5,000円〜</span><p>無料の簡易診断つき。優先度の高い3か所をまとめて直すプランは15,000円。</p></div>
+  </div>
+</div></section>
+
 <section id="flow"><div class="wrap">
-  <p class="kicker">FLOW</p>
-  <h2>進め方</h2>
-  <p class="intro">すべてオンラインで進めます。やり取りはメッセージが基本で、面談（Zoom／Google Meet）が必要な場合はご相談ください。</p>
-  <ol class="steps">
-    <li><b>ご相談</b><span>クラウドワークスかココナラのメッセージで内容をお知らせください。</span></li>
-    <li><b>お見積り</b><span>内容・納期・金額をテキストでご提案します。</span></li>
-    <li><b>仮払い後に着手</b><span>仮払い（エスクロー）を確認してから作業を始めます。</span></li>
-    <li><b>納品・修正</b><span>納品後のご要望にも対応します。</span></li>
-  </ol>
-  <ul class="promise">
-    <li>オンライン完結・対面なし</li>
-    <li>メッセージ中心・面談は事前調整</li>
-    <li>仮払い確認後に着手</li>
-    <li>AIは下書き補助。事実確認と仕上げは人の目で</li>
-  </ul>
+  <div class="sh"><div class="no">05 ─ FLOW</div><div><h2>ご依頼の流れ</h2></div></div>
+  <div class="flow">
+    <div><h3>ご相談</h3><p>クラウドワークスかココナラのメッセージで、内容をお知らせください。</p></div>
+    <div><h3>お見積り</h3><p>内容・納期・金額をテキストでご提案します。</p></div>
+    <div><h3>仮払い後に着手</h3><p>仮払いを確認してから作業を始めます。</p></div>
+    <div><h3>納品・修正</h3><p>納品後のご要望にも対応します。</p></div>
+  </div>
+  <div class="rules"><span>オンライン完結</span><span>連絡はメッセージ中心</span><span>面談はご相談ください</span><span>AIは下書きの補助、事実確認と仕上げは人の目で</span></div>
 </div></section>
 
 <section id="profile"><div class="wrap">
-  <p class="kicker">PROFILE</p>
-  <h2>プロフィール</h2>
-  <p class="intro">専門家ではありませんが、いま専門用語を学んでいる立場だからこそ、初めて読む人がつまずく所が分かります。医学的な診断や治療方針の判断が必要な内容はお受けしていません。</p>
-  <table class="info">
-    <tr><th>名前</th><td>天野真（あまの まこと）</td></tr>
-    <tr><th>属性</th><td>男性・19歳・看護学生</td></tr>
-    <tr><th>所属</th><td>令和健康科学大学 看護学部 看護学科 2年（在学中）</td></tr>
-    <tr><th>活動開始</th><td>2026年10月（クラウドワークス）</td></tr>
-    <tr><th>スキル</th><td>Webライティング／リライト／校正・校閲／SNS台本／HTML・CSS・JavaScript</td></tr>
-    <tr><th>稼働</th><td>週10〜20時間。平日は学業のため、作業は主に夜と週末です。</td></tr>
-    <tr><th>連絡</th><td>クラウドワークス・ココナラのメッセージ。原則24時間以内に返信します。オンライン面談（Zoom／Google Meet）はご相談ください。</td></tr>
-  </table>
-</div></section>
-
-<section id="contact" style="border-top:0"><div class="wrap">
-  <div class="contact">
-    <p class="kicker" style="color:var(--warm)">CONTACT</p>
-    <h2>ご依頼・ご相談</h2>
-    <p>お問い合わせは、クラウドワークスまたはココナラのメッセージからお願いします。テスト案件も歓迎です。</p>
-    <div class="btns">
-      <a class="btn primary" href="https://crowdworks.jp/public/employees/7210757">クラウドワークスで相談</a>
-      <a class="btn ghost" href="https://coconala.com/services/4499820">ココナラで相談</a>
-    </div>
+  <div class="sh"><div class="no">06 ─ PROFILE</div><div><h2>天野 真 <span style="font-size:.5em;color:var(--sub)">あまの まこと</span></h2></div></div>
+  <div class="profile">
+    <div><p class="quote">専門家ではありません。<br>でも、いま学んでいる最中だから、<br>初めて読む人がつまずく所が分かります。</p>
+      <p>診断や治療方針など、医学的な判断が必要な内容はお受けしていません。</p></div>
+    <dl>
+      <div><dt>属性</dt><dd>男性・19歳・看護学生</dd></div>
+      <div><dt>所属</dt><dd>令和健康科学大学 看護学部 看護学科 2年</dd></div>
+      <div><dt>活動開始</dt><dd>2026年10月（クラウドワークス）</dd></div>
+      <div><dt>スキル</dt><dd>Webライティング／リライト／校正・校閲／SNS台本／HTML・CSS・JavaScript</dd></div>
+      <div><dt>稼働</dt><dd>週10〜20時間。平日は学業のため、主に夜と週末。</dd></div>
+      <div><dt>連絡</dt><dd>原則24時間以内に返信。オンライン面談（Zoom／Google Meet）はご相談ください。</dd></div>
+    </dl>
   </div>
 </div></section>
+
+<div class="wrap">
+  <div class="contact" id="contact">
+    <h2>まずは、ひとことから。</h2>
+    <p>お問い合わせは、クラウドワークスかココナラのメッセージからお願いします。テスト案件も歓迎です。</p>
+    <div class="btns"><a class="btn dark" href="https://crowdworks.jp/public/employees/7210757">クラウドワークスで相談</a><a class="btn line" href="https://coconala.com/services/4499820">ココナラで相談</a></div>
+  </div>
+</div>
 </main>
 
-<footer><div class="wrap">© 天野真｜看護学生ライター＆Web制作</div></footer>
+<footer>© 天野真｜看護学生ライター＆Web制作</footer>
 </body>
 </html>
