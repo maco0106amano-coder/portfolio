@@ -1,0 +1,9 @@
+{
+  "name": "KakeMochin",
+  "short_name": "KakeMochin",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f2f2f7",
+  "theme_color": "#54a69e",
+  "icons": [{ "src": "icon.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }]
+}
